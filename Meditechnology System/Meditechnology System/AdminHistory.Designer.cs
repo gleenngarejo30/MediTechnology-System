@@ -1,6 +1,6 @@
 ﻿namespace Meditechnology_System
 {
-    partial class AdminHistory
+    partial class AdministratorHistory
     {
         /// <summary>
         /// Required designer variable.
@@ -191,7 +191,7 @@
             this.label3.TabIndex = 29;
             this.label3.Text = "To";
             // 
-            // AdminHistory
+            // AdministratorHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -213,8 +213,7 @@
             this.Controls.Add(this.Date);
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "AdminHistory";
-            this.Text = "AdminHistory";
+            this.Text = "Administrator";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

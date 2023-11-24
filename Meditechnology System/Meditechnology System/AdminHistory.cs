@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Meditechnology_System
 {
-    public partial class AdminHistory : Form
+    public partial class AdministratorHistory : Form
     {
-        public AdminHistory()
+        public AdministratorHistory()
         {
             InitializeComponent();
         }

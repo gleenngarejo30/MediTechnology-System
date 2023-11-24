@@ -1,0 +1,26 @@
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.csproj.AssemblyReference.cache
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.AddPatient.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.AdminAccounts.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.Adminstrator.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.AdminViewEmployee.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.DoctorScreen.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.Form1.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryAdd.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryEdit.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryRemove.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryScreen.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryUpdate.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.Patients.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.PharmacyOpen.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.PharmacyScreen.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.Prescription.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.Properties.Resources.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.ViewPrescription.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.csproj.GenerateResource.cache
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.csproj.CoreCompileInputs.cache
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.AdministratorHistory.resources
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\bin\Debug\Meditechnology System.exe.config
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\bin\Debug\Meditechnology System.exe
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\bin\Debug\Meditechnology System.pdb
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.exe
+C:\Users\gilbert garejo\source\repos\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.pdb

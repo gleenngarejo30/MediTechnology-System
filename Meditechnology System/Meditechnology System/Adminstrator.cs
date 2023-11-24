@@ -33,7 +33,7 @@ namespace Meditechnology_System
 
         private void HistoryBtn_Click(object sender, EventArgs e)
         {
-            AdminHistory adminHistory = new AdminHistory();
+            AdministratorHistory adminHistory = new AdministratorHistory();
             adminHistory.Show();
             this.Close();
         }
