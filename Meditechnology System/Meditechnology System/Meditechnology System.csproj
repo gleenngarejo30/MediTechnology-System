@@ -124,6 +124,7 @@
     <Compile Include="Prescription.Designer.cs">
       <DependentUpon>Prescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="prescriptionDetails.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewPrescription.cs">

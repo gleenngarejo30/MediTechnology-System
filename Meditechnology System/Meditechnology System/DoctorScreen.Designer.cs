@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
 			this.LogoutBtn = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
+			this.prescriptionBTN = new System.Windows.Forms.Button();
 			this.Searchbtn = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label16 = new System.Windows.Forms.Label();
@@ -40,6 +40,8 @@
 			this.NametxtBox = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.reference = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -47,7 +49,7 @@
 			// 
 			// LogoutBtn
 			// 
-			this.LogoutBtn.Location = new System.Drawing.Point(977, 565);
+			this.LogoutBtn.Location = new System.Drawing.Point(425, 565);
 			this.LogoutBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.LogoutBtn.Name = "LogoutBtn";
 			this.LogoutBtn.Size = new System.Drawing.Size(112, 35);
@@ -56,19 +58,19 @@
 			this.LogoutBtn.UseVisualStyleBackColor = true;
 			this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
 			// 
-			// button1
+			// prescriptionBTN
 			// 
-			this.button1.Location = new System.Drawing.Point(878, 278);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(165, 29);
-			this.button1.TabIndex = 5;
-			this.button1.Text = "new prescription";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.prescriptionBTN.Location = new System.Drawing.Point(347, 273);
+			this.prescriptionBTN.Name = "prescriptionBTN";
+			this.prescriptionBTN.Size = new System.Drawing.Size(163, 35);
+			this.prescriptionBTN.TabIndex = 5;
+			this.prescriptionBTN.Text = "new prescription";
+			this.prescriptionBTN.UseVisualStyleBackColor = true;
+			this.prescriptionBTN.Click += new System.EventHandler(this.prescriptionBTN_Click);
 			// 
 			// Searchbtn
 			// 
-			this.Searchbtn.Location = new System.Drawing.Point(977, 163);
+			this.Searchbtn.Location = new System.Drawing.Point(425, 182);
 			this.Searchbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Searchbtn.Name = "Searchbtn";
 			this.Searchbtn.Size = new System.Drawing.Size(112, 35);
@@ -81,11 +83,11 @@
 			this.panel2.BackColor = System.Drawing.SystemColors.Control;
 			this.panel2.Controls.Add(this.label16);
 			this.panel2.Controls.Add(this.dataGridView1);
-			this.panel2.Controls.Add(this.button1);
-			this.panel2.Location = new System.Drawing.Point(11, 227);
+			this.panel2.Controls.Add(this.prescriptionBTN);
+			this.panel2.Location = new System.Drawing.Point(25, 227);
 			this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(1078, 328);
+			this.panel2.Size = new System.Drawing.Size(569, 328);
 			this.panel2.TabIndex = 18;
 			// 
 			// label16
@@ -100,12 +102,16 @@
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name,
+            this.reference});
 			this.dataGridView1.Location = new System.Drawing.Point(27, 34);
 			this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.RowHeadersWidth = 62;
-			this.dataGridView1.Size = new System.Drawing.Size(1016, 231);
+			this.dataGridView1.Size = new System.Drawing.Size(497, 231);
 			this.dataGridView1.TabIndex = 0;
 			// 
 			// panel1
@@ -116,15 +122,15 @@
 			this.panel1.Controls.Add(this.NametxtBox);
 			this.panel1.Controls.Add(this.label2);
 			this.panel1.Controls.Add(this.label1);
-			this.panel1.Location = new System.Drawing.Point(13, 24);
+			this.panel1.Location = new System.Drawing.Point(85, 24);
 			this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1078, 113);
+			this.panel1.Size = new System.Drawing.Size(450, 137);
 			this.panel1.TabIndex = 17;
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(489, 54);
+			this.textBox1.Location = new System.Drawing.Point(150, 91);
 			this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(223, 26);
@@ -133,7 +139,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(397, 58);
+			this.label3.Location = new System.Drawing.Point(58, 95);
 			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(84, 20);
@@ -168,11 +174,23 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Search";
 			// 
+			// name
+			// 
+			this.name.HeaderText = "Patient";
+			this.name.MinimumWidth = 8;
+			this.name.Name = "name";
+			// 
+			// reference
+			// 
+			this.reference.HeaderText = "Reference";
+			this.reference.MinimumWidth = 8;
+			this.reference.Name = "reference";
+			// 
 			// DoctorScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1119, 614);
+			this.ClientSize = new System.Drawing.Size(621, 614);
 			this.Controls.Add(this.Searchbtn);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
@@ -191,7 +209,7 @@
 
         #endregion
         private System.Windows.Forms.Button LogoutBtn;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button prescriptionBTN;
 		private System.Windows.Forms.Button Searchbtn;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label label16;
@@ -202,5 +220,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.DataGridViewTextBoxColumn name;
+		private System.Windows.Forms.DataGridViewTextBoxColumn reference;
 	}
 }

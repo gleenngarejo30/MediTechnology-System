@@ -42,7 +42,7 @@
 			this.QuantityLBL = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.quantityTB = new System.Windows.Forms.TextBox();
-			this.button1 = new System.Windows.Forms.Button();
+			this.reserveBTN = new System.Windows.Forms.Button();
 			this.medCB = new System.Windows.Forms.ComboBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.patientNameLBL = new System.Windows.Forms.Label();
@@ -198,14 +198,15 @@
 			this.quantityTB.Size = new System.Drawing.Size(150, 26);
 			this.quantityTB.TabIndex = 18;
 			// 
-			// button1
+			// reserveBTN
 			// 
-			this.button1.Location = new System.Drawing.Point(850, 592);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(112, 35);
-			this.button1.TabIndex = 19;
-			this.button1.Text = "Reserve";
-			this.button1.UseVisualStyleBackColor = true;
+			this.reserveBTN.Location = new System.Drawing.Point(850, 592);
+			this.reserveBTN.Name = "reserveBTN";
+			this.reserveBTN.Size = new System.Drawing.Size(112, 35);
+			this.reserveBTN.TabIndex = 19;
+			this.reserveBTN.Text = "Reserve";
+			this.reserveBTN.UseVisualStyleBackColor = true;
+			this.reserveBTN.Click += new System.EventHandler(this.reserveBTN_Click);
 			// 
 			// medCB
 			// 
@@ -302,7 +303,7 @@
 			this.Controls.Add(this.patientNameLBL);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.medCB);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.reserveBTN);
 			this.Controls.Add(this.quantityTB);
 			this.Controls.Add(this.QuantityLBL);
 			this.Controls.Add(this.label8);
@@ -321,6 +322,7 @@
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Prescription";
 			this.Text = "Prescription";
+			this.Load += new System.EventHandler(this.Prescription_Load);
 			((System.ComponentModel.ISupportInitialize)(this.prescriptionList)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -342,7 +344,7 @@
         private System.Windows.Forms.Label QuantityLBL;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox quantityTB;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button reserveBTN;
 		private System.Windows.Forms.ComboBox medCB;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label patientNameLBL;

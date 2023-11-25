@@ -14,14 +14,36 @@ namespace Meditechnology_System
     {
         static Boolean isAvailable = false;
         static int quan;
-
+		public static int numMeds;
 		public Prescription()
-        {
-            InitializeComponent();
-        }
+		{
+			InitializeComponent();
+		}
+		private void Prescription_Load(object sender, EventArgs e)
+		{
+			patientNameLBL.Text = prescriptionDetails.getPatientName();
+		}
+		private void reserveBTN_Click(object sender, EventArgs e)
+		{
+			prescriptionDetails.setReserved(true);
+			var prescription = new ViewPrescription();
+
+			DataTable prescriptionList = GetDataGridViewData();
+
+			prescription.SetDataGridViewData(prescriptionList);
+			this.Hide();
+			prescription.Show();
+
+
+		}
 		private void prescribeBtn_Click(object sender, EventArgs e)
 		{
+			prescriptionDetails.setReserved(false);
 			ViewPrescription viewPrescription = new ViewPrescription();
+
+			DataTable prescriptionList = GetDataGridViewData();
+			viewPrescription.SetDataGridViewData(prescriptionList);
+
 			viewPrescription.Show();
 			this.Hide();
 		}
@@ -47,13 +69,43 @@ namespace Meditechnology_System
 
 			prescriptionList.Rows.Add(row);
         }
+		public DataTable GetDataGridViewData()
+		{
+			// Assuming your DataGridView is named dataGridView1
+			DataTable dt = new DataTable();
+
+			// Assuming there are columns in your DataGridView
+			foreach (DataGridViewColumn col in prescriptionList.Columns)
+			{
+				dt.Columns.Add(col.HeaderText);
+			}
+
+			// Add data rows
+			foreach (DataGridViewRow row in prescriptionList.Rows)
+			{
+				DataRow dRow = dt.NewRow();
+				foreach (DataGridViewCell cell in row.Cells)
+				{
+					dRow[cell.ColumnIndex] = cell.Value;
+				}
+				dt.Rows.Add(dRow);
+			}
+
+			return dt;
+		}
+		public void SetDataGridViewData2(DataTable data)
+		{
+			// Assuming your DataGridView in Form2 is named dataGridView2
+			prescriptionList.DataSource = data;
+		}
+
+
 		private void removeBTN_Click(object sender, EventArgs e){
 			foreach (DataGridViewRow item in this.prescriptionList.SelectedRows)
 			{
 				prescriptionList.Rows.RemoveAt(item.Index);
 			}
 		}
-
-
+		
 	}
 }

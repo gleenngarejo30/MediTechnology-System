@@ -23,20 +23,15 @@ namespace Meditechnology_System
             addPatient.Show();
             this.Hide();
         }
-
-        private void ViewBtn_Click(object sender, EventArgs e)
-        {
-        }
-
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1(); 
             form1.Show();
             this.Hide();
         }
-
-		private void button1_Click(object sender, EventArgs e)
+		private void prescriptionBTN_Click(object sender, EventArgs e)
 		{
+            prescriptionDetails.setPatientName(NametxtBox.Text);
             var prescription = new Prescription();
             prescription.Show();
             this.Hide();
