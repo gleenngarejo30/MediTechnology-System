@@ -17,37 +17,48 @@ namespace Meditechnology_System
             InitializeComponent();
         }
 
-        private void LoginBtn_Click(object sender, EventArgs e)
-        {
-            //if Admin
-            if (UsernameTxtBox.Text.Equals("admin")) {
-                var admin = new Adminstrator();
-                this.Hide();
-                admin.Show();
-            }
+		private void LoginBtn_Click(object sender, EventArgs e)
+		{
+			//if Admin
+			if (UsernameTxtBox.Text.Equals("admin"))
+			{
+				var admin = new Adminstrator();
+				this.Hide();
+				admin.Show();
+			}
 			//if Doctor
-			if (UsernameTxtBox.Text.Equals("doctor"))
+			else if (UsernameTxtBox.Text.Equals("doctor"))
 			{
 				var doctor = new DoctorScreen();
 				this.Hide();
 				doctor.Show();
 			}
 			//if Inventory Manager
-			if (UsernameTxtBox.Text.Equals("inventory"))
+			else if (UsernameTxtBox.Text.Equals("inventory"))
 			{
 				var inventory = new InventoryScreen();
 				this.Hide();
 				inventory.Show();
 			}
 			//if Pharmacy
-            if (UsernameTxtBox.Text.Equals("pharmacy")) {
-			var pharmacy = new PharmacyScreen();
-			this.Hide();
+			else if (UsernameTxtBox.Text.Equals("pharmacy"))
+			{
+				var pharmacy = new PharmacyScreen();
+				this.Hide();
 				pharmacy.Show();
+			}
+			else if (UsernameTxtBox.Text.Equals("nurse"))
+			{
+				var nurse = new NurseScreen();
+				this.Hide();
+				nurse.Show();
+			}
+			else {
+				MessageBox.Show("Employee not Register");
+			}
 		}
-	}
 
-        private void UsernameTxtBox_TextChanged(object sender, EventArgs e)
+			private void UsernameTxtBox_TextChanged(object sender, EventArgs e)
         {
             //if Admin  form: Adminstator
             //if Doctor  form: DoctorScreen

@@ -58,6 +58,12 @@
     <Compile Include="AdminAccounts.Designer.cs">
       <DependentUpon>AdminAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminAddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAddEmployee.Designer.cs">
+      <DependentUpon>AdminAddEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,12 @@
     </Compile>
     <Compile Include="InventoryAdd.Designer.cs">
       <DependentUpon>InventoryAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryAddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryAddItem.Designer.cs">
+      <DependentUpon>InventoryAddItem.cs</DependentUpon>
     </Compile>
     <Compile Include="InventoryEdit.cs">
       <SubType>Form</SubType>
@@ -145,6 +157,9 @@
     <EmbeddedResource Include="AdminAccounts.resx">
       <DependentUpon>AdminAccounts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminAddEmployee.resx">
+      <DependentUpon>AdminAddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminHistory.resx">
       <DependentUpon>AdminHistory.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryAdd.resx">
       <DependentUpon>InventoryAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryAddItem.resx">
+      <DependentUpon>InventoryAddItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryEdit.resx">
       <DependentUpon>InventoryEdit.cs</DependentUpon>

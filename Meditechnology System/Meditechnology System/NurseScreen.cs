@@ -16,5 +16,12 @@ namespace Meditechnology_System
 		{
 			InitializeComponent();
 		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			Form1 form1 = new Form1();
+			form1.Show();
+			this.Hide();
+		}
 	}
 }

@@ -23,5 +23,27 @@ namespace Meditechnology_System
 			this.Hide();
 			login.Show();
 		}
+
+		private void Addbtn_Click(object sender, EventArgs e)
+		{
+			InventoryAddItem inventoryAddItem = new InventoryAddItem();
+			inventoryAddItem.Show();
+			this.Hide();
+		}
+
+		private void Removebtn_Click(object sender, EventArgs e)
+		{
+			var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
+									 "Confirm Delete!!",
+									 MessageBoxButtons.YesNo);
+			if (confirmResult == DialogResult.Yes)
+			{
+				// If 'Yes', do something here.
+			}
+			else
+			{
+				// If 'No', do something here.
+			}
+		}
 	}
 }

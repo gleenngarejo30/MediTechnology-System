@@ -68,6 +68,7 @@
 			this.Addbtn.TabIndex = 2;
 			this.Addbtn.Text = "Add";
 			this.Addbtn.UseVisualStyleBackColor = true;
+			this.Addbtn.Click += new System.EventHandler(this.Addbtn_Click);
 			// 
 			// Removebtn
 			// 
@@ -78,6 +79,7 @@
 			this.Removebtn.TabIndex = 3;
 			this.Removebtn.Text = "Remove";
 			this.Removebtn.UseVisualStyleBackColor = true;
+			this.Removebtn.Click += new System.EventHandler(this.Removebtn_Click);
 			// 
 			// Searchbtn
 			// 

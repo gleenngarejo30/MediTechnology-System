@@ -23,5 +23,27 @@ namespace Meditechnology_System
             adminstrator.Show();
             this.Close();
         }
-    }
+
+		private void Remove_Click(object sender, EventArgs e)
+		{
+			var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
+									 "Confirm Delete!!",
+									 MessageBoxButtons.YesNo);
+			if (confirmResult == DialogResult.Yes)
+			{
+				// If 'Yes', do something here.
+			}
+			else
+			{
+				// If 'No', do something here.
+			}
+		}
+
+		private void AddBtn_Click(object sender, EventArgs e)
+		{
+			AdminAddEmployee adminAddEmployee = new AdminAddEmployee();
+			adminAddEmployee.Show();
+			this.Hide();
+		}
+	}
 }
