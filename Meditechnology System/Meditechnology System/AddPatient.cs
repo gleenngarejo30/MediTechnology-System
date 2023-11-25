@@ -26,6 +26,7 @@ namespace Meditechnology_System
 
         private void ContinueBtn_Click(object sender, EventArgs e)
         {
+            //
             Prescription prescription = new Prescription();
             prescription.Show();
             this.Hide();
