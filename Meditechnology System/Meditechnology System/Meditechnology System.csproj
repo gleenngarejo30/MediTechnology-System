@@ -112,6 +112,12 @@
     <Compile Include="InventoryUpdate.Designer.cs">
       <DependentUpon>InventoryUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="NurseScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NurseScreen.Designer.cs">
+      <DependentUpon>NurseScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="PharmacyScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryUpdate.resx">
       <DependentUpon>InventoryUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NurseScreen.resx">
+      <DependentUpon>NurseScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PharmacyScreen.resx">
       <DependentUpon>PharmacyScreen.cs</DependentUpon>
