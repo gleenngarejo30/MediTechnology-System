@@ -21,21 +21,25 @@ namespace Meditechnology_System
         {
             AddPatient addPatient = new AddPatient();
             addPatient.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void ViewBtn_Click(object sender, EventArgs e)
         {
-            Patients patients = new Patients();
-            patients.Show();
-            this.Close();
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1(); 
             form1.Show();
-            this.Close();
+            this.Hide();
         }
-    }
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+            var prescription = new Prescription();
+            prescription.Show();
+            this.Hide();
+		}
+	}
 }

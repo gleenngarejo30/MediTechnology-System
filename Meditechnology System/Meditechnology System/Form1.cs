@@ -20,10 +20,32 @@ namespace Meditechnology_System
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             //if Admin
-            //if Doctor
-            //if Inventory Manager
-            //if Pharmacy
-        }
+            if (UsernameTxtBox.Text.Equals("admin")) {
+                var admin = new Adminstrator();
+                this.Hide();
+                admin.Show();
+            }
+			//if Doctor
+			if (UsernameTxtBox.Text.Equals("doctor"))
+			{
+				var doctor = new DoctorScreen();
+				this.Hide();
+				doctor.Show();
+			}
+			//if Inventory Manager
+			if (UsernameTxtBox.Text.Equals("inventory"))
+			{
+				var inventory = new InventoryScreen();
+				this.Hide();
+				inventory.Show();
+			}
+			//if Pharmacy
+            if (UsernameTxtBox.Text.Equals("pharmacy")) {
+			var pharmacy = new PharmacyScreen();
+			this.Hide();
+				pharmacy.Show();
+		}
+	}
 
         private void UsernameTxtBox_TextChanged(object sender, EventArgs e)
         {
@@ -32,5 +54,10 @@ namespace Meditechnology_System
             //if Inventory Manager  form: InventoryScreen
             //if Pharmacy  form: PharmacyScreen
         }
-    }
+
+		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Application.Exit();
+		}
+	}
 }

@@ -44,11 +44,11 @@ namespace Meditechnology_System
             this.Close();
         }
 
-        private void SendBtn_Click(object sender, EventArgs e)
-        {
-            DoctorScreen doctorScreen = new DoctorScreen();
-            doctorScreen.Show();
-            this.Close();
-        }
-    }
+		private void backBtn_Click(object sender, EventArgs e)
+		{
+			Prescription pres = new Prescription();
+			pres.Show();
+			this.Close();
+		}
+	}
 }

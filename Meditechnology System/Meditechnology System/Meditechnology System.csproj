@@ -70,12 +70,6 @@
     <Compile Include="Adminstrator.Designer.cs">
       <DependentUpon>Adminstrator.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminViewEmployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminViewEmployee.Designer.cs">
-      <DependentUpon>AdminViewEmployee.cs</DependentUpon>
-    </Compile>
     <Compile Include="DoctorScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,18 +112,6 @@
     <Compile Include="InventoryUpdate.Designer.cs">
       <DependentUpon>InventoryUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Patients.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Patients.Designer.cs">
-      <DependentUpon>Patients.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PharmacyOpen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PharmacyOpen.Designer.cs">
-      <DependentUpon>PharmacyOpen.cs</DependentUpon>
-    </Compile>
     <Compile Include="PharmacyScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,9 +144,6 @@
     <EmbeddedResource Include="Adminstrator.resx">
       <DependentUpon>Adminstrator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminViewEmployee.resx">
-      <DependentUpon>AdminViewEmployee.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DoctorScreen.resx">
       <DependentUpon>DoctorScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,12 +164,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryUpdate.resx">
       <DependentUpon>InventoryUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Patients.resx">
-      <DependentUpon>Patients.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PharmacyOpen.resx">
-      <DependentUpon>PharmacyOpen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PharmacyScreen.resx">
       <DependentUpon>PharmacyScreen.cs</DependentUpon>

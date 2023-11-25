@@ -26,8 +26,8 @@ namespace Meditechnology_System
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
-            AddPatient addPatient = new AddPatient();
-            addPatient.Show();
+            DoctorScreen doc = new DoctorScreen();
+            doc.Show();
             this.Hide();
         }
     }

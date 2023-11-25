@@ -16,5 +16,12 @@ namespace Meditechnology_System
         {
             InitializeComponent();
         }
-    }
+
+		private void logoutBTN_Click(object sender, EventArgs e)
+		{
+            var login = new Form1();
+			this.Hide();
+			login.Show();
+		}
+	}
 }

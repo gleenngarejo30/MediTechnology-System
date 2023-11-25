@@ -21,28 +21,21 @@ namespace Meditechnology_System
         {
             AdminAccounts adminAccounts = new AdminAccounts();
             adminAccounts.Show();
-            this.Close();
-        }
-
-        private void ViewEmploteeBtn_Click(object sender, EventArgs e)
-        {
-            AdminViewEmployee ViewEmployees = new AdminViewEmployee();
-            ViewEmployees.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void HistoryBtn_Click(object sender, EventArgs e)
         {
             AdministratorHistory adminHistory = new AdministratorHistory();
             adminHistory.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void Logoutbtn_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
             form1.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }
