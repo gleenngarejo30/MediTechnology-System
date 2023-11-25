@@ -141,6 +141,7 @@
 			this.Controls.Add(this.label1);
 			this.Name = "InventoryAddItem";
 			this.Text = "InventoryAddItem";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InventoryAddItem_FormClosed);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

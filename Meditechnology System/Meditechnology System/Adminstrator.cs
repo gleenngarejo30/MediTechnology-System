@@ -37,5 +37,11 @@ namespace Meditechnology_System
             form1.Show();
             this.Hide();
         }
-    }
+
+		private void Adminstrator_FormClosed(object sender, FormClosedEventArgs e)
+		{
+            var login = new Form1();
+            login.Show();
+		}
+	}
 }

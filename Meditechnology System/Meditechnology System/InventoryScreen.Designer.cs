@@ -124,6 +124,7 @@
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "InventoryScreen";
 			this.Text = "InventoryScreen";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InventoryScreen_FormClosed);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

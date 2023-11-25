@@ -42,7 +42,7 @@
 			this.UsernameTxtBox.Name = "UsernameTxtBox";
 			this.UsernameTxtBox.Size = new System.Drawing.Size(312, 26);
 			this.UsernameTxtBox.TabIndex = 0;
-			this.UsernameTxtBox.TextChanged += new System.EventHandler(this.UsernameTxtBox_TextChanged);
+			this.UsernameTxtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UsernameTxtBox_KeyDown);
 			// 
 			// PasswordTxtBox
 			// 
@@ -51,6 +51,7 @@
 			this.PasswordTxtBox.Name = "PasswordTxtBox";
 			this.PasswordTxtBox.Size = new System.Drawing.Size(312, 26);
 			this.PasswordTxtBox.TabIndex = 1;
+			this.PasswordTxtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTxtBox_KeyDown);
 			// 
 			// label1
 			// 

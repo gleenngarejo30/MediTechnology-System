@@ -18,11 +18,18 @@ namespace Meditechnology_System
             InitializeComponent();
         }
 
-		private void Backbtn_Click(object sender, EventArgs e)
-		{
-            var admin = new Adminstrator();
-            admin.Show();
-            this.Hide();
+		private void Backbtn_Click(object sender, EventArgs e){
+			showAdmin();
+			this.Hide();
 		}
+		private void AdministratorHistory_FormClosed(object sender, FormClosedEventArgs e){
+			showAdmin();
+		}
+		public static void showAdmin() {
+			var admin = new Adminstrator();
+			admin.Show();
+		}
+
+
 	}
 }

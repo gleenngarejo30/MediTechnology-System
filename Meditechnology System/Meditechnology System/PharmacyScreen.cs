@@ -17,12 +17,18 @@ namespace Meditechnology_System
         {
             InitializeComponent();
         }
-
 		private void LogoutBtn_Click(object sender, EventArgs e)
 		{
-            var login = new Form1();
-            login.Show();
-            this.Hide();
+			showLogin();
+			this.Hide();
+		}
+		private void PharmacyScreen_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			showLogin();
+		}
+        public static void showLogin() {
+			var login = new Form1();
+			login.Show();
 		}
 	}
 }

@@ -103,6 +103,7 @@
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Adminstrator";
 			this.Text = "Adminstrator";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Adminstrator_FormClosed);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

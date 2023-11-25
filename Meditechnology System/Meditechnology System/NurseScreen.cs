@@ -19,9 +19,16 @@ namespace Meditechnology_System
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-			Form1 form1 = new Form1();
-			form1.Show();
+			showLogin();
 			this.Hide();
+		}
+		private void NurseScreen_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			showLogin();
+		}
+		public static void showLogin() {
+			var form1 = new Form1();
+			form1.Show();
 		}
 	}
 }

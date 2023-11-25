@@ -57,15 +57,20 @@ namespace Meditechnology_System
 				MessageBox.Show("Employee not Register");
 			}
 		}
-
-			private void UsernameTxtBox_TextChanged(object sender, EventArgs e)
-        {
-            //if Admin  form: Adminstator
-            //if Doctor  form: DoctorScreen
-            //if Inventory Manager  form: InventoryScreen
-            //if Pharmacy  form: PharmacyScreen
-        }
-
+		private void UsernameTxtBox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyData == Keys.Enter)
+			{
+				PasswordTxtBox.Focus();
+			}
+		}
+		private void PasswordTxtBox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyData == Keys.Enter) {
+				LoginBtn_Click(sender, e);
+			}
+		}
+		//EXIT
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			Application.Exit();

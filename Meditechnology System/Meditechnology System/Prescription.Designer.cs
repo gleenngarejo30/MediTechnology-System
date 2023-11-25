@@ -322,6 +322,7 @@
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "Prescription";
 			this.Text = "Prescription";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Prescription_FormClosed);
 			this.Load += new System.EventHandler(this.Prescription_Load);
 			((System.ComponentModel.ISupportInitialize)(this.prescriptionList)).EndInit();
 			this.ResumeLayout(false);

@@ -34,14 +34,14 @@
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label16 = new System.Windows.Forms.Label();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.reference = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.NametxtBox = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.reference = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -114,6 +114,18 @@
 			this.dataGridView1.Size = new System.Drawing.Size(497, 231);
 			this.dataGridView1.TabIndex = 0;
 			// 
+			// name
+			// 
+			this.name.HeaderText = "Patient";
+			this.name.MinimumWidth = 8;
+			this.name.Name = "name";
+			// 
+			// reference
+			// 
+			this.reference.HeaderText = "Reference";
+			this.reference.MinimumWidth = 8;
+			this.reference.Name = "reference";
+			// 
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.SystemColors.Control;
@@ -174,18 +186,6 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Search";
 			// 
-			// name
-			// 
-			this.name.HeaderText = "Patient";
-			this.name.MinimumWidth = 8;
-			this.name.Name = "name";
-			// 
-			// reference
-			// 
-			this.reference.HeaderText = "Reference";
-			this.reference.MinimumWidth = 8;
-			this.reference.Name = "reference";
-			// 
 			// DoctorScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -198,6 +198,7 @@
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "DoctorScreen";
 			this.Text = "DoctorScreen";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DoctorScreen_FormClosed);
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

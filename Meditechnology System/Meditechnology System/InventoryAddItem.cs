@@ -17,19 +17,26 @@ namespace Meditechnology_System
 			InitializeComponent();
 		}
 
-		private void BackBtn_Click(object sender, EventArgs e)
-		{
-			InventoryScreen screen = new InventoryScreen();
-			screen.Show();
-			this.Hide();
-		}
+
 
 		private void RegisterBtn_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("Register Medicine!");
-			InventoryScreen screen = new InventoryScreen();
-			screen.Show();
+			MessageBox.Show("Medicine Registered!");
+			showInventory();
 			this.Hide();
+		}
+		private void BackBtn_Click(object sender, EventArgs e)
+		{
+			showInventory();
+			this.Hide();
+		}
+		private void InventoryAddItem_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			showInventory();
+		}
+		public static void showInventory() {
+			var screen = new InventoryScreen();
+			screen.Show();
 		}
 	}
 }

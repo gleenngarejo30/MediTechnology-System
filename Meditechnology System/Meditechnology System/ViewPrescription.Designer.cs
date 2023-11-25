@@ -92,7 +92,6 @@
 			this.presLBL.TabIndex = 7;
 			this.presLBL.Text = "PRESCIPTION";
 			this.presLBL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.presLBL.Click += new System.EventHandler(this.presLBL_Click);
 			// 
 			// ReferenceLBL
 			// 
@@ -300,6 +299,7 @@
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "ViewPrescription";
 			this.Text = "ViewPrescription";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ViewPrescription_FormClosed);
 			this.Load += new System.EventHandler(this.ViewPrescription_Load);
 			((System.ComponentModel.ISupportInitialize)(this.prescriptionList)).EndInit();
 			this.ResumeLayout(false);

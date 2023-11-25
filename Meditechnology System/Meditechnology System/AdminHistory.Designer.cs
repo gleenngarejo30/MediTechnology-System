@@ -32,7 +32,6 @@
 			this.Backbtn = new System.Windows.Forms.Button();
 			this.Date = new System.Windows.Forms.Label();
 			this.ViewBtn = new System.Windows.Forms.Button();
-			this.Name = new System.Windows.Forms.Label();
 			this.NameTxtBox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.TimeTxtBox = new System.Windows.Forms.TextBox();
@@ -40,6 +39,7 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.label2 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -83,16 +83,6 @@
 			this.ViewBtn.TabIndex = 22;
 			this.ViewBtn.Text = "View";
 			this.ViewBtn.UseVisualStyleBackColor = true;
-			// 
-			// Name
-			// 
-			this.Name.AutoSize = true;
-			this.Name.Location = new System.Drawing.Point(51, 128);
-			this.Name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.Name.Name = "Name";
-			this.Name.Size = new System.Drawing.Size(55, 20);
-			this.Name.TabIndex = 23;
-			this.Name.Text = "Name:";
 			// 
 			// NameTxtBox
 			// 
@@ -155,11 +145,21 @@
 			this.dateTimePicker1.Size = new System.Drawing.Size(339, 26);
 			this.dateTimePicker1.TabIndex = 30;
 			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(55, 128);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(55, 20);
+			this.label2.TabIndex = 31;
+			this.label2.Text = "Name:";
+			// 
 			// AdministratorHistory
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1020, 671);
+			this.Controls.Add(this.label2);
 			this.Controls.Add(this.dateTimePicker1);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.textBox1);
@@ -167,13 +167,14 @@
 			this.Controls.Add(this.TimeTxtBox);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.NameTxtBox);
-			this.Controls.Add(this.Name);
 			this.Controls.Add(this.ViewBtn);
 			this.Controls.Add(this.Date);
 			this.Controls.Add(this.Backbtn);
 			this.Controls.Add(this.dataGridView1);
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.Name = "AdministratorHistory";
 			this.Text = "Administrator";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorHistory_FormClosed);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -186,7 +187,6 @@
         private System.Windows.Forms.Button Backbtn;
         private System.Windows.Forms.Label Date;
         private System.Windows.Forms.Button ViewBtn;
-        private System.Windows.Forms.Label Name;
         private System.Windows.Forms.TextBox NameTxtBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TimeTxtBox;
@@ -194,5 +194,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.Label label2;
 	}
 }

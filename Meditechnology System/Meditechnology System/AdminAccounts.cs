@@ -10,20 +10,12 @@ using System.Windows.Forms;
 
 namespace Meditechnology_System
 {
-    public partial class AdminAccounts : Form
-    {
-        public AdminAccounts()
-        {
-            InitializeComponent();
-        }
-
-        private void Backbtn_Click(object sender, EventArgs e)
-        {
-            Adminstrator adminstrator = new Adminstrator();
-            adminstrator.Show();
-            this.Close();
-        }
-
+	public partial class AdminAccounts : Form
+	{
+		public AdminAccounts()
+		{
+			InitializeComponent();
+		}
 		private void Remove_Click(object sender, EventArgs e)
 		{
 			var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
@@ -41,9 +33,21 @@ namespace Meditechnology_System
 
 		private void AddBtn_Click(object sender, EventArgs e)
 		{
-			AdminAddEmployee adminAddEmployee = new AdminAddEmployee();
-			adminAddEmployee.Show();
+			showAdmin();
 			this.Hide();
+		}
+		private void Backbtn_Click(object sender, EventArgs e)
+		{
+			showAdmin();
+			this.Hide();
+		}
+		private void AdminAccounts_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			showAdmin();
+		}
+		public static void showAdmin(){
+			var adminstrator = new Adminstrator();
+			adminstrator.Show();
 		}
 	}
 }

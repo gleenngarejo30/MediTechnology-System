@@ -22,16 +22,17 @@ namespace Meditechnology_System
 			MessageBox.Show("Employee Register!");
 		}
 
-		private void label1_Click(object sender, EventArgs e)
-		{
-
-		}
-
 		private void BackBtn_Click(object sender, EventArgs e)
 		{
-			AdminAccounts adminAccounts = new AdminAccounts();
+			var adminAccounts = new AdminAccounts();
 			adminAccounts.Show();
 			this.Hide();
+		}
+
+		private void AdminAddEmployee_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			var adminAccounts = new AdminAccounts();
+			adminAccounts.Show();
 		}
 	}
 }

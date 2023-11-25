@@ -26,25 +26,16 @@ namespace Meditechnology_System
 		private void reserveBTN_Click(object sender, EventArgs e)
 		{
 			prescriptionDetails.setReserved(true);
-			var prescription = new ViewPrescription();
+			showViewPrescription();
 			this.Hide();
-			prescription.Show();
-
-
 		}
 		private void prescribeBtn_Click(object sender, EventArgs e)
 		{
 			prescriptionDetails.setReserved(false);
-			ViewPrescription viewPrescription = new ViewPrescription();
-			viewPrescription.Show();
+			showViewPrescription();
 			this.Hide();
 		}
-        private void BackBtn_Click(object sender, EventArgs e)
-        {
-            DoctorScreen doc = new DoctorScreen();
-            doc.Show();
-            this.Hide();
-        }
+
         private void AddBtn_Click(object sender, EventArgs e)
         {
             quan = Convert.ToInt32(QuantityLBL.Text);
@@ -61,14 +52,28 @@ namespace Meditechnology_System
 
 			prescriptionList.Rows.Add(row);
         }
-		
-
 		private void removeBTN_Click(object sender, EventArgs e){
 			foreach (DataGridViewRow item in this.prescriptionList.SelectedRows)
 			{
 				prescriptionList.Rows.RemoveAt(item.Index);
 			}
 		}
-		
+		private void BackBtn_Click(object sender, EventArgs e)
+		{
+			showDoctor();
+			this.Hide();
+		}
+		private void Prescription_FormClosed(object sender, FormClosedEventArgs e){
+			showDoctor();
+		}
+		public static void showDoctor() {
+			var doc = new DoctorScreen();
+			doc.Show();
+		}
+		public static void showViewPrescription()
+		{
+			var prescription = new ViewPrescription();
+			prescription.Show();
+		}
 	}
 }
