@@ -141,6 +141,7 @@
             this.Backbtn.TabIndex = 11;
             this.Backbtn.Text = "Back";
             this.Backbtn.UseVisualStyleBackColor = true;
+            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
             // 
             // label3
             // 
@@ -171,7 +172,9 @@
             this.Controls.Add(this.IssueDate);
             this.Controls.Add(this.NameMedicine);
             this.Name = "InventoryAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "InventoryAdd";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InventoryAdd_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

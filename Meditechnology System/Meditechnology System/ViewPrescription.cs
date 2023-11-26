@@ -12,43 +12,38 @@ namespace Meditechnology_System
 {
     public partial class ViewPrescription : Form
     {
+        private Prescription FromPrescriptionInstance;
         public ViewPrescription()
         {
             InitializeComponent();
         }
 
-        private void ViewPrescription_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1N_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SendSaveBtn_Click(object sender, EventArgs e)
-        {
-            DoctorScreen doctorScreen = new DoctorScreen();
-            doctorScreen.Show();
-            this.Close();
-        }
-
-        private void SendBtn_Click(object sender, EventArgs e)
-        {
-            DoctorScreen doctorScreen = new DoctorScreen();
-            doctorScreen.Show();
-            this.Close();
-        }
-    }
+		private void ViewPrescription_Load(object sender, EventArgs e)
+		{
+			presLBL.Text = prescriptionDetails.getReserved();
+			prescriptionList.Refresh();
+		}
+		private void backBtn_Click(object sender, EventArgs e)
+		{
+			showPrescription();
+			this.Hide();
+		}
+		private void SendSaveBtn_Click(object sender, EventArgs e)
+		{
+			DoctorScreen doctorScreen = new DoctorScreen();
+			doctorScreen.Show();
+			this.Hide();
+		}
+		private void ViewPrescription_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			showPrescription();
+		}
+		public void SetFromPresScription(Prescription Pres) {
+            FromPrescriptionInstance = Pres;
+		}
+		public static void showPrescription() {
+			Prescription pres = new Prescription();
+			pres.Show();
+		}
+	}
 }

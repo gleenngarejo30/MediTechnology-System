@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,23 @@ namespace Meditechnology_System
         public AdministratorHistory()
         {
             InitializeComponent();
+        }
+
+		private void Backbtn_Click(object sender, EventArgs e){
+			showAdmin();
+			this.Hide();
+		}
+		private void AdministratorHistory_FormClosed(object sender, FormClosedEventArgs e){
+			showAdmin();
+		}
+		public static void showAdmin() {
+			var admin = new Adminstrator();
+			admin.Show();
+		}
+
+        private void AdministratorHistory_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

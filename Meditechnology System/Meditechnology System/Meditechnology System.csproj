@@ -58,6 +58,12 @@
     <Compile Include="AdminAccounts.Designer.cs">
       <DependentUpon>AdminAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminAddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAddEmployee.Designer.cs">
+      <DependentUpon>AdminAddEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,12 +75,6 @@
     </Compile>
     <Compile Include="Adminstrator.Designer.cs">
       <DependentUpon>Adminstrator.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AdminViewEmployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminViewEmployee.Designer.cs">
-      <DependentUpon>AdminViewEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="DoctorScreen.cs">
       <SubType>Form</SubType>
@@ -93,6 +93,12 @@
     </Compile>
     <Compile Include="InventoryAdd.Designer.cs">
       <DependentUpon>InventoryAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryAddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryAddItem.Designer.cs">
+      <DependentUpon>InventoryAddItem.cs</DependentUpon>
     </Compile>
     <Compile Include="InventoryEdit.cs">
       <SubType>Form</SubType>
@@ -118,17 +124,11 @@
     <Compile Include="InventoryUpdate.Designer.cs">
       <DependentUpon>InventoryUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Patients.cs">
+    <Compile Include="NurseScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Patients.Designer.cs">
-      <DependentUpon>Patients.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PharmacyOpen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PharmacyOpen.Designer.cs">
-      <DependentUpon>PharmacyOpen.cs</DependentUpon>
+    <Compile Include="NurseScreen.Designer.cs">
+      <DependentUpon>NurseScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="PharmacyScreen.cs">
       <SubType>Form</SubType>
@@ -142,6 +142,7 @@
     <Compile Include="Prescription.Designer.cs">
       <DependentUpon>Prescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="prescriptionDetails.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewPrescription.cs">
@@ -156,14 +157,14 @@
     <EmbeddedResource Include="AdminAccounts.resx">
       <DependentUpon>AdminAccounts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminAddEmployee.resx">
+      <DependentUpon>AdminAddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminHistory.resx">
       <DependentUpon>AdminHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Adminstrator.resx">
       <DependentUpon>Adminstrator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminViewEmployee.resx">
-      <DependentUpon>AdminViewEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DoctorScreen.resx">
       <DependentUpon>DoctorScreen.cs</DependentUpon>
@@ -173,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryAdd.resx">
       <DependentUpon>InventoryAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryAddItem.resx">
+      <DependentUpon>InventoryAddItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryEdit.resx">
       <DependentUpon>InventoryEdit.cs</DependentUpon>
@@ -186,11 +190,8 @@
     <EmbeddedResource Include="InventoryUpdate.resx">
       <DependentUpon>InventoryUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Patients.resx">
-      <DependentUpon>Patients.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PharmacyOpen.resx">
-      <DependentUpon>PharmacyOpen.cs</DependentUpon>
+    <EmbeddedResource Include="NurseScreen.resx">
+      <DependentUpon>NurseScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PharmacyScreen.resx">
       <DependentUpon>PharmacyScreen.cs</DependentUpon>
@@ -206,6 +207,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ViewPrescription.resx">
       <DependentUpon>ViewPrescription.cs</DependentUpon>
@@ -222,6 +224,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1e390d2e6a21096b419e3e787618a95f.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MEDITECH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MEDITECH %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

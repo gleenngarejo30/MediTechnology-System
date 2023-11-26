@@ -16,5 +16,21 @@ namespace Meditechnology_System
         {
             InitializeComponent();
         }
-    }
+
+		private void Backbtn_Click(object sender, EventArgs e)
+		{
+			showInventory();
+			this.Hide();
+		}
+
+		private void InventoryAdd_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			showInventory();
+		}
+		public static void showInventory()
+		{
+			var inventory = new InventoryScreen();
+			inventory.Show();
+		}
+	}
 }

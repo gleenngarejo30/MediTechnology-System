@@ -16,26 +16,34 @@ namespace Meditechnology_System
         {
             InitializeComponent();
         }
-
         private void AddPatientBtn_Click(object sender, EventArgs e)
         {
             AddPatient addPatient = new AddPatient();
             addPatient.Show();
-            this.Close();
+            this.Hide();
         }
 
-        private void ViewBtn_Click(object sender, EventArgs e)
-        {
-            Patients patients = new Patients();
-            patients.Show();
-            this.Close();
-        }
+		private void prescriptionBTN_Click(object sender, EventArgs e)
+		{
+            prescriptionDetails.setPatientName(NametxtBox.Text);
+            var prescription = new Prescription();
+            prescription.Show();
+            this.Hide();
+		}
+		private void DoctorScreen_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			showLogin();
+		}
+		private void LogoutBtn_Click(object sender, EventArgs e)
+		{
+			showLogin();
+			this.Hide();
+		}
+		public static void showLogin() {
+			Form1 form1 = new Form1();
+			form1.Show();
+		}
 
-        private void LogoutBtn_Click(object sender, EventArgs e)
-        {
-            Form1 form1 = new Form1(); 
-            form1.Show();
-            this.Close();
-        }
-    }
+
+	}
 }

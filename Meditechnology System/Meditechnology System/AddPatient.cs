@@ -19,15 +19,16 @@ namespace Meditechnology_System
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
-            DoctorScreen doctorScreen = new DoctorScreen();
-            doctorScreen.Show();
-            this.Close();
+            NurseScreen nurseScreen = new NurseScreen();
+            nurseScreen.Show();
+            this.Hide();
         }
 
         private void ContinueBtn_Click(object sender, EventArgs e)
         {
-            Prescription prescription = new Prescription();
-            prescription.Show();
+            MessageBox.Show("Patient Register, Proceed to Doctor!");
+            NurseScreen nurseScreen = new NurseScreen();
+            nurseScreen.Show();
             this.Hide();
         }
     }

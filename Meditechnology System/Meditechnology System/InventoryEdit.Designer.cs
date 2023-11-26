@@ -171,6 +171,7 @@
             this.Controls.Add(this.IssueDate);
             this.Controls.Add(this.NameMedicine);
             this.Name = "InventoryEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "InventoryEdit";
             this.ResumeLayout(false);
             this.PerformLayout();

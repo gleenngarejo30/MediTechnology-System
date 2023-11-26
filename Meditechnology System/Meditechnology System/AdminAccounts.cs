@@ -10,18 +10,43 @@ using System.Windows.Forms;
 
 namespace Meditechnology_System
 {
-    public partial class AdminAccounts : Form
-    {
-        public AdminAccounts()
-        {
-            InitializeComponent();
-        }
+	public partial class AdminAccounts : Form
+	{
+		public AdminAccounts()
+		{
+			InitializeComponent();
+		}
+		private void Remove_Click(object sender, EventArgs e)
+		{
+			var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
+									 "Confirm Delete!!",
+									 MessageBoxButtons.YesNo);
+			if (confirmResult == DialogResult.Yes)
+			{
+				// If 'Yes', do something here.
+			}
+			else
+			{
+				// If 'No', do something here.
+			}
+		}
 
-        private void Backbtn_Click(object sender, EventArgs e)
-        {
-            Adminstrator adminstrator = new Adminstrator();
-            adminstrator.Show();
-            this.Close();
-        }
-    }
+		private void AddBtn_Click(object sender, EventArgs e)
+		{
+			AdminAddEmployee addEmployee = new AdminAddEmployee();
+			addEmployee.Show();
+			this.Close();
+		}
+		private void Backbtn_Click(object sender, EventArgs e)
+		{
+			Adminstrator adminScreen = new Adminstrator();
+            adminScreen.Show();
+			this.Hide();
+		}
+		private void AdminAccounts_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			
+		}
+		
+	}
 }

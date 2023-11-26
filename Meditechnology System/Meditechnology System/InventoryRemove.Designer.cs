@@ -101,6 +101,7 @@
             this.Controls.Add(this.RemoveBtn);
             this.Controls.Add(this.NameMedicine);
             this.Name = "InventoryRemove";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "InventoryRemove";
             ((System.ComponentModel.ISupportInitialize)(this.DGVMedicine)).EndInit();
             this.ResumeLayout(false);

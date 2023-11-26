@@ -193,6 +193,7 @@
             this.Controls.Add(this.SearchTxtBox);
             this.Controls.Add(this.NameMedicine);
             this.Name = "InventoryUpdate";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "InventoryUpdate";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
