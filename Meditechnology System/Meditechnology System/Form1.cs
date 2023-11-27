@@ -12,11 +12,81 @@ namespace Meditechnology_System
 {
     public partial class Form1 : Form
     {
+		public static Boolean isShown = false;
         public Form1()
         {
             InitializeComponent();
         }
+		private void Form1_Load(object sender, EventArgs e)
+		{
+			//Username
+			UsernameTxtBox.ForeColor = SystemColors.GrayText;
+			UsernameTxtBox.Text = "Username";
+				this.UsernameTxtBox.Leave += new System.EventHandler(this.UsernameTxtBox_Enter);
+				this.UsernameTxtBox.Enter += new System.EventHandler(this.UsernameTxtBox_Leave);
+			//Password
+			PasswordTxtBox.ForeColor = SystemColors.GrayText;
+			PasswordTxtBox.Text = "Password";
+				this.PasswordTxtBox.Leave += new System.EventHandler(this.PasswordTxtBox_Enter);
+				this.PasswordTxtBox.Enter += new System.EventHandler(this.PasswordTxtBox_Leave);
+		}
+		//Username
+		private void UsernameTxtBox_Enter(object sender, EventArgs e)
+		{
+			if (UsernameTxtBox.Text.Length == 0)
+			{
+				UsernameTxtBox.Text = "Username";
+				UsernameTxtBox.ForeColor = SystemColors.GrayText;
+			}
+		}
+		private void UsernameTxtBox_Leave(object sender, EventArgs e)
+		{
+			if (UsernameTxtBox.Text == "Username")
+			{
+				UsernameTxtBox.Text = "";
+				UsernameTxtBox.ForeColor = SystemColors.WindowText;
+			}
+		}
+		//Password
+		private void PasswordTxtBox_Enter(object sender, EventArgs e)
+		{
+			if (PasswordTxtBox.Text.Length == 0)
+			{
+				PasswordTxtBox.PasswordChar = '\0';
+				PasswordTxtBox.Text = "Password";
+				PasswordTxtBox.ForeColor = SystemColors.GrayText;
+			}
+		}
 
+		private void PasswordTxtBox_Leave(object sender, EventArgs e)
+		{
+			if (PasswordTxtBox.Text == "Password")
+			{
+				PasswordTxtBox.PasswordChar = '•';
+				PasswordTxtBox.Text = "";
+				PasswordTxtBox.ForeColor = SystemColors.WindowText;
+			}
+		}
+		//show password
+		private void showPassBTN_Click(object sender, EventArgs e){
+			//avoid on setting passChar on hint
+			if (!PasswordTxtBox.Text.Equals("Password")) {
+				//hide
+				if (isShown == true)
+				{
+					PasswordTxtBox.PasswordChar = '•';
+					showPassBTN.BackgroundImage = Properties.Resources.cross_eye_icon;
+					isShown = false;
+				}
+				//show
+				else if (isShown == false)
+				{
+					PasswordTxtBox.PasswordChar = '\0';
+					showPassBTN.BackgroundImage = Properties.Resources.eye_icon;
+					isShown = true;
+				}
+			}
+		}
 		private void LoginBtn_Click(object sender, EventArgs e)
 		{
 			//if Admin
@@ -75,5 +145,7 @@ namespace Meditechnology_System
 		{
 			Application.Exit();
 		}
+
+
 	}
 }

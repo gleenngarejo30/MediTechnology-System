@@ -234,5 +234,11 @@
   <ItemGroup>
     <None Include="Resources\MEDITECH %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross_eye_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
