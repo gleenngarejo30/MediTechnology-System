@@ -57,7 +57,6 @@ namespace Meditechnology_System
 				PasswordTxtBox.ForeColor = SystemColors.GrayText;
 			}
 		}
-
 		private void PasswordTxtBox_Leave(object sender, EventArgs e)
 		{
 			if (PasswordTxtBox.Text == "Password")
@@ -117,12 +116,14 @@ namespace Meditechnology_System
 				this.Hide();
 				pharmacy.Show();
 			}
+			//if nurse
 			else if (UsernameTxtBox.Text.Equals("nurse"))
 			{
 				var nurse = new NurseScreen();
 				this.Hide();
 				nurse.Show();
 			}
+			//if wala
 			else {
 				MessageBox.Show("Employee not Register");
 			}
@@ -145,7 +146,5 @@ namespace Meditechnology_System
 		{
 			Application.Exit();
 		}
-
-
 	}
 }
