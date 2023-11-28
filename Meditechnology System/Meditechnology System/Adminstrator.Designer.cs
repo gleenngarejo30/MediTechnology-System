@@ -63,7 +63,7 @@
             // 
             // Logoutbtn
             // 
-            this.Logoutbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Logoutbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.Logoutbtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.Logoutbtn.ForeColor = System.Drawing.Color.White;
             this.Logoutbtn.Location = new System.Drawing.Point(559, 365);
@@ -76,7 +76,7 @@
             // 
             // AccountBtn
             // 
-            this.AccountBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.AccountBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.AccountBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.AccountBtn.ForeColor = System.Drawing.Color.White;
             this.AccountBtn.Location = new System.Drawing.Point(527, 107);
@@ -89,7 +89,7 @@
             // 
             // HistoryBtn
             // 
-            this.HistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.HistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.HistoryBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.HistoryBtn.ForeColor = System.Drawing.Color.White;
             this.HistoryBtn.Location = new System.Drawing.Point(527, 141);
@@ -114,7 +114,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(-6, -3);

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Backbtn = new System.Windows.Forms.Button();
             this.Date = new System.Windows.Forms.Label();
             this.ViewBtn = new System.Windows.Forms.Button();
             this.NameTxtBox = new System.Windows.Forms.TextBox();
@@ -43,9 +42,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.backIcon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -56,19 +57,6 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(361, 339);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Backbtn
-            // 
-            this.Backbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Backbtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.Backbtn.ForeColor = System.Drawing.Color.White;
-            this.Backbtn.Location = new System.Drawing.Point(581, 429);
-            this.Backbtn.Name = "Backbtn";
-            this.Backbtn.Size = new System.Drawing.Size(75, 23);
-            this.Backbtn.TabIndex = 14;
-            this.Backbtn.Text = "Back";
-            this.Backbtn.UseVisualStyleBackColor = false;
-            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
             // 
             // Date
             // 
@@ -82,7 +70,7 @@
             // 
             // ViewBtn
             // 
-            this.ViewBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ViewBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.ViewBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.ViewBtn.ForeColor = System.Drawing.Color.White;
             this.ViewBtn.Location = new System.Drawing.Point(104, 297);
@@ -120,10 +108,10 @@
             // 
             // SaveBtn
             // 
-            this.SaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.SaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.SaveBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.SaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveBtn.Location = new System.Drawing.Point(500, 429);
+            this.SaveBtn.Location = new System.Drawing.Point(548, 429);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(75, 23);
             this.SaveBtn.TabIndex = 27;
@@ -182,7 +170,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(-5, -1);
@@ -201,11 +189,23 @@
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
+            // backIcon
+            // 
+            this.backIcon.Image = global::Meditechnology_System.Properties.Resources.back_button;
+            this.backIcon.Location = new System.Drawing.Point(629, 429);
+            this.backIcon.Name = "backIcon";
+            this.backIcon.Size = new System.Drawing.Size(27, 23);
+            this.backIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backIcon.TabIndex = 33;
+            this.backIcon.TabStop = false;
+            this.backIcon.Click += new System.EventHandler(this.backIcon_Click);
+            // 
             // AdministratorHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 472);
+            this.Controls.Add(this.backIcon);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
@@ -217,17 +217,16 @@
             this.Controls.Add(this.NameTxtBox);
             this.Controls.Add(this.ViewBtn);
             this.Controls.Add(this.Date);
-            this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.dataGridView1);
             this.Name = "AdministratorHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrator";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorHistory_FormClosed);
-            this.Load += new System.EventHandler(this.AdministratorHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,7 +235,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button Backbtn;
         private System.Windows.Forms.Label Date;
         private System.Windows.Forms.Button ViewBtn;
         private System.Windows.Forms.TextBox NameTxtBox;
@@ -250,5 +248,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox backIcon;
     }
 }

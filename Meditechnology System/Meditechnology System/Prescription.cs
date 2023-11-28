@@ -75,5 +75,11 @@ namespace Meditechnology_System
 			var prescription = new ViewPrescription();
 			prescription.Show();
 		}
-	}
+
+        private void backIcon_Click(object sender, EventArgs e)
+        {
+            showDoctor();
+            this.Hide();
+        }
+    }
 }

@@ -45,16 +45,17 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.SendSaveBtn = new System.Windows.Forms.Button();
-            this.backBtn = new System.Windows.Forms.Button();
             this.prescriptionList = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.backIcon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionList)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // label1N
@@ -219,7 +220,7 @@
             // 
             // SendSaveBtn
             // 
-            this.SendSaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.SendSaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.SendSaveBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.SendSaveBtn.ForeColor = System.Drawing.Color.White;
             this.SendSaveBtn.Location = new System.Drawing.Point(185, 574);
@@ -229,19 +230,6 @@
             this.SendSaveBtn.Text = "Send and Save as PDF";
             this.SendSaveBtn.UseVisualStyleBackColor = false;
             this.SendSaveBtn.Click += new System.EventHandler(this.SendSaveBtn_Click);
-            // 
-            // backBtn
-            // 
-            this.backBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.backBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(205, 603);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(141, 23);
-            this.backBtn.TabIndex = 31;
-            this.backBtn.Text = "Back";
-            this.backBtn.UseVisualStyleBackColor = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // prescriptionList
             // 
@@ -281,7 +269,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(-2, -2);
@@ -312,16 +300,27 @@
             this.label4.TabIndex = 27;
             this.label4.Text = "MEDITECH";
             // 
+            // backIcon
+            // 
+            this.backIcon.Image = global::Meditechnology_System.Properties.Resources.back_button;
+            this.backIcon.Location = new System.Drawing.Point(256, 603);
+            this.backIcon.Name = "backIcon";
+            this.backIcon.Size = new System.Drawing.Size(27, 23);
+            this.backIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backIcon.TabIndex = 38;
+            this.backIcon.TabStop = false;
+            this.backIcon.Click += new System.EventHandler(this.backIcon_Click);
+            // 
             // ViewPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 645);
+            this.Controls.Add(this.backIcon);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.prescriptionList);
-            this.Controls.Add(this.backBtn);
             this.Controls.Add(this.SendSaveBtn);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.SexLBL);
@@ -348,6 +347,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,12 +372,12 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button SendSaveBtn;
-        private System.Windows.Forms.Button backBtn;
 		private System.Windows.Forms.DataGridView prescriptionList;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox backIcon;
     }
 }

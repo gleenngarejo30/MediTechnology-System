@@ -32,7 +32,6 @@
             this.Account = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Backbtn = new System.Windows.Forms.Button();
             this.Searchbtn = new System.Windows.Forms.Button();
             this.NameTxtBox = new System.Windows.Forms.TextBox();
             this.TypeEmployeeCB = new System.Windows.Forms.ComboBox();
@@ -43,9 +42,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmployee)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // DGVEmployee
@@ -87,22 +88,9 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Type of Employee";
             // 
-            // Backbtn
-            // 
-            this.Backbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Backbtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.Backbtn.ForeColor = System.Drawing.Color.White;
-            this.Backbtn.Location = new System.Drawing.Point(640, 467);
-            this.Backbtn.Name = "Backbtn";
-            this.Backbtn.Size = new System.Drawing.Size(75, 23);
-            this.Backbtn.TabIndex = 5;
-            this.Backbtn.Text = "Back";
-            this.Backbtn.UseVisualStyleBackColor = false;
-            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
-            // 
             // Searchbtn
             // 
-            this.Searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.Searchbtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.Searchbtn.ForeColor = System.Drawing.Color.White;
             this.Searchbtn.Location = new System.Drawing.Point(558, 150);
@@ -131,7 +119,7 @@
             // 
             // AddBtn
             // 
-            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.AddBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.AddBtn.ForeColor = System.Drawing.Color.White;
             this.AddBtn.Location = new System.Drawing.Point(640, 194);
@@ -144,7 +132,7 @@
             // 
             // Remove
             // 
-            this.Remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.Remove.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.Remove.ForeColor = System.Drawing.Color.White;
             this.Remove.Location = new System.Drawing.Point(639, 223);
@@ -174,7 +162,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(-2, -2);
@@ -205,12 +193,24 @@
             this.label7.TabIndex = 27;
             this.label7.Text = "MEDITECH";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Meditechnology_System.Properties.Resources.back_button;
+            this.pictureBox2.Location = new System.Drawing.Point(672, 465);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 30;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // AdminAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(774, 518);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.AccountNumberTxtBox);
             this.Controls.Add(this.label3);
@@ -219,7 +219,6 @@
             this.Controls.Add(this.TypeEmployeeCB);
             this.Controls.Add(this.NameTxtBox);
             this.Controls.Add(this.Searchbtn);
-            this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Account);
@@ -227,11 +226,11 @@
             this.Name = "AdminAccounts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAccounts";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminAccounts_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmployee)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,7 +241,6 @@
         private System.Windows.Forms.Label Account;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Backbtn;
         private System.Windows.Forms.Button Searchbtn;
         private System.Windows.Forms.TextBox NameTxtBox;
         private System.Windows.Forms.ComboBox TypeEmployeeCB;
@@ -253,5 +251,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

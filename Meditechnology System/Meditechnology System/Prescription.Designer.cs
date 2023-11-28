@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.prescribeBtn = new System.Windows.Forms.Button();
-            this.BackBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,37 +55,26 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.backIcon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionList)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // prescribeBtn
             // 
-            this.prescribeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.prescribeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.prescribeBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.prescribeBtn.ForeColor = System.Drawing.Color.White;
-            this.prescribeBtn.Location = new System.Drawing.Point(653, 416);
+            this.prescribeBtn.Location = new System.Drawing.Point(576, 416);
             this.prescribeBtn.Name = "prescribeBtn";
             this.prescribeBtn.Size = new System.Drawing.Size(75, 23);
             this.prescribeBtn.TabIndex = 1;
             this.prescribeBtn.Text = "Prescribe";
             this.prescribeBtn.UseVisualStyleBackColor = false;
             this.prescribeBtn.Click += new System.EventHandler(this.prescribeBtn_Click);
-            // 
-            // BackBtn
-            // 
-            this.BackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BackBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.BackBtn.ForeColor = System.Drawing.Color.White;
-            this.BackBtn.Location = new System.Drawing.Point(480, 416);
-            this.BackBtn.Name = "BackBtn";
-            this.BackBtn.Size = new System.Drawing.Size(74, 23);
-            this.BackBtn.TabIndex = 2;
-            this.BackBtn.Text = "Back";
-            this.BackBtn.UseVisualStyleBackColor = false;
-            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
             // label1
             // 
@@ -160,7 +148,7 @@
             // 
             // AddBtn
             // 
-            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.AddBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.AddBtn.ForeColor = System.Drawing.Color.White;
             this.AddBtn.Location = new System.Drawing.Point(128, 372);
@@ -211,10 +199,10 @@
             // 
             // reserveBTN
             // 
-            this.reserveBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.reserveBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.reserveBTN.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.reserveBTN.ForeColor = System.Drawing.Color.White;
-            this.reserveBTN.Location = new System.Drawing.Point(566, 416);
+            this.reserveBTN.Location = new System.Drawing.Point(489, 416);
             this.reserveBTN.Margin = new System.Windows.Forms.Padding(2);
             this.reserveBTN.Name = "reserveBTN";
             this.reserveBTN.Size = new System.Drawing.Size(75, 23);
@@ -298,7 +286,7 @@
             // 
             // removeBTN
             // 
-            this.removeBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.removeBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.removeBTN.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.removeBTN.ForeColor = System.Drawing.Color.White;
             this.removeBTN.Location = new System.Drawing.Point(362, 416);
@@ -321,7 +309,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(-8, -5);
@@ -362,11 +350,23 @@
             this.label9.TabIndex = 34;
             this.label9.Text = "Add to List";
             // 
+            // backIcon
+            // 
+            this.backIcon.Image = global::Meditechnology_System.Properties.Resources.back_button;
+            this.backIcon.Location = new System.Drawing.Point(701, 416);
+            this.backIcon.Name = "backIcon";
+            this.backIcon.Size = new System.Drawing.Size(27, 23);
+            this.backIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backIcon.TabIndex = 38;
+            this.backIcon.TabStop = false;
+            this.backIcon.Click += new System.EventHandler(this.backIcon_Click);
+            // 
             // Prescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 460);
+            this.Controls.Add(this.backIcon);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.removeBTN);
@@ -386,7 +386,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.prescribeBtn);
             this.Controls.Add(this.panel1);
             this.Name = "Prescription";
@@ -399,6 +398,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,7 +406,6 @@
 
         #endregion
         private System.Windows.Forms.Button prescribeBtn;
-        private System.Windows.Forms.Button BackBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -433,5 +432,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox backIcon;
     }
 }

@@ -37,12 +37,13 @@
             this.DateIssueDatePicker = new System.Windows.Forms.DateTimePicker();
             this.DateExpiredDatePicker = new System.Windows.Forms.DateTimePicker();
             this.RegisterBtn = new System.Windows.Forms.Button();
-            this.BackBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.backIcon = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -127,7 +128,7 @@
             // 
             // RegisterBtn
             // 
-            this.RegisterBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.RegisterBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.RegisterBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.RegisterBtn.ForeColor = System.Drawing.Color.White;
             this.RegisterBtn.Location = new System.Drawing.Point(261, 222);
@@ -139,23 +140,9 @@
             this.RegisterBtn.UseVisualStyleBackColor = false;
             this.RegisterBtn.Click += new System.EventHandler(this.RegisterBtn_Click);
             // 
-            // BackBtn
-            // 
-            this.BackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BackBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.BackBtn.ForeColor = System.Drawing.Color.White;
-            this.BackBtn.Location = new System.Drawing.Point(291, 253);
-            this.BackBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.BackBtn.Name = "BackBtn";
-            this.BackBtn.Size = new System.Drawing.Size(83, 27);
-            this.BackBtn.TabIndex = 9;
-            this.BackBtn.Text = "Back";
-            this.BackBtn.UseVisualStyleBackColor = false;
-            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
-            // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(-43, -3);
@@ -186,13 +173,24 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "MEDITECH";
             // 
+            // backIcon
+            // 
+            this.backIcon.Image = global::Meditechnology_System.Properties.Resources.back_button;
+            this.backIcon.Location = new System.Drawing.Point(323, 254);
+            this.backIcon.Name = "backIcon";
+            this.backIcon.Size = new System.Drawing.Size(27, 23);
+            this.backIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backIcon.TabIndex = 37;
+            this.backIcon.TabStop = false;
+            this.backIcon.Click += new System.EventHandler(this.backIcon_Click);
+            // 
             // InventoryAddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 311);
+            this.Controls.Add(this.backIcon);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.RegisterBtn);
             this.Controls.Add(this.DateExpiredDatePicker);
             this.Controls.Add(this.DateIssueDatePicker);
@@ -210,6 +208,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,9 +225,9 @@
 		private System.Windows.Forms.DateTimePicker DateIssueDatePicker;
 		private System.Windows.Forms.DateTimePicker DateExpiredDatePicker;
 		private System.Windows.Forms.Button RegisterBtn;
-		private System.Windows.Forms.Button BackBtn;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox backIcon;
     }
 }

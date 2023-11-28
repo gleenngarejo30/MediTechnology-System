@@ -54,7 +54,7 @@
             // 
             // logoutBTN
             // 
-            this.logoutBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.logoutBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.logoutBTN.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.logoutBTN.ForeColor = System.Drawing.Color.White;
             this.logoutBTN.Location = new System.Drawing.Point(647, 417);
@@ -67,7 +67,7 @@
             // 
             // Addbtn
             // 
-            this.Addbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Addbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.Addbtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.Addbtn.ForeColor = System.Drawing.Color.White;
             this.Addbtn.Location = new System.Drawing.Point(647, 128);
@@ -80,7 +80,7 @@
             // 
             // Removebtn
             // 
-            this.Removebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Removebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.Removebtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.Removebtn.ForeColor = System.Drawing.Color.White;
             this.Removebtn.Location = new System.Drawing.Point(647, 157);
@@ -93,7 +93,7 @@
             // 
             // Searchbtn
             // 
-            this.Searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.Searchbtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.Searchbtn.ForeColor = System.Drawing.Color.White;
             this.Searchbtn.Location = new System.Drawing.Point(558, 79);
@@ -123,7 +123,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(-12, -6);

@@ -45,5 +45,11 @@ namespace Meditechnology_System
 			Prescription pres = new Prescription();
 			pres.Show();
 		}
-	}
+
+        private void backIcon_Click(object sender, EventArgs e)
+        {
+            showPrescription();
+            this.Hide();
+        }
+    }
 }

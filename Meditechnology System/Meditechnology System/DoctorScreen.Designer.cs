@@ -54,7 +54,7 @@
             // 
             // LogoutBtn
             // 
-            this.LogoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.LogoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.LogoutBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.LogoutBtn.ForeColor = System.Drawing.Color.White;
             this.LogoutBtn.Location = new System.Drawing.Point(378, 452);
@@ -67,7 +67,7 @@
             // 
             // prescriptionBTN
             // 
-            this.prescriptionBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.prescriptionBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.prescriptionBTN.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.prescriptionBTN.ForeColor = System.Drawing.Color.White;
             this.prescriptionBTN.Location = new System.Drawing.Point(261, 177);
@@ -81,7 +81,7 @@
             // 
             // Searchbtn
             // 
-            this.Searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.Searchbtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.Searchbtn.ForeColor = System.Drawing.Color.White;
             this.Searchbtn.Location = new System.Drawing.Point(301, 174);
@@ -197,7 +197,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Location = new System.Drawing.Point(-11, -4);

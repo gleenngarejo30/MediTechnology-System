@@ -44,14 +44,15 @@
             this.MaleRB = new System.Windows.Forms.RadioButton();
             this.FemaleRB = new System.Windows.Forms.RadioButton();
             this.RegisterBtn = new System.Windows.Forms.Button();
-            this.BackBtn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -214,7 +215,7 @@
             // 
             // RegisterBtn
             // 
-            this.RegisterBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.RegisterBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.RegisterBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.RegisterBtn.ForeColor = System.Drawing.Color.White;
             this.RegisterBtn.Location = new System.Drawing.Point(149, 329);
@@ -225,20 +226,6 @@
             this.RegisterBtn.Text = "Register";
             this.RegisterBtn.UseVisualStyleBackColor = false;
             this.RegisterBtn.Click += new System.EventHandler(this.RegisterBtn_Click);
-            // 
-            // BackBtn
-            // 
-            this.BackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BackBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.BackBtn.ForeColor = System.Drawing.Color.White;
-            this.BackBtn.Location = new System.Drawing.Point(174, 363);
-            this.BackBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.BackBtn.Name = "BackBtn";
-            this.BackBtn.Size = new System.Drawing.Size(102, 24);
-            this.BackBtn.TabIndex = 16;
-            this.BackBtn.Text = "Back";
-            this.BackBtn.UseVisualStyleBackColor = false;
-            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
             // textBox1
             // 
@@ -262,7 +249,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Location = new System.Drawing.Point(-10, -6);
@@ -293,15 +280,26 @@
             this.label9.TabIndex = 27;
             this.label9.Text = "MEDITECH";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Meditechnology_System.Properties.Resources.back_button;
+            this.pictureBox2.Location = new System.Drawing.Point(209, 366);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 31;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // AdminAddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 401);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.RegisterBtn);
             this.Controls.Add(this.FemaleRB);
             this.Controls.Add(this.MaleRB);
@@ -326,6 +324,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,11 +348,11 @@
 		private System.Windows.Forms.RadioButton MaleRB;
 		private System.Windows.Forms.RadioButton FemaleRB;
 		private System.Windows.Forms.Button RegisterBtn;
-		private System.Windows.Forms.Button BackBtn;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

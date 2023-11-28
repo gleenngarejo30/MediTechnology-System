@@ -37,16 +37,12 @@ namespace Meditechnology_System
 			addEmployee.Show();
 			this.Close();
 		}
-		private void Backbtn_Click(object sender, EventArgs e)
-		{
-			Adminstrator adminScreen = new Adminstrator();
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Adminstrator adminScreen = new Adminstrator();
             adminScreen.Show();
-			this.Hide();
-		}
-		private void AdminAccounts_FormClosed(object sender, FormClosedEventArgs e)
-		{
-			
-		}
-		
-	}
+            this.Hide();
+        }
+    }
 }

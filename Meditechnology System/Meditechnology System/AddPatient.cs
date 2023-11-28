@@ -17,16 +17,18 @@ namespace Meditechnology_System
             InitializeComponent();
         }
 
-        private void BackBtn_Click(object sender, EventArgs e)
+       
+
+        private void ContinueBtn_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Patient Register, Proceed to Doctor!");
             NurseScreen nurseScreen = new NurseScreen();
             nurseScreen.Show();
             this.Hide();
         }
 
-        private void ContinueBtn_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Patient Register, Proceed to Doctor!");
             NurseScreen nurseScreen = new NurseScreen();
             nurseScreen.Show();
             this.Hide();

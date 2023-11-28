@@ -18,10 +18,6 @@ namespace Meditechnology_System
             InitializeComponent();
         }
 
-		private void Backbtn_Click(object sender, EventArgs e){
-			showAdmin();
-			this.Hide();
-		}
 		private void AdministratorHistory_FormClosed(object sender, FormClosedEventArgs e){
 			showAdmin();
 		}
@@ -30,9 +26,10 @@ namespace Meditechnology_System
 			admin.Show();
 		}
 
-        private void AdministratorHistory_Load(object sender, EventArgs e)
+        private void backIcon_Click(object sender, EventArgs e)
         {
-
+            showAdmin();
+            this.Hide();
         }
     }
 }
