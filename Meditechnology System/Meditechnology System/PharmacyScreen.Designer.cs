@@ -53,6 +53,11 @@
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addBtn = new System.Windows.Forms.Button();
+            this.remarksTxtBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -63,7 +68,7 @@
             this.LogoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.LogoutBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.LogoutBtn.ForeColor = System.Drawing.Color.White;
-            this.LogoutBtn.Location = new System.Drawing.Point(692, 421);
+            this.LogoutBtn.Location = new System.Drawing.Point(961, 457);
             this.LogoutBtn.Name = "LogoutBtn";
             this.LogoutBtn.Size = new System.Drawing.Size(75, 23);
             this.LogoutBtn.TabIndex = 1;
@@ -126,9 +131,9 @@
             this.Processbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.Processbtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.Processbtn.ForeColor = System.Drawing.Color.White;
-            this.Processbtn.Location = new System.Drawing.Point(533, 377);
+            this.Processbtn.Location = new System.Drawing.Point(466, 395);
             this.Processbtn.Name = "Processbtn";
-            this.Processbtn.Size = new System.Drawing.Size(106, 29);
+            this.Processbtn.Size = new System.Drawing.Size(211, 29);
             this.Processbtn.TabIndex = 10;
             this.Processbtn.Text = "Process";
             this.Processbtn.UseVisualStyleBackColor = false;
@@ -140,7 +145,7 @@
             this.MedicineListView.ItemHeight = 16;
             this.MedicineListView.Location = new System.Drawing.Point(43, 250);
             this.MedicineListView.Name = "MedicineListView";
-            this.MedicineListView.Size = new System.Drawing.Size(283, 84);
+            this.MedicineListView.Size = new System.Drawing.Size(283, 116);
             this.MedicineListView.TabIndex = 11;
             // 
             // comboBox1
@@ -160,7 +165,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(-114, -4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(893, 65);
+            this.panel2.Size = new System.Drawing.Size(1168, 65);
             this.panel2.TabIndex = 37;
             // 
             // pictureBox1
@@ -262,7 +267,7 @@
             this.UnitPrice,
             this.Quantity,
             this.TotalPrice});
-            this.dataGridView1.Location = new System.Drawing.Point(400, 173);
+            this.dataGridView1.Location = new System.Drawing.Point(380, 173);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(367, 198);
             this.dataGridView1.TabIndex = 45;
@@ -299,11 +304,68 @@
             this.addBtn.Text = "ADD ";
             this.addBtn.UseVisualStyleBackColor = false;
             // 
+            // remarksTxtBox
+            // 
+            this.remarksTxtBox.Location = new System.Drawing.Point(782, 121);
+            this.remarksTxtBox.Name = "remarksTxtBox";
+            this.remarksTxtBox.Size = new System.Drawing.Size(242, 20);
+            this.remarksTxtBox.TabIndex = 47;
+            this.remarksTxtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.remarksTxtBox_KeyDown);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label9.Location = new System.Drawing.Point(766, 96);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 16);
+            this.label9.TabIndex = 48;
+            this.label9.Text = "REMARKS";
+            // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(782, 175);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(242, 196);
+            this.listBox1.TabIndex = 49;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
+            this.button1.Font = new System.Drawing.Font("LEMON MILK", 6F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(961, 377);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 23);
+            this.button1.TabIndex = 50;
+            this.button1.Text = "remove";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("LEMON MILK", 6F);
+            this.label10.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label10.Location = new System.Drawing.Point(780, 144);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 11);
+            this.label10.TabIndex = 51;
+            this.label10.Text = "PRESS ENTER TO NEXT";
+            // 
             // PharmacyScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 456);
+            this.ClientSize = new System.Drawing.Size(1048, 492);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.remarksTxtBox);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox1);
@@ -362,5 +424,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
         private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.TextBox remarksTxtBox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label10;
     }
 }

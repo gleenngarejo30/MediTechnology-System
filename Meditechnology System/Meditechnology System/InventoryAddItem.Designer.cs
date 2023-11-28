@@ -41,6 +41,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.backIcon = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lotNumberTxtBox = new System.Windows.Forms.TextBox();
+            this.unitPriceTxtBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backIcon)).BeginInit();
@@ -72,7 +76,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.label3.Location = new System.Drawing.Point(57, 165);
+            this.label3.Location = new System.Drawing.Point(57, 210);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 16);
@@ -83,7 +87,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.label4.Location = new System.Drawing.Point(57, 189);
+            this.label4.Location = new System.Drawing.Point(57, 234);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 16);
@@ -111,7 +115,7 @@
             // DateIssueDatePicker
             // 
             this.DateIssueDatePicker.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.DateIssueDatePicker.Location = new System.Drawing.Point(220, 162);
+            this.DateIssueDatePicker.Location = new System.Drawing.Point(220, 207);
             this.DateIssueDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.DateIssueDatePicker.Name = "DateIssueDatePicker";
             this.DateIssueDatePicker.Size = new System.Drawing.Size(233, 22);
@@ -120,7 +124,7 @@
             // DateExpiredDatePicker
             // 
             this.DateExpiredDatePicker.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.DateExpiredDatePicker.Location = new System.Drawing.Point(220, 186);
+            this.DateExpiredDatePicker.Location = new System.Drawing.Point(220, 231);
             this.DateExpiredDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.DateExpiredDatePicker.Name = "DateExpiredDatePicker";
             this.DateExpiredDatePicker.Size = new System.Drawing.Size(233, 22);
@@ -131,7 +135,7 @@
             this.RegisterBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.RegisterBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.RegisterBtn.ForeColor = System.Drawing.Color.White;
-            this.RegisterBtn.Location = new System.Drawing.Point(261, 222);
+            this.RegisterBtn.Location = new System.Drawing.Point(261, 267);
             this.RegisterBtn.Margin = new System.Windows.Forms.Padding(2);
             this.RegisterBtn.Name = "RegisterBtn";
             this.RegisterBtn.Size = new System.Drawing.Size(142, 27);
@@ -176,7 +180,7 @@
             // backIcon
             // 
             this.backIcon.Image = global::Meditechnology_System.Properties.Resources.back_button;
-            this.backIcon.Location = new System.Drawing.Point(323, 254);
+            this.backIcon.Location = new System.Drawing.Point(323, 299);
             this.backIcon.Name = "backIcon";
             this.backIcon.Size = new System.Drawing.Size(27, 23);
             this.backIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -184,11 +188,55 @@
             this.backIcon.TabStop = false;
             this.backIcon.Click += new System.EventHandler(this.backIcon_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label6.Location = new System.Drawing.Point(57, 148);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 16);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "LOT NUMBER";
+            // 
+            // lotNumberTxtBox
+            // 
+            this.lotNumberTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.lotNumberTxtBox.Location = new System.Drawing.Point(220, 145);
+            this.lotNumberTxtBox.Margin = new System.Windows.Forms.Padding(2);
+            this.lotNumberTxtBox.Name = "lotNumberTxtBox";
+            this.lotNumberTxtBox.Size = new System.Drawing.Size(130, 22);
+            this.lotNumberTxtBox.TabIndex = 39;
+            // 
+            // unitPriceTxtBox
+            // 
+            this.unitPriceTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.unitPriceTxtBox.Location = new System.Drawing.Point(220, 171);
+            this.unitPriceTxtBox.Margin = new System.Windows.Forms.Padding(2);
+            this.unitPriceTxtBox.Name = "unitPriceTxtBox";
+            this.unitPriceTxtBox.Size = new System.Drawing.Size(130, 22);
+            this.unitPriceTxtBox.TabIndex = 41;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label7.Location = new System.Drawing.Point(57, 174);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 16);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "UNIT PRICE";
+            // 
             // InventoryAddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 311);
+            this.ClientSize = new System.Drawing.Size(522, 394);
+            this.Controls.Add(this.unitPriceTxtBox);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lotNumberTxtBox);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.backIcon);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.RegisterBtn);
@@ -229,5 +277,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox backIcon;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox lotNumberTxtBox;
+        private System.Windows.Forms.TextBox unitPriceTxtBox;
+        private System.Windows.Forms.Label label7;
     }
 }

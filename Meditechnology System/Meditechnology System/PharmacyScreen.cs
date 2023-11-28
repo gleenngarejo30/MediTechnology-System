@@ -16,8 +16,11 @@ namespace Meditechnology_System
         public PharmacyScreen()
         {
             InitializeComponent();
+                        remarksTxtBox.KeyDown += remarksTxtBox_KeyDown;
+
+
         }
-		private void LogoutBtn_Click(object sender, EventArgs e)
+        private void LogoutBtn_Click(object sender, EventArgs e)
 		{
 			showLogin();
 			this.Hide();
@@ -30,5 +33,33 @@ namespace Meditechnology_System
 			var login = new Form1();
 			login.Show();
 		}
-	}
+
+        private void remarksTxtBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check if the pressed key is Enter
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Get the text from the remarksTxtBox
+                string text = remarksTxtBox.Text;
+
+                // Add the text to the ListBox
+                listBox1.Items.Add(text);
+
+                // Clear the remarksTxtBox for the next input
+                remarksTxtBox.Clear();
+
+                // Prevent the "ding" sound when Enter is pressed
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Remove the last entered item in the ListBox
+            if (listBox1.Items.Count > 0)
+            {
+                listBox1.Items.RemoveAt(listBox1.Items.Count - 1);
+            }
+        }
+    }
 }

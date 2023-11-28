@@ -56,6 +56,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.backIcon = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.remarksTxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionList)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,7 +73,7 @@
             this.prescribeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.prescribeBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.prescribeBtn.ForeColor = System.Drawing.Color.White;
-            this.prescribeBtn.Location = new System.Drawing.Point(576, 416);
+            this.prescribeBtn.Location = new System.Drawing.Point(873, 416);
             this.prescribeBtn.Name = "prescribeBtn";
             this.prescribeBtn.Size = new System.Drawing.Size(75, 23);
             this.prescribeBtn.TabIndex = 1;
@@ -202,7 +207,7 @@
             this.reserveBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.reserveBTN.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.reserveBTN.ForeColor = System.Drawing.Color.White;
-            this.reserveBTN.Location = new System.Drawing.Point(489, 416);
+            this.reserveBTN.Location = new System.Drawing.Point(786, 416);
             this.reserveBTN.Margin = new System.Windows.Forms.Padding(2);
             this.reserveBTN.Name = "reserveBTN";
             this.reserveBTN.Size = new System.Drawing.Size(75, 23);
@@ -314,7 +319,7 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(-8, -5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(810, 65);
+            this.panel2.Size = new System.Drawing.Size(1063, 65);
             this.panel2.TabIndex = 33;
             // 
             // pictureBox1
@@ -353,7 +358,7 @@
             // backIcon
             // 
             this.backIcon.Image = global::Meditechnology_System.Properties.Resources.back_button;
-            this.backIcon.Location = new System.Drawing.Point(701, 416);
+            this.backIcon.Location = new System.Drawing.Point(998, 416);
             this.backIcon.Name = "backIcon";
             this.backIcon.Size = new System.Drawing.Size(27, 23);
             this.backIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -361,14 +366,69 @@
             this.backIcon.TabStop = false;
             this.backIcon.Click += new System.EventHandler(this.backIcon_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("LEMON MILK", 6F);
+            this.label11.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label11.Location = new System.Drawing.Point(762, 139);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(95, 11);
+            this.label11.TabIndex = 56;
+            this.label11.Text = "PRESS ENTER TO NEXT";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
+            this.button1.Font = new System.Drawing.Font("LEMON MILK", 6F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(943, 372);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 23);
+            this.button1.TabIndex = 55;
+            this.button1.Text = "remove";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(764, 170);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(242, 196);
+            this.listBox1.TabIndex = 54;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label12.Location = new System.Drawing.Point(748, 91);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(60, 16);
+            this.label12.TabIndex = 53;
+            this.label12.Text = "REMARKS";
+            // 
+            // remarksTxtBox
+            // 
+            this.remarksTxtBox.Location = new System.Drawing.Point(764, 116);
+            this.remarksTxtBox.Name = "remarksTxtBox";
+            this.remarksTxtBox.Size = new System.Drawing.Size(242, 20);
+            this.remarksTxtBox.TabIndex = 52;
+            // 
             // Prescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 460);
+            this.ClientSize = new System.Drawing.Size(1052, 460);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.backIcon);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.remarksTxtBox);
             this.Controls.Add(this.removeBTN);
             this.Controls.Add(this.prescriptionList);
             this.Controls.Add(this.patientNameLBL);
@@ -433,5 +493,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox backIcon;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox remarksTxtBox;
     }
 }
