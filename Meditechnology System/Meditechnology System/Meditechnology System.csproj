@@ -145,6 +145,18 @@
     <Compile Include="prescriptionDetails.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="user control\nurse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user control\nurse.Designer.cs">
+      <DependentUpon>nurse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user control\newPatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user control\newPatient.Designer.cs">
+      <DependentUpon>newPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewPrescription.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +221,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="user control\nurse.resx">
+      <DependentUpon>nurse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user control\newPatient.resx">
+      <DependentUpon>newPatient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewPrescription.resx">
       <DependentUpon>ViewPrescription.cs</DependentUpon>
     </EmbeddedResource>

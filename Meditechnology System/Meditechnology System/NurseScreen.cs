@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,30 +13,34 @@ namespace Meditechnology_System
 {
 	public partial class NurseScreen : Form
 	{
+		public static Boolean isOpen = true;
 		public NurseScreen()
 		{
 			InitializeComponent();
 		}
-
-		private void button3_Click(object sender, EventArgs e)
+		private void NurseScreen_Load(object sender, EventArgs e)
 		{
-			showLogin();
-			this.Hide();
+			userControl12.Visible = true;
 		}
-		private void NurseScreen_FormClosed(object sender, FormClosedEventArgs e)
+		private void userControl12_VisibleChanged(object sender, EventArgs e)
 		{
-			showLogin();
+			if (isOpen == true)
+			{
+				userControl21.Visible = true;
+			}
+			else if (isOpen == false)
+			{
+				this.Hide();
+			}
 		}
-		public static void showLogin() {
-			var form1 = new Form1();
-			form1.Show();
+		private void userControl21_VisibleChanged(object sender, EventArgs e)
+		{
+			userControl12.Visible = true;
 		}
-
-        private void addPatientBtn_Click(object sender, EventArgs e)
-        {
-			AddPatient addPatient = new AddPatient();
-			addPatient.Show();
-			this.Hide();
-        }
-    }
+		public static void bye() {
+			isOpen = false;
+			var login = new Form1();
+			login.Show();
+		}
+	}
 }

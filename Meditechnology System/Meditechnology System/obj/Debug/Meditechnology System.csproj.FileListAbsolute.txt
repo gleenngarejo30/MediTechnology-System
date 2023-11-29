@@ -104,3 +104,5 @@ C:\Users\justi\source\repos\gleenngarejo30\MediTechnology-System\Meditechnology 
 C:\Users\justi\source\repos\gleenngarejo30\MediTechnology-System\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.csproj.CoreCompileInputs.cache
 C:\Users\justi\source\repos\gleenngarejo30\MediTechnology-System\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.exe
 C:\Users\justi\source\repos\gleenngarejo30\MediTechnology-System\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.pdb
+C:\Users\justi\Source\Repos\gleenngarejo30\MediTechnology-System\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.nurse.resources
+C:\Users\justi\Source\Repos\gleenngarejo30\MediTechnology-System\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.UserControl2.resources
