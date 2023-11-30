@@ -15,26 +15,15 @@ namespace Meditechnology_System
         public InventoryScreen()
         {
             InitializeComponent();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.ReadOnly = true;
         }
-		private void Addbtn_Click(object sender, EventArgs e)
+
+        private void Addbtn_Click(object sender, EventArgs e)
 		{
 			InventoryAddItem inventoryAddItem = new InventoryAddItem();
 			inventoryAddItem.Show();
 			this.Hide();
-		}
-		private void Removebtn_Click(object sender, EventArgs e)
-		{
-			var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
-									 "Confirm Delete!!",
-									 MessageBoxButtons.YesNo);
-			if (confirmResult == DialogResult.Yes)
-			{
-				// If 'Yes', do something here.
-			}
-			else
-			{
-				// If 'No', do something here.
-			}
 		}
 		private void InventoryScreen_FormClosed(object sender, FormClosedEventArgs e)
 		{
@@ -49,5 +38,40 @@ namespace Meditechnology_System
 			var login = new Form1();
 			login.Show();
 		}
-	}
+
+        private void Searchbtn_Click(object sender, EventArgs e)
+        {
+            btnclick();
+        }
+        private void Removebtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string medID = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                var confirmResult = MessageBox.Show("Are you sure to delete this item ?? Medicine ID: " + medID,
+                                         "Confirm Delete!!",
+                                         MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    SqlQueries.InventoryDeleteSearchQuery(medID);
+                    btnclick();
+                }
+                else
+                {
+                    // If 'No', do something here.
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+            }
+        }
+        public void btnclick()
+        {
+            string search = SearchTxtBox.Text.ToString();
+            dataGridView1.Columns.Clear();
+            dataGridView1.Refresh();
+            dataGridView1.DataSource = SqlQueries.InventoryScreenSearchQuery(search);
+        }
+    }
 }

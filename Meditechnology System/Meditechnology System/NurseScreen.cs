@@ -16,8 +16,15 @@ namespace Meditechnology_System
 		{
 			InitializeComponent();
 		}
+        private void NurseScreen_Load(object sender, EventArgs e)
+        {
+			foreach (DataRow dr in SqlQueries.NurseScreenLoadQuery().Rows)
+			{
+				comboBox1.Items.Add(dr["FullName"].ToString());
+			}
+        }
 
-		private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
 		{
 			showLogin();
 			this.Hide();
@@ -31,11 +38,23 @@ namespace Meditechnology_System
 			form1.Show();
 		}
 
-        private void addPatientBtn_Click(object sender, EventArgs e)
-        {
+		private void addPatientBtn_Click(object sender, EventArgs e)
+		{
 			AddPatient addPatient = new AddPatient();
 			addPatient.Show();
 			this.Hide();
+		}
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectname = comboBox1.Text.ToString();
+            string[] splitname = selectname.Split(' ');
+			string getfirstname = splitname[0];
+
+            dataGridView1.Columns.Clear();
+            dataGridView1.Refresh();
+            dataGridView1.DataSource = SqlQueries.NurseScreenSelectQuery(getfirstname);
+
         }
     }
 }

@@ -55,7 +55,7 @@
             // logoutBTN
             // 
             this.logoutBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.logoutBTN.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.logoutBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.logoutBTN.ForeColor = System.Drawing.Color.White;
             this.logoutBTN.Location = new System.Drawing.Point(647, 417);
             this.logoutBTN.Name = "logoutBTN";
@@ -68,7 +68,7 @@
             // Addbtn
             // 
             this.Addbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.Addbtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.Addbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Addbtn.ForeColor = System.Drawing.Color.White;
             this.Addbtn.Location = new System.Drawing.Point(647, 128);
             this.Addbtn.Name = "Addbtn";
@@ -81,7 +81,7 @@
             // Removebtn
             // 
             this.Removebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.Removebtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.Removebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Removebtn.ForeColor = System.Drawing.Color.White;
             this.Removebtn.Location = new System.Drawing.Point(647, 157);
             this.Removebtn.Name = "Removebtn";
@@ -94,7 +94,7 @@
             // Searchbtn
             // 
             this.Searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.Searchbtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.Searchbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Searchbtn.ForeColor = System.Drawing.Color.White;
             this.Searchbtn.Location = new System.Drawing.Point(558, 79);
             this.Searchbtn.Name = "Searchbtn";
@@ -102,22 +102,23 @@
             this.Searchbtn.TabIndex = 4;
             this.Searchbtn.Text = "Search";
             this.Searchbtn.UseVisualStyleBackColor = false;
+            this.Searchbtn.Click += new System.EventHandler(this.Searchbtn_Click);
             // 
             // SearchTxtBox
             // 
-            this.SearchTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.SearchTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.SearchTxtBox.Location = new System.Drawing.Point(169, 82);
             this.SearchTxtBox.Name = "SearchTxtBox";
-            this.SearchTxtBox.Size = new System.Drawing.Size(383, 22);
+            this.SearchTxtBox.Size = new System.Drawing.Size(383, 20);
             this.SearchTxtBox.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label1.Location = new System.Drawing.Point(53, 86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 16);
+            this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Search Medicine";
             // 
@@ -146,11 +147,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Akira Expanded", 15F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(78, 27);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 21);
+            this.label4.Size = new System.Drawing.Size(124, 25);
             this.label4.TabIndex = 27;
             this.label4.Text = "MEDITECH";
             // 
