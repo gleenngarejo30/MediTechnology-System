@@ -50,6 +50,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.PasswordTxtBox = new System.Windows.Forms.TextBox();
+            this.UserNameTxtBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -59,7 +63,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.label1.Location = new System.Drawing.Point(46, 92);
+            this.label1.Location = new System.Drawing.Point(46, 112);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 16);
@@ -70,7 +74,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.label2.Location = new System.Drawing.Point(46, 124);
+            this.label2.Location = new System.Drawing.Point(46, 232);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 16);
@@ -81,7 +85,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.label3.Location = new System.Drawing.Point(46, 152);
+            this.label3.Location = new System.Drawing.Point(46, 260);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 16);
@@ -92,7 +96,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.label4.Location = new System.Drawing.Point(46, 177);
+            this.label4.Location = new System.Drawing.Point(46, 285);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 16);
@@ -103,7 +107,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.label5.Location = new System.Drawing.Point(46, 213);
+            this.label5.Location = new System.Drawing.Point(46, 315);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 16);
@@ -114,7 +118,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.label6.Location = new System.Drawing.Point(46, 234);
+            this.label6.Location = new System.Drawing.Point(46, 336);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 16);
@@ -125,7 +129,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.label7.Location = new System.Drawing.Point(46, 263);
+            this.label7.Location = new System.Drawing.Point(46, 365);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(116, 16);
@@ -136,7 +140,7 @@
             // 
             this.TypeEmpCB.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.TypeEmpCB.FormattingEnabled = true;
-            this.TypeEmpCB.Location = new System.Drawing.Point(191, 92);
+            this.TypeEmpCB.Location = new System.Drawing.Point(191, 112);
             this.TypeEmpCB.Margin = new System.Windows.Forms.Padding(2);
             this.TypeEmpCB.Name = "TypeEmpCB";
             this.TypeEmpCB.Size = new System.Drawing.Size(163, 24);
@@ -145,7 +149,7 @@
             // LNameTxtBox
             // 
             this.LNameTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.LNameTxtBox.Location = new System.Drawing.Point(191, 122);
+            this.LNameTxtBox.Location = new System.Drawing.Point(191, 230);
             this.LNameTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.LNameTxtBox.Name = "LNameTxtBox";
             this.LNameTxtBox.Size = new System.Drawing.Size(163, 22);
@@ -154,7 +158,7 @@
             // FNameTxtBox
             // 
             this.FNameTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.FNameTxtBox.Location = new System.Drawing.Point(191, 150);
+            this.FNameTxtBox.Location = new System.Drawing.Point(191, 258);
             this.FNameTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.FNameTxtBox.Name = "FNameTxtBox";
             this.FNameTxtBox.Size = new System.Drawing.Size(163, 22);
@@ -163,7 +167,7 @@
             // MNameTxtBox
             // 
             this.MNameTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.MNameTxtBox.Location = new System.Drawing.Point(191, 175);
+            this.MNameTxtBox.Location = new System.Drawing.Point(191, 283);
             this.MNameTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.MNameTxtBox.Name = "MNameTxtBox";
             this.MNameTxtBox.Size = new System.Drawing.Size(163, 22);
@@ -172,7 +176,7 @@
             // AgeTxtBox
             // 
             this.AgeTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.AgeTxtBox.Location = new System.Drawing.Point(191, 205);
+            this.AgeTxtBox.Location = new System.Drawing.Point(191, 307);
             this.AgeTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.AgeTxtBox.Name = "AgeTxtBox";
             this.AgeTxtBox.Size = new System.Drawing.Size(63, 22);
@@ -181,7 +185,7 @@
             // ContactNumTxtBox
             // 
             this.ContactNumTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.ContactNumTxtBox.Location = new System.Drawing.Point(191, 261);
+            this.ContactNumTxtBox.Location = new System.Drawing.Point(191, 363);
             this.ContactNumTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.ContactNumTxtBox.Name = "ContactNumTxtBox";
             this.ContactNumTxtBox.Size = new System.Drawing.Size(163, 22);
@@ -191,7 +195,7 @@
             // 
             this.MaleRB.AutoSize = true;
             this.MaleRB.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.MaleRB.Location = new System.Drawing.Point(191, 231);
+            this.MaleRB.Location = new System.Drawing.Point(191, 333);
             this.MaleRB.Margin = new System.Windows.Forms.Padding(2);
             this.MaleRB.Name = "MaleRB";
             this.MaleRB.Size = new System.Drawing.Size(56, 20);
@@ -204,7 +208,7 @@
             // 
             this.FemaleRB.AutoSize = true;
             this.FemaleRB.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.FemaleRB.Location = new System.Drawing.Point(279, 231);
+            this.FemaleRB.Location = new System.Drawing.Point(279, 333);
             this.FemaleRB.Margin = new System.Windows.Forms.Padding(2);
             this.FemaleRB.Name = "FemaleRB";
             this.FemaleRB.Size = new System.Drawing.Size(69, 20);
@@ -218,7 +222,7 @@
             this.RegisterBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.RegisterBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.RegisterBtn.ForeColor = System.Drawing.Color.White;
-            this.RegisterBtn.Location = new System.Drawing.Point(149, 329);
+            this.RegisterBtn.Location = new System.Drawing.Point(149, 445);
             this.RegisterBtn.Margin = new System.Windows.Forms.Padding(2);
             this.RegisterBtn.Name = "RegisterBtn";
             this.RegisterBtn.Size = new System.Drawing.Size(150, 30);
@@ -230,7 +234,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.textBox1.Location = new System.Drawing.Point(191, 288);
+            this.textBox1.Location = new System.Drawing.Point(191, 390);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(163, 22);
@@ -240,7 +244,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.label8.Location = new System.Drawing.Point(46, 290);
+            this.label8.Location = new System.Drawing.Point(46, 392);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 16);
@@ -283,7 +287,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Meditechnology_System.Properties.Resources.back_button;
-            this.pictureBox2.Location = new System.Drawing.Point(209, 366);
+            this.pictureBox2.Location = new System.Drawing.Point(209, 482);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 23);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -291,11 +295,55 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // PasswordTxtBox
+            // 
+            this.PasswordTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.PasswordTxtBox.Location = new System.Drawing.Point(191, 188);
+            this.PasswordTxtBox.Margin = new System.Windows.Forms.Padding(2);
+            this.PasswordTxtBox.Name = "PasswordTxtBox";
+            this.PasswordTxtBox.Size = new System.Drawing.Size(163, 22);
+            this.PasswordTxtBox.TabIndex = 35;
+            // 
+            // UserNameTxtBox
+            // 
+            this.UserNameTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.UserNameTxtBox.Location = new System.Drawing.Point(191, 163);
+            this.UserNameTxtBox.Margin = new System.Windows.Forms.Padding(2);
+            this.UserNameTxtBox.Name = "UserNameTxtBox";
+            this.UserNameTxtBox.Size = new System.Drawing.Size(163, 22);
+            this.UserNameTxtBox.TabIndex = 34;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label10.Location = new System.Drawing.Point(46, 190);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(71, 16);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "Password:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label11.Location = new System.Drawing.Point(46, 165);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 16);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Username:";
+            // 
             // AdminAddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 401);
+            this.ClientSize = new System.Drawing.Size(439, 537);
+            this.Controls.Add(this.PasswordTxtBox);
+            this.Controls.Add(this.UserNameTxtBox);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox1);
@@ -354,5 +402,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox PasswordTxtBox;
+        private System.Windows.Forms.TextBox UserNameTxtBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }
