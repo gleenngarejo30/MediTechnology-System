@@ -163,5 +163,18 @@ namespace Meditechnology_System
             con.Close();
             return table;
         }
+
+        public static DataTable DoctorScreenPatientSelectQuery(string name, int id)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string DoctorSelect = "SELECT CONCAT(firstName, ' ', middleName, ' ', lastName) AS FullName, patientID FROM PatientTBL WHERE firstName LIKE '" + name + "%' OR patientID = " + id;
+            SqlCommand DoctorSelectcmd = new SqlCommand(DoctorSelect, con);
+            var DoctorSelectexe = DoctorSelectcmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(DoctorSelectexe);
+            con.Close();
+            return table;
+        }
     }
 }

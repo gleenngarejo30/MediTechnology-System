@@ -55,7 +55,7 @@
             // LogoutBtn
             // 
             this.LogoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.LogoutBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.LogoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.LogoutBtn.ForeColor = System.Drawing.Color.White;
             this.LogoutBtn.Location = new System.Drawing.Point(378, 452);
             this.LogoutBtn.Name = "LogoutBtn";
@@ -68,7 +68,7 @@
             // prescriptionBTN
             // 
             this.prescriptionBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.prescriptionBTN.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.prescriptionBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.prescriptionBTN.ForeColor = System.Drawing.Color.White;
             this.prescriptionBTN.Location = new System.Drawing.Point(261, 177);
             this.prescriptionBTN.Margin = new System.Windows.Forms.Padding(2);
@@ -82,7 +82,7 @@
             // Searchbtn
             // 
             this.Searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.Searchbtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.Searchbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Searchbtn.ForeColor = System.Drawing.Color.White;
             this.Searchbtn.Location = new System.Drawing.Point(301, 174);
             this.Searchbtn.Name = "Searchbtn";
@@ -90,6 +90,7 @@
             this.Searchbtn.TabIndex = 19;
             this.Searchbtn.Text = "Search";
             this.Searchbtn.UseVisualStyleBackColor = false;
+            this.Searchbtn.Click += new System.EventHandler(this.Searchbtn_Click);
             // 
             // panel2
             // 
@@ -151,47 +152,47 @@
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.textBox1.Location = new System.Drawing.Point(94, 60);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(303, 22);
+            this.textBox1.Size = new System.Drawing.Size(303, 20);
             this.textBox1.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label3.Location = new System.Drawing.Point(16, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Reference";
             // 
             // NametxtBox
             // 
-            this.NametxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.NametxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.NametxtBox.Location = new System.Drawing.Point(94, 35);
             this.NametxtBox.Name = "NametxtBox";
-            this.NametxtBox.Size = new System.Drawing.Size(303, 22);
+            this.NametxtBox.Size = new System.Drawing.Size(303, 20);
             this.NametxtBox.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label2.Location = new System.Drawing.Point(36, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 16);
+            this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Name";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label1.Location = new System.Drawing.Point(15, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 16);
+            this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Search";
             // 
@@ -220,11 +221,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Akira Expanded", 15F, System.Drawing.FontStyle.Bold);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(78, 27);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(153, 21);
+            this.label7.Size = new System.Drawing.Size(124, 25);
             this.label7.TabIndex = 27;
             this.label7.Text = "MEDITECH";
             // 
