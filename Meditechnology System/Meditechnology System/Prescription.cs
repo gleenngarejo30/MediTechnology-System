@@ -115,10 +115,10 @@ namespace Meditechnology_System
                 listBox1.Items.Add(remarks);
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            listBox1.Items.Clear();
-        }
-    }
+		private void removeRemarkBTN_Click(object sender, EventArgs e)
+		{
+			listBox1.Items.Remove(listBox1.SelectedItem);
+			//listBox1.Items.Clear();
+		}
+	}
 }

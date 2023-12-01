@@ -27,31 +27,21 @@ namespace Meditechnology_System
 
 		private void prescriptionBTN_Click(object sender, EventArgs e)
 		{
-            string refnum = "";
-            string name = "";
-            try
-            {
-                refnum = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                name = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+			string refnum = "";
+			string name = "";
 
-                if (refnum == "")
-                {
-                    MessageBox.Show("Please select a Patient");
-                }
-                else
-                {
-                    prescriptionDetails.setPatientID(refnum);
-                    prescriptionDetails.setPatientName(name);
-                    var prescription = new Prescription();
-                    prescription.Show();
-                    this.Hide();
-                }
+            if (NametxtBox.Text.Equals("")) {
+                MessageBox.Show("doctor screen");
             }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Please select a Patient");
-            }
-
+            else{
+                refnum = refNumTXT.Text.ToString();
+                prescriptionDetails.setPatientID(refnum);
+                name = NametxtBox.Text.ToString();
+                prescriptionDetails.setPatientName(name);
+                var pres = new Prescription();
+                pres.Show();
+                this.Hide();
+			}
 		}
 		private void DoctorScreen_FormClosed(object sender, FormClosedEventArgs e)
 		{
@@ -73,7 +63,7 @@ namespace Meditechnology_System
             try
             {
                 searchname = NametxtBox.Text.ToString();
-                searchrefnum = Convert.ToInt32(textBox1.Text.ToString());
+                searchrefnum = Convert.ToInt32(refNumTXT.Text.ToString());
                 dataGridView1.Columns.Clear();
                 dataGridView1.Refresh();
                 dataGridView1.DataSource = SqlQueries.DoctorScreenPatientSelectQuery(searchname, searchrefnum);
@@ -92,7 +82,7 @@ namespace Meditechnology_System
             if(dataGridView1.CurrentCell.Value != null)
             {
                 NametxtBox.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                refNumTXT.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             }
         }
     }

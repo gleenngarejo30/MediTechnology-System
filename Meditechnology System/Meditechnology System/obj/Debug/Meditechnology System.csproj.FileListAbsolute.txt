@@ -234,3 +234,29 @@ C:\Users\admin\Source\Repos\MediTechnology-System2\Meditechnology System\Meditec
 C:\Users\admin\Source\Repos\MediTechnology-System2\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.csproj.CoreCompileInputs.cache
 C:\Users\admin\Source\Repos\MediTechnology-System2\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.exe
 C:\Users\admin\Source\Repos\MediTechnology-System2\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.pdb
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\bin\Debug\Meditechnology System.exe.config
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\bin\Debug\Meditechnology System.exe
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\bin\Debug\Meditechnology System.pdb
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.csproj.AssemblyReference.cache
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.csproj.SuggestedBindingRedirects.cache
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.AddPatient.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.AdminAccounts.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.AdminAddEmployee.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.AdministratorHistory.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.Adminstrator.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.DoctorScreen.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.Form1.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryAddItem.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryEdit.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryRemove.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryScreen.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryUpdate.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.NurseScreen.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.PharmacyScreen.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.Prescription.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.Properties.Resources.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.ViewPrescription.resources
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.csproj.GenerateResource.cache
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.csproj.CoreCompileInputs.cache
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.exe
+C:\Users\justi\Source\Repos\MediTechnology-Systemssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.pdb
