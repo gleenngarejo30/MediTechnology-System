@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Meditechnology_System
 {
@@ -18,11 +20,19 @@ namespace Meditechnology_System
 		public Prescription()
 		{
 			InitializeComponent();
-		}
+
+            prescriptionList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            prescriptionList.ReadOnly = true;
+        }
 		private void Prescription_Load(object sender, EventArgs e)
 		{
 			patientNameLBL.Text = prescriptionDetails.getPatientName();
-		}
+
+            foreach (DataRow dr in SqlQueries.PrescriptionMedicineLoadQuery().Rows)
+            {
+                medCB.Items.Add(dr["medName"].ToString());
+            }
+        }
 		private void reserveBTN_Click(object sender, EventArgs e)
 		{
 			prescriptionDetails.setReserved(true);
@@ -80,6 +90,35 @@ namespace Meditechnology_System
         {
             showDoctor();
             this.Hide();
+        }
+
+        private void medCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectmed = medCB.Text.ToString();
+			SqlDataReader dr = SqlQueries.PrescriptionMedicineSelectQuery(selectmed);
+
+            if (dr.Read())
+			{
+				QuantityLBL.Text = dr["quantity"].ToString();
+				IssuedDateLBL.Text = dr["issuedate"].ToString();
+                ExpirationLBL.Text = dr["expirationdate"].ToString();
+
+            }
+        }
+
+        private void remarksTxtBox_KeyDown(object sender, KeyEventArgs e)
+        {
+			string remarks;
+			if (e.KeyCode == Keys.Enter)
+			{
+                remarks = remarksTxtBox.Text.ToString();
+                listBox1.Items.Add(remarks);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
         }
     }
 }

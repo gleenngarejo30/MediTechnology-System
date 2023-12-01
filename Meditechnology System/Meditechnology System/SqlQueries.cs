@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Meditechnology_System
@@ -173,6 +174,63 @@ namespace Meditechnology_System
             var DoctorSelectexe = DoctorSelectcmd.ExecuteReader();
             DataTable table = new DataTable();
             table.Load(DoctorSelectexe);
+            con.Close();
+            return table;
+        }
+
+        public static DataTable PrescriptionMedicineLoadQuery()
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string MedicineSearch = "SELECT medName FROM MedicineTBL";
+            SqlCommand MedicineSearchcmd = new SqlCommand(MedicineSearch, con);
+            var MedicineSearchexe = MedicineSearchcmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(MedicineSearchexe);
+            con.Close();
+            return table;
+        }
+
+        public static SqlDataReader PrescriptionMedicineSelectQuery(string medname)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string DoctorSelect = "SELECT quantity, issuedate, expirationdate FROM MedicineTBL WHERE medName = '" + medname +"'";
+            SqlCommand DoctorSelectcmd = new SqlCommand(DoctorSelect, con);
+            SqlDataReader DoctorSelectexe = DoctorSelectcmd.ExecuteReader();
+            return DoctorSelectexe;
+    
+        }
+
+        public static DataTable PrescriptionMedicineSelectQuery1(string getname)
+        {
+            int prescriptionIDnew = 0;
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            //prescriptionID increment
+            string prescriptionIDadd = "SELECT MAX(prescriptionID) AS max_prescriptionID FROM TransactInfoTBL";
+            SqlCommand prescriptionIDaddcmd = new SqlCommand(prescriptionIDadd, con);
+            SqlDataReader prescriptionIDaddexe = prescriptionIDaddcmd.ExecuteReader();
+            if (prescriptionIDaddexe.HasRows)
+            {
+                prescriptionIDaddexe.Read();
+                try
+                {
+                    prescriptionIDnew = (prescriptionIDaddexe.GetInt32(0) + 1);
+                }
+                catch (SqlNullValueException)
+                {
+                    prescriptionIDnew = 8000001;
+                }
+            }
+
+            con.Open();
+            string select = "";
+            SqlCommand selectcmd = new SqlCommand(select, con);
+            var selectexe = selectcmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(selectexe);
             con.Close();
             return table;
         }

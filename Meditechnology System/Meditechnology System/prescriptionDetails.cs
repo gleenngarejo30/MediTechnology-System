@@ -14,9 +14,10 @@ namespace Meditechnology_System
 		public static ArrayList medAvailability = new ArrayList();
 
 		public static String reserved = "PRESCRIPTION";
-		public static String patientName;
+		public static string patientID;
+        public static string patientName;
 
-		public static void setMedName(string meds) {
+        public static void setMedName(string meds) {
 			medName.Add(meds);
 		}
 		public static void setMedQuantity(int quantity)
@@ -27,14 +28,23 @@ namespace Meditechnology_System
 		{
 			medAvailability.Add(availability);
 		}
-
-		public static void setPatientName(String name) {
-			patientName = name;
+		//important vv
+		public static void setPatientID(string pID) {
+            patientID = pID;
 		}
-		public static String getPatientName() {
-			return patientName;
+		public static string getPatientID()
+		{
+			return patientID;
 		}
-		public static void setReserved(Boolean isReserved) {
+		public static void setPatientName(string pName) {
+			patientName = pName;
+		}
+        public static string getPatientName()
+        {
+            return patientName;
+        }
+		//important ^^
+        public static void setReserved(Boolean isReserved) {
 			if (isReserved)
 				reserved = "RESERVED PRESCRIPTION";
 			else

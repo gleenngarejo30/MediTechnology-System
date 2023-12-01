@@ -27,10 +27,31 @@ namespace Meditechnology_System
 
 		private void prescriptionBTN_Click(object sender, EventArgs e)
 		{
-            prescriptionDetails.setPatientName(NametxtBox.Text);
-            var prescription = new Prescription();
-            prescription.Show();
-            this.Hide();
+            string refnum = "";
+            string name = "";
+            try
+            {
+                refnum = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                name = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+
+                if (refnum == "")
+                {
+                    MessageBox.Show("Please select a Patient");
+                }
+                else
+                {
+                    prescriptionDetails.setPatientID(refnum);
+                    prescriptionDetails.setPatientName(name);
+                    var prescription = new Prescription();
+                    prescription.Show();
+                    this.Hide();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Please select a Patient");
+            }
+
 		}
 		private void DoctorScreen_FormClosed(object sender, FormClosedEventArgs e)
 		{
@@ -45,7 +66,6 @@ namespace Meditechnology_System
 			Form1 form1 = new Form1();
 			form1.Show();
 		}
-        // di tapos
         private void Searchbtn_Click(object sender, EventArgs e)
         {
             string searchname;
@@ -57,7 +77,6 @@ namespace Meditechnology_System
                 dataGridView1.Columns.Clear();
                 dataGridView1.Refresh();
                 dataGridView1.DataSource = SqlQueries.DoctorScreenPatientSelectQuery(searchname, searchrefnum);
-                NametxtBox.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             }
             catch(FormatException) {
                 searchname = NametxtBox.Text.ToString();
@@ -65,6 +84,15 @@ namespace Meditechnology_System
                 dataGridView1.Columns.Clear();
                 dataGridView1.Refresh();
                 dataGridView1.DataSource = SqlQueries.DoctorScreenPatientSelectQuery(searchname, searchrefnum);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dataGridView1.CurrentCell.Value != null)
+            {
+                NametxtBox.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             }
         }
     }
