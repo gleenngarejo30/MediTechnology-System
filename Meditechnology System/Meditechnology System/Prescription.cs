@@ -37,31 +37,51 @@ namespace Meditechnology_System
         }
 		private void reserveBTN_Click(object sender, EventArgs e)
 		{
-			try
-			{
-				DataTable dt = datagridExport(prescriptionList);
-				prescriptionDetails.setDataGrid(dt);
-				var name1 = dt.Rows[0][1];
-			}
-			catch(Exception ex)
-			{
-				MessageBox.Show(ex.Message);
-			}
+            if (!(remarksLB.Items.Count == 0) && !(prescriptionList.RowCount == 1))
+                {
+                try
+                {
+                    DataTable dt = datagridExport(prescriptionList);
+                    prescriptionDetails.setDataGrid(dt);
+                    var name1 = dt.Rows[0][1];
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
-			prescriptionDetails.setReserved(true);
-			ArrayList remarkArray =new ArrayList(remarksLB.Items);
-			MessageBox.Show(remarkArray.ToString());
-			prescriptionDetails.setRemarks(remarkArray);
+                prescriptionDetails.setReserved(true);
+                ArrayList remarkArray = new ArrayList(remarksLB.Items);
+                prescriptionDetails.setRemarks(remarkArray);
 
-			showViewPrescription();
-			this.Hide();
-		}
+                showViewPrescription();
+                this.Hide();
+            }
+
+        }
 		private void prescribeBtn_Click(object sender, EventArgs e)
 		{
-			prescriptionDetails.setReserved(false);
-			showViewPrescription();
-			this.Hide();
-		}
+            if (!(remarksLB.Items.Count == 0) && !(prescriptionList.RowCount == 1))
+            {
+                try
+                {
+                    DataTable dt = datagridExport(prescriptionList);
+                    prescriptionDetails.setDataGrid(dt);
+                    var name1 = dt.Rows[0][1];
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                prescriptionDetails.setReserved(false);
+                ArrayList remarkArray = new ArrayList(remarksLB.Items);
+                prescriptionDetails.setRemarks(remarkArray);
+
+                showViewPrescription();
+                this.Hide();
+            }
+        }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
@@ -72,17 +92,16 @@ namespace Meditechnology_System
             else
 				isAvailable = false;
 
-			DataGridViewRow row = (DataGridViewRow)prescriptionList.Rows[0].Clone();
-            row.Cells[0].Value = medCB.Text;
-            row.Cells[1].Value = quantityTB.Text;
-            row.Cells[2].Value = isAvailable;
+            prescriptionList.Rows.Add(medCB.Text, quantityTB.Text, isAvailable);
 
-			prescriptionList.Rows.Add(row);
         }
 		private void removeBTN_Click(object sender, EventArgs e){
 			foreach (DataGridViewRow item in this.prescriptionList.SelectedRows)
 			{
-				prescriptionList.Rows.RemoveAt(item.Index);
+                if (!(prescriptionList.RowCount == 1))
+                {
+                    prescriptionList.Rows.RemoveAt(item.Index);
+                }
 			}
 		}
 		private void BackBtn_Click(object sender, EventArgs e)

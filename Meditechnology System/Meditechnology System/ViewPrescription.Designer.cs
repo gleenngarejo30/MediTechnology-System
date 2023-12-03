@@ -116,9 +116,9 @@
             this.DoctorNameLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.DoctorNameLBL.Location = new System.Drawing.Point(239, 165);
             this.DoctorNameLBL.Name = "DoctorNameLBL";
-            this.DoctorNameLBL.Size = new System.Drawing.Size(35, 13);
+            this.DoctorNameLBL.Size = new System.Drawing.Size(55, 13);
             this.DoctorNameLBL.TabIndex = 9;
-            this.DoctorNameLBL.Text = "Name";
+            this.DoctorNameLBL.Text = "Jose Rizal";
             // 
             // DoctorContactNumberLBL
             // 
@@ -126,9 +126,9 @@
             this.DoctorContactNumberLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.DoctorContactNumberLBL.Location = new System.Drawing.Point(239, 180);
             this.DoctorContactNumberLBL.Name = "DoctorContactNumberLBL";
-            this.DoctorContactNumberLBL.Size = new System.Drawing.Size(73, 13);
+            this.DoctorContactNumberLBL.Size = new System.Drawing.Size(67, 13);
             this.DoctorContactNumberLBL.TabIndex = 10;
-            this.DoctorContactNumberLBL.Text = "09000000000";
+            this.DoctorContactNumberLBL.Text = "0931239783";
             // 
             // DateLBL
             // 
@@ -309,6 +309,7 @@
             // 
             // prescriptionList
             // 
+            this.prescriptionList.AllowUserToAddRows = false;
             this.prescriptionList.AllowUserToResizeColumns = false;
             this.prescriptionList.AllowUserToResizeRows = false;
             this.prescriptionList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;

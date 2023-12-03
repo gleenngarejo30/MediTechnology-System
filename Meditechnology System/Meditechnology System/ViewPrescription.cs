@@ -49,7 +49,13 @@ namespace Meditechnology_System
 			DateLBL.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
 			//Remarks
-                remarksLB.Items.Add(prescriptionDetails.medRemarks);
+			ArrayList arr = prescriptionDetails.getRemarks();
+            foreach (var item in arr)
+            {
+                remarksLB.Items.Add(item);
+            }
+
+            prescriptionList.Rows.RemoveAt(prescriptionList.RowCount - 1);
 
         }
 		private void backBtn_Click(object sender, EventArgs e)
@@ -59,10 +65,22 @@ namespace Meditechnology_System
 		}
 		private void SendSaveBtn_Click(object sender, EventArgs e)
 		{
-			DoctorScreen doctorScreen = new DoctorScreen();
+			int referencenum = SqlQueries.ViewPrescriptionID();
+			int patientnum = Convert.ToInt32(prescriptionDetails.getPatientID());
+			string doctorContactnum = DoctorContactNumberLBL.Text.ToString();
+            string date = DateLBL.Text.ToString();
+			string age = AgeLBL.Text.ToString();
+
+			string d = ;
+
+
+
+
+            DoctorScreen doctorScreen = new DoctorScreen();
 			doctorScreen.Show();
 			this.Hide();
 		}
+
 		private void ViewPrescription_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			showPrescription();

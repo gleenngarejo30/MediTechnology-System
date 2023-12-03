@@ -144,7 +144,7 @@ namespace Meditechnology_System
 		//EXIT
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
-			Application.Exit();
+            Environment.Exit(0);
 		}
 	}
 }

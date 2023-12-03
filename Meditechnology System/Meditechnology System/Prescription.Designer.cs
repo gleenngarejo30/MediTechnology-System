@@ -250,6 +250,7 @@
             // 
             // prescriptionList
             // 
+            this.prescriptionList.AllowUserToAddRows = false;
             this.prescriptionList.AllowUserToResizeColumns = false;
             this.prescriptionList.AllowUserToResizeRows = false;
             this.prescriptionList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
