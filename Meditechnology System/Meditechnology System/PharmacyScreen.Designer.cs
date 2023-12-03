@@ -372,9 +372,9 @@
             this.doctorNameTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.doctorNameTXT.Location = new System.Drawing.Point(150, 172);
             this.doctorNameTXT.Name = "doctorNameTXT";
-            this.doctorNameTXT.Size = new System.Drawing.Size(97, 13);
+            this.doctorNameTXT.Size = new System.Drawing.Size(55, 13);
             this.doctorNameTXT.TabIndex = 53;
-            this.doctorNameTXT.Text = "- - - - - - - - - - - - - - - ";
+            this.doctorNameTXT.Text = "Jose Rizal";
             // 
             // PharmacyScreen
             // 
