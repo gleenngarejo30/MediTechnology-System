@@ -34,8 +34,6 @@
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label16 = new System.Windows.Forms.Label();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.reference = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.refNumTXT = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +43,8 @@
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label7 = new System.Windows.Forms.Label();
+			this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.reference = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -130,18 +130,6 @@
 			this.dataGridView1.TabIndex = 0;
 			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
 			// 
-			// name
-			// 
-			this.name.HeaderText = "Patient";
-			this.name.MinimumWidth = 8;
-			this.name.Name = "name";
-			// 
-			// reference
-			// 
-			this.reference.HeaderText = "Reference";
-			this.reference.MinimumWidth = 8;
-			this.reference.Name = "reference";
-			// 
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.SystemColors.Control;
@@ -172,9 +160,9 @@
 			this.label3.Location = new System.Drawing.Point(24, 94);
 			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(86, 20);
+			this.label3.Size = new System.Drawing.Size(125, 30);
 			this.label3.TabIndex = 10;
-			this.label3.Text = "Reference";
+			this.label3.Text = "Patient ID";
 			// 
 			// NametxtBox
 			// 
@@ -243,6 +231,18 @@
 			this.label7.TabIndex = 27;
 			this.label7.Text = "MEDITECH";
 			// 
+			// name
+			// 
+			this.name.HeaderText = "Name";
+			this.name.MinimumWidth = 8;
+			this.name.Name = "name";
+			// 
+			// reference
+			// 
+			this.reference.HeaderText = "Reference";
+			this.reference.MinimumWidth = 8;
+			this.reference.Name = "reference";
+			// 
 			// DoctorScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -258,6 +258,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "DoctorScreen";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DoctorScreen_FormClosed);
+			this.Load += new System.EventHandler(this.DoctorScreen_Load);
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -283,10 +284,10 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox refNumTXT;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn name;
-		private System.Windows.Forms.DataGridViewTextBoxColumn reference;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label7;
-    }
+		private System.Windows.Forms.DataGridViewTextBoxColumn name;
+		private System.Windows.Forms.DataGridViewTextBoxColumn reference;
+	}
 }

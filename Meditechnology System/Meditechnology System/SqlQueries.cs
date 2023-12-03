@@ -169,7 +169,6 @@ namespace Meditechnology_System
         public static DataTable DoctorScreenPatientSelectQuery(string name, int id)
         {
             SqlConnection con = new SqlConnection(ConnectionString);
-            //dito nag eerror pag nag search sa dcotor screen
             con.Open();
             string DoctorSelect = "SELECT CONCAT(firstName, ' ', middleName, ' ', lastName) AS FullName, patientID FROM PatientTBL WHERE firstName LIKE '" + name + "%' OR patientID = " + id;
             SqlCommand DoctorSelectcmd = new SqlCommand(DoctorSelect, con);

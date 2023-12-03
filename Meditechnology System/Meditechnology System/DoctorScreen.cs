@@ -16,9 +16,12 @@ namespace Meditechnology_System
         {
             InitializeComponent();
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.ReadOnly = true;
         }
-        private void AddPatientBtn_Click(object sender, EventArgs e)
+		private void DoctorScreen_Load(object sender, EventArgs e)
+		{
+			Searchbtn_Click(sender, e);
+		}
+		private void AddPatientBtn_Click(object sender, EventArgs e)
         {
             AddPatient addPatient = new AddPatient();
             addPatient.Show();
@@ -30,17 +33,14 @@ namespace Meditechnology_System
 			string refnum = "";
 			string name = "";
 
-            if (NametxtBox.Text.Equals("")) {
-                MessageBox.Show("doctor screen");
-            }
-            else{
-                refnum = refNumTXT.Text.ToString();
-                prescriptionDetails.setPatientID(refnum);
-                name = NametxtBox.Text.ToString();
-                prescriptionDetails.setPatientName(name);
-                var pres = new Prescription();
-                pres.Show();
-                this.Hide();
+			if (!dataGridView1.SelectedRows[0].Cells[1].Value.ToString().Equals("")) {
+			    refnum = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+				prescriptionDetails.setPatientID(refnum);
+				name = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+				prescriptionDetails.setPatientName(name);
+				var pres = new Prescription();
+				pres.Show();
+				this.Hide();
 			}
 		}
 		private void DoctorScreen_FormClosed(object sender, FormClosedEventArgs e)
@@ -76,7 +76,6 @@ namespace Meditechnology_System
                 dataGridView1.DataSource = SqlQueries.DoctorScreenPatientSelectQuery(searchname, searchrefnum);
             }
         }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if(dataGridView1.CurrentCell.Value != null)
@@ -85,5 +84,7 @@ namespace Meditechnology_System
                 refNumTXT.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             }
         }
-    }
+
+
+	}
 }
