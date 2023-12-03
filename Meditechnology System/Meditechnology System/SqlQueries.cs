@@ -18,9 +18,10 @@ namespace Meditechnology_System
         //public static string ConnectionString = "Data Source=DESKTOP-6ABT2HR\\SQLEXPRESS;Initial Catalog=Pharmacy;Integrated Security=True";
         public static string ConnectionString = "Data Source=justinstudent.database.windows.net;Initial Catalog=Pharmacy1;Persist Security Info=True;User ID=justin;Password=mediTechnology!23";
 
-		public static void AddPatientQuery(string firstname, string lastname, string middlename, int age, string sex, string email, string contactnum)
+        public static void AddPatientQuery(string firstname, string lastname, string middlename, int age, string sex, string email, string contactnum)
         {
             int patientIDnew = 0;
+            int infoIDnew = 0;
 
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
@@ -43,8 +44,34 @@ namespace Meditechnology_System
             con.Close();
 
             con.Open();
-            string PatientTBLadd = "INSERT INTO PatientTBL (patientID, firstName, lastName, middleName, age, sex, email, contactNum) " +
-                "VALUES ('" +  patientIDnew + "','" + firstname + "','" + lastname + "','" + middlename + "','" + age + "','" + sex + "','" + email + "','" + contactnum + "')";
+            //infoID increment
+            string infoIDadd = "SELECT MAX(patientID) AS max_patientID FROM PatientTBL";
+            SqlCommand infoIDaddcmd = new SqlCommand(infoIDadd, con);
+            SqlDataReader infoIDaddexe = infoIDaddcmd.ExecuteReader();
+            if (infoIDaddexe.HasRows)
+            {
+                infoIDaddexe.Read();
+                try
+                {
+                    infoIDnew = (infoIDaddexe.GetInt32(0) + 1);
+                }
+                catch (SqlNullValueException)
+                {
+                    infoIDnew = 10000001;
+                }
+            }
+            con.Close();
+
+            con.Open();
+            string InformationTBLadd = "INSERT INTO InformationTBL ([infoID],[age],[sex],[email],[contactNum]) " +
+                "VALUES ('" + infoIDnew + "','" + age + "','" + sex + "','" + email + "','" + contactnum + "')";
+            SqlCommand InformationTBLaddcmd = new SqlCommand(InformationTBLadd, con);
+            InformationTBLaddcmd.ExecuteNonQuery();
+            con.Close();
+
+            con.Open();
+            string PatientTBLadd = "INSERT INTO PatientTBL ([patientID],[firstName],[lastName],[middleName],[infoID]) " +
+                "VALUES ('" + patientIDnew + "','" + firstname + "','" + lastname + "','" + middlename + "','" + infoIDnew + "')";
             SqlCommand PatientTBLaddcmd = new SqlCommand(PatientTBLadd, con);
             PatientTBLaddcmd.ExecuteNonQuery();
             con.Close();
@@ -196,14 +223,14 @@ namespace Meditechnology_System
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
-            string DoctorSelect = "SELECT quantity, issuedate, expirationdate FROM MedicineTBL WHERE medName = '" + medname +"'";
+            string DoctorSelect = "SELECT MedicineTBL.medName, MedicineLotTBL.quantity FROM MedicineTBL INNER JOIN MedicineLotTBL ON MedicineLotTBL.medicineID = MedicineTBL.medicineID WHERE MedicineTBL.medName = '" + medname + "'";
             SqlCommand DoctorSelectcmd = new SqlCommand(DoctorSelect, con);
             SqlDataReader DoctorSelectexe = DoctorSelectcmd.ExecuteReader();
             return DoctorSelectexe;
-    
+
         }
 
-        public static DataTable PrescriptionMedicineSelectQuery1(string getname)
+        /*public static DataTable PrescriptionMedicineSelectQuery1(string getname)
         {
             int prescriptionIDnew = 0;
 
@@ -234,6 +261,42 @@ namespace Meditechnology_System
             table.Load(selectexe);
             con.Close();
             return table;
+        }*/
+
+        public static int ViewPrescriptionID()
+        {
+            int refnumber = 0;
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            //prescription increment
+            string refnumberadd = "SELECT MAX(prescriptionID) AS prescriptionID FROM PrescriptionTBL";
+            SqlCommand refnumberaddcmd = new SqlCommand(refnumberadd, con);
+            SqlDataReader exe = refnumberaddcmd.ExecuteReader();
+
+            if (exe.HasRows)
+            {
+                exe.Read();
+                try
+                {
+                    refnumber = (exe.GetInt32(0) + 1);
+                }
+                catch (SqlNullValueException)
+                {
+                    refnumber = 8000001;
+                }
+            }
+            return refnumber;
+        }
+
+        public static SqlDataReader ViewPrescriptionPatientInfo(string id)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            //prescription increment
+            string add = "SELECT InformationTBL.age, InformationTBL.sex FROM InformationTBL INNER JOIN PatientTBL ON PatientTBL.infoID = InformationTBL.infoID WHERE PatientTBL.patientID = '" + id + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            SqlDataReader exe = cmd.ExecuteReader();
+            return exe;
         }
     }
 }

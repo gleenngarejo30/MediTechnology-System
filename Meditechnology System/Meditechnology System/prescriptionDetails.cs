@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +13,12 @@ namespace Meditechnology_System
 		public static ArrayList medName = new ArrayList();
 		public static ArrayList medQuantity = new ArrayList();
 		public static ArrayList medAvailability = new ArrayList();
+		public static ArrayList medRemarks;
 
 		public static String reserved = "PRESCRIPTION";
 		public static string patientID;
         public static string patientName;
+		public static DataTable datatable;
 
         public static void setMedName(string meds) {
 			medName.Add(meds);
@@ -44,6 +47,26 @@ namespace Meditechnology_System
             return patientName;
         }
 		//important ^^
+
+		//getDataGridView
+		public static void setDataGrid(DataTable dt)
+		{
+			datatable = dt;
+		}
+        public static DataTable getDataGrid()
+        {
+            return datatable;
+        }
+		//getRemarks
+		public static void setRemarks(ArrayList remarks)
+		{
+			medRemarks = remarks;
+		}
+		public static ArrayList getRemarks()
+		{
+			return medRemarks;
+		}
+
         public static void setReserved(Boolean isReserved) {
 			if (isReserved)
 				reserved = "RESERVED PRESCRIPTION";

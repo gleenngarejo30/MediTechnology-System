@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,7 @@ namespace Meditechnology_System
         }
 		private void Prescription_Load(object sender, EventArgs e)
 		{
+
 			patientNameLBL.Text = prescriptionDetails.getPatientName();
 
             foreach (DataRow dr in SqlQueries.PrescriptionMedicineLoadQuery().Rows)
@@ -35,10 +37,24 @@ namespace Meditechnology_System
         }
 		private void reserveBTN_Click(object sender, EventArgs e)
 		{
+			try
+			{
+				DataTable dt = datagridExport(prescriptionList);
+				prescriptionDetails.setDataGrid(dt);
+				var name1 = dt.Rows[0][1];
+			}
+			catch(Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+
 			prescriptionDetails.setReserved(true);
 			showViewPrescription();
 			this.Hide();
-		}
+
+            ArrayList remarkArray = new ArrayList(remarksLB.Items);
+			prescriptionDetails.setRemarks(remarkArray);
+        }
 		private void prescribeBtn_Click(object sender, EventArgs e)
 		{
 			prescriptionDetails.setReserved(false);
@@ -100,9 +116,6 @@ namespace Meditechnology_System
             if (dr.Read())
 			{
 				QuantityLBL.Text = dr["quantity"].ToString();
-				IssuedDateLBL.Text = dr["issuedate"].ToString();
-                ExpirationLBL.Text = dr["expirationdate"].ToString();
-
             }
         }
 
@@ -112,13 +125,32 @@ namespace Meditechnology_System
 			if (e.KeyCode == Keys.Enter)
 			{
                 remarks = remarksTxtBox.Text.ToString();
-                listBox1.Items.Add(remarks);
+                remarksLB.Items.Add(remarks);
             }
         }
 		private void removeRemarkBTN_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Remove(listBox1.SelectedItem);
+			remarksLB.Items.Remove(remarksLB.SelectedItem);
 			//listBox1.Items.Clear();
+		}
+
+		private static DataTable datagridExport(DataGridView dgv)
+		{
+			DataTable dt = new DataTable();
+			foreach(DataGridViewColumn clm in dgv.Columns)
+			{
+				dt.Columns.Add(clm.Name);
+			}
+			foreach(DataGridViewRow row in dgv.Rows)
+			{
+				DataRow d = dt.NewRow();
+				foreach(DataGridViewCell cell in row.Cells)
+				{
+					d[cell.ColumnIndex] = cell.Value;
+				}
+				dt.Rows.Add(d);
+			}
+			return dt;
 		}
 	}
 }
