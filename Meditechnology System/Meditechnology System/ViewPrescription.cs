@@ -71,7 +71,7 @@ namespace Meditechnology_System
             string date = DateLBL.Text.ToString();
 			string age = AgeLBL.Text.ToString();
 
-			string d = ;
+			string remarks = ;
 
 
 
