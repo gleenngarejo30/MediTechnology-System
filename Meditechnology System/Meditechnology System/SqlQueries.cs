@@ -16,7 +16,7 @@ namespace Meditechnology_System
     public class SqlQueries
     {
         //public static string ConnectionString = "Data Source=DESKTOP-6ABT2HR\\SQLEXPRESS;Initial Catalog=Pharmacy;Integrated Security=True";
-        public static string ConnectionString = "Data Source=localhost\\SQLEXPRESS02;Initial Catalog=Pharmacy;Integrated Security=True";
+        public static string ConnectionString = "Data Source=justinstudent.database.windows.net;Initial Catalog=Pharmacy1;Persist Security Info=True;User ID=justin;Password=***********";
 
 		public static void AddPatientQuery(string firstname, string lastname, string middlename, int age, string sex, string email, string contactnum)
         {
@@ -169,6 +169,7 @@ namespace Meditechnology_System
         public static DataTable DoctorScreenPatientSelectQuery(string name, int id)
         {
             SqlConnection con = new SqlConnection(ConnectionString);
+            //dito nag eerror pag nag search sa dcotor screen
             con.Open();
             string DoctorSelect = "SELECT CONCAT(firstName, ' ', middleName, ' ', lastName) AS FullName, patientID FROM PatientTBL WHERE firstName LIKE '" + name + "%' OR patientID = " + id;
             SqlCommand DoctorSelectcmd = new SqlCommand(DoctorSelect, con);
