@@ -36,7 +36,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.Processbtn = new System.Windows.Forms.Button();
             this.MedicineListView = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.refNumCB = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -149,15 +149,15 @@
             this.MedicineListView.Size = new System.Drawing.Size(283, 108);
             this.MedicineListView.TabIndex = 11;
             // 
-            // comboBox1
+            // refNumCB
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(153, 90);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 21);
-            this.comboBox1.TabIndex = 12;
+            this.refNumCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.refNumCB.FormattingEnabled = true;
+            this.refNumCB.Location = new System.Drawing.Point(153, 90);
+            this.refNumCB.Margin = new System.Windows.Forms.Padding(2);
+            this.refNumCB.Name = "refNumCB";
+            this.refNumCB.Size = new System.Drawing.Size(187, 21);
+            this.refNumCB.TabIndex = 12;
             // 
             // panel2
             // 
@@ -196,11 +196,11 @@
             // 
             this.NameLBL.AutoSize = true;
             this.NameLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.NameLBL.Location = new System.Drawing.Point(82, 173);
+            this.NameLBL.Location = new System.Drawing.Point(53, 172);
             this.NameLBL.Name = "NameLBL";
-            this.NameLBL.Size = new System.Drawing.Size(35, 13);
+            this.NameLBL.Size = new System.Drawing.Size(70, 13);
             this.NameLBL.TabIndex = 38;
-            this.NameLBL.Text = "Name";
+            this.NameLBL.Text = "Doctor Name";
             // 
             // AgeLBL
             // 
@@ -398,7 +398,7 @@
             this.Controls.Add(this.AgeLBL);
             this.Controls.Add(this.NameLBL);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.refNumCB);
             this.Controls.Add(this.MedicineListView);
             this.Controls.Add(this.Processbtn);
             this.Controls.Add(this.label5);
@@ -411,6 +411,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PharmacyScreen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PharmacyScreen_FormClosed);
+            this.Load += new System.EventHandler(this.PharmacyScreen_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -429,7 +430,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Processbtn;
         private System.Windows.Forms.ListBox MedicineListView;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.ComboBox refNumCB;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;

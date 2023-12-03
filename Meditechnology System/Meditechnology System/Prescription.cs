@@ -37,7 +37,7 @@ namespace Meditechnology_System
         }
 		private void reserveBTN_Click(object sender, EventArgs e)
 		{
-            if (!(remarksLB.Items.Count == 0) && !(prescriptionList.RowCount == 1))
+            if (!(remarksLB.Items.Count == 0) && !(prescriptionList.RowCount == 0))
                 {
                 try
                 {
@@ -61,7 +61,7 @@ namespace Meditechnology_System
         }
 		private void prescribeBtn_Click(object sender, EventArgs e)
 		{
-            if (!(remarksLB.Items.Count == 0) && !(prescriptionList.RowCount == 1))
+            if (!(remarksLB.Items.Count == 0) && !(prescriptionList.RowCount == 0))
             {
                 try
                 {
@@ -79,6 +79,8 @@ namespace Meditechnology_System
                 prescriptionDetails.setRemarks(remarkArray);
 
                 showViewPrescription();
+                var prescription = new ViewPrescription();
+                prescription.Show();
                 this.Hide();
             }
         }

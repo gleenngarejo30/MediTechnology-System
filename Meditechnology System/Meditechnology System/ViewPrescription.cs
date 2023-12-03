@@ -54,9 +54,6 @@ namespace Meditechnology_System
             {
                 remarksLB.Items.Add(item);
             }
-
-            prescriptionList.Rows.RemoveAt(prescriptionList.RowCount - 1);
-
         }
 		private void backBtn_Click(object sender, EventArgs e)
 		{
@@ -70,16 +67,51 @@ namespace Meditechnology_System
 			string doctorContactnum = DoctorContactNumberLBL.Text.ToString();
             string date = DateLBL.Text.ToString();
 			string age = AgeLBL.Text.ToString();
+            string isReserved = "TRUE";
+            string isActive = "TRUE";
 
-			string remarks = ;
+            //remarks
+            StringBuilder remarks = new StringBuilder();
 
+            foreach (var item in remarksLB.Items)
+            {
+                remarks.Append(item.ToString());
+                remarks.Append('\t'); // Tab character
+            }
+            if (remarksLB.Items.Count > 0)
+            {
+                remarks.Length--; // Remove the last character (which is the last tab)
+            }
 
+            string allItems = remarks.ToString();
 
+            //listMedicine
+            int columnIndex = 0; // Index of the column you want to extract (zero-based index)
+            int rowCount = prescriptionList.Rows.Count;
+
+            object[] medicineValues = new object[rowCount];
+
+            for (int i = 0; i < rowCount; i++)
+            {
+                medicineValues[i] = prescriptionList.Rows[i].Cells[columnIndex].Value;
+            }
+
+            columnIndex = 1;
+            rowCount = prescriptionList.Rows.Count;
+
+            object[] quantityValues = new object[rowCount];
+
+            for (int i = 0; i < rowCount; i++)
+            {
+                quantityValues[i] = prescriptionList.Rows[i].Cells[columnIndex].Value;
+            }
+
+            SqlQueries.ViewPrescriptionTransferQuery(referencenum, patientnum, doctorContactnum, date, age, allItems, medicineValues, quantityValues, isReserved, isActive);
 
             DoctorScreen doctorScreen = new DoctorScreen();
-			doctorScreen.Show();
-			this.Hide();
-		}
+            doctorScreen.Show();
+            this.Hide();
+        }
 
 		private void ViewPrescription_FormClosed(object sender, FormClosedEventArgs e)
 		{

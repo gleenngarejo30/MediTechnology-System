@@ -20,6 +20,16 @@ namespace Meditechnology_System
 
 
         }
+
+        private void PharmacyScreen_Load(object sender, EventArgs e)
+        {
+
+            foreach (DataRow dr in SqlQueries.PharmacyScreenLoadQuery().Rows)
+            {
+                refNumCB.Items.Add(dr["prescriptionID"].ToString());
+            }
+        }
+
         private void LogoutBtn_Click(object sender, EventArgs e)
 		{
 			showLogin();

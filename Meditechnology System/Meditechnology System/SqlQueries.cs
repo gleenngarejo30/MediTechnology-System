@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -297,6 +298,67 @@ namespace Meditechnology_System
             SqlCommand cmd = new SqlCommand(add, con);
             SqlDataReader exe = cmd.ExecuteReader();
             return exe;
+        }
+
+        public static void ViewPrescriptionTransferQuery(int refnum, int pID, string doctorCnum, string date, string age, string remarks, object[] prescribedMeds, object[] prescribedQuantity, string isreserved, string isactive)
+        {
+            int doctorID = 0;
+            int medID = 0;
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT EmployeeTBL.employeeID FROM EmployeeTBL INNER JOIN InformationTBL ON InformationTBL.infoID = EmployeeTBL.infoID WHERE InformationTBL.contactNum = '" + doctorCnum + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            SqlDataReader exe = cmd.ExecuteReader();
+            exe.Read();
+            doctorID  = (exe.GetInt32(0));
+            con.Close();
+
+
+            con.Open();
+            string add2 = "INSERT INTO PrescriptionTBL ([prescriptionID],[employeeID],[patientID],[doctorNotes],[date],[isReserved],[isActive]) " +
+                "VALUES ('" + refnum + "','" + doctorID + "','" + pID + "','" + remarks + "','" + date + "','" + isreserved + "','" + isactive + "')";
+            SqlCommand cmd2 = new SqlCommand(add2, con);
+            cmd2.ExecuteNonQuery();
+            con.Close();
+
+            int i = 0;
+            foreach (var currentItem in prescribedMeds.ToArray())
+            {
+
+                string meds = prescribedMeds[i].ToString();
+                int quantity = Convert.ToInt32(prescribedQuantity[i].ToString());
+                i++;
+
+                con.Open();
+                string add3 = "SELECT medicineID FROM MedicineTBL WHERE medName = '" + meds + "'";
+                SqlCommand cmd3 = new SqlCommand(add3, con);
+                SqlDataReader exe3 = cmd3.ExecuteReader();
+                exe3.Read();
+                medID = (exe3.GetInt32(0));
+                con.Close();
+
+                con.Open();
+                string add1 = "INSERT INTO MedicinePrescribedTBL ([prescriptionID],[medicineID],[quantity]) " +
+                "VALUES ('" + refnum + "','" + medID + "','" + quantity + "')";
+                SqlCommand cmd1 = new SqlCommand(add1, con);
+                cmd1.ExecuteNonQuery();
+                con.Close();
+
+            }
+        }
+
+        public static DataTable PharmacyScreenLoadQuery()
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT prescriptionID FROM PrescriptionTBL WHERE isActive = 'TRUE'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            var exe = cmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(exe);
+            con.Close();
+            return table;
         }
     }
 }
