@@ -49,12 +49,13 @@ namespace Meditechnology_System
 			}
 
 			prescriptionDetails.setReserved(true);
+			ArrayList remarkArray =new ArrayList(remarksLB.Items);
+			MessageBox.Show(remarkArray.ToString());
+			prescriptionDetails.setRemarks(remarkArray);
+
 			showViewPrescription();
 			this.Hide();
-
-            ArrayList remarkArray = new ArrayList(remarksLB.Items);
-			prescriptionDetails.setRemarks(remarkArray);
-        }
+		}
 		private void prescribeBtn_Click(object sender, EventArgs e)
 		{
 			prescriptionDetails.setReserved(false);

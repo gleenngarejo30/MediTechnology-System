@@ -49,12 +49,7 @@ namespace Meditechnology_System
 			DateLBL.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
 			//Remarks
-			ArrayList arr = prescriptionDetails.getRemarks();
-
-            foreach (var item in arr)
-            {
-                remarksLB.Items.Add(item);
-            }
+                remarksLB.Items.Add(prescriptionDetails.medRemarks);
 
         }
 		private void backBtn_Click(object sender, EventArgs e)
