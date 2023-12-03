@@ -21,6 +21,7 @@ namespace Meditechnology_System
 		public static void AddPatientQuery(string firstname, string lastname, string middlename, int age, string sex, string email, string contactnum)
         {
             int patientIDnew = 0;
+            int infoIDnew = 0;
 
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
@@ -43,8 +44,34 @@ namespace Meditechnology_System
             con.Close();
 
             con.Open();
-            string PatientTBLadd = "INSERT INTO PatientTBL (patientID, firstName, lastName, middleName, age, sex, email, contactNum) " +
-                "VALUES ('" +  patientIDnew + "','" + firstname + "','" + lastname + "','" + middlename + "','" + age + "','" + sex + "','" + email + "','" + contactnum + "')";
+            //infoID increment
+            string infoIDadd = "SELECT MAX(patientID) AS max_patientID FROM PatientTBL";
+            SqlCommand infoIDaddcmd = new SqlCommand(infoIDadd, con);
+            SqlDataReader infoIDaddexe = infoIDaddcmd.ExecuteReader();
+            if (infoIDaddexe.HasRows)
+            {
+                infoIDaddexe.Read();
+                try
+                {
+                    infoIDnew = (infoIDaddexe.GetInt32(0) + 1);
+                }
+                catch (SqlNullValueException)
+                {
+                    infoIDnew = 10000001;
+                }
+            }
+            con.Close();
+
+            con.Open();
+            string InformationTBLadd = "INSERT INTO InformationTBL ([infoID],[age],[sex],[email],[contactNum]) " +
+                "VALUES ('" + infoIDnew + "','" + age + "','" + sex + "','" + email + "','" + contactnum + "')";
+            SqlCommand InformationTBLaddcmd = new SqlCommand(InformationTBLadd, con);
+            InformationTBLaddcmd.ExecuteNonQuery();
+            con.Close();
+
+            con.Open();
+            string PatientTBLadd = "INSERT INTO PatientTBL ([patientID],[firstName],[lastName],[middleName],[infoID]) " +
+                "VALUES ('" +  patientIDnew + "','" + firstname + "','" + lastname + "','" + middlename + "','" + infoIDnew +"')";
             SqlCommand PatientTBLaddcmd = new SqlCommand(PatientTBLadd, con);
             PatientTBLaddcmd.ExecuteNonQuery();
             con.Close();

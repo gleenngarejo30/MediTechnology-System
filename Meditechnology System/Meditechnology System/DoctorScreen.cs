@@ -14,8 +14,17 @@ namespace Meditechnology_System
     {
         public DoctorScreen()
         {
+            string searchname;
+            int searchrefnum;
+
             InitializeComponent();
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            searchname = NametxtBox.Text.ToString();
+            searchrefnum = 0;
+            dataGridView1.Columns.Clear();
+            dataGridView1.Refresh();
+            dataGridView1.DataSource = SqlQueries.DoctorScreenPatientSelectQuery(searchname, searchrefnum);
         }
 		private void DoctorScreen_Load(object sender, EventArgs e)
 		{
