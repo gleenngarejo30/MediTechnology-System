@@ -52,10 +52,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.backIcon = new System.Windows.Forms.PictureBox();
+            this.REMARKSDGV = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionList)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.REMARKSDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // label1N
@@ -212,7 +215,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
-            this.label17.Location = new System.Drawing.Point(100, 314);
+            this.label17.Location = new System.Drawing.Point(19, 314);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(110, 16);
             this.label17.TabIndex = 21;
@@ -223,7 +226,7 @@
             this.SendSaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.SendSaveBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
             this.SendSaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SendSaveBtn.Location = new System.Drawing.Point(185, 574);
+            this.SendSaveBtn.Location = new System.Drawing.Point(196, 574);
             this.SendSaveBtn.Name = "SendSaveBtn";
             this.SendSaveBtn.Size = new System.Drawing.Size(174, 23);
             this.SendSaveBtn.TabIndex = 30;
@@ -238,13 +241,13 @@
             this.prescriptionList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.prescriptionList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.prescriptionList.EnableHeadersVisualStyles = false;
-            this.prescriptionList.Location = new System.Drawing.Point(98, 332);
+            this.prescriptionList.Location = new System.Drawing.Point(22, 332);
             this.prescriptionList.Margin = new System.Windows.Forms.Padding(2);
             this.prescriptionList.MultiSelect = false;
             this.prescriptionList.Name = "prescriptionList";
             this.prescriptionList.RowHeadersWidth = 62;
             this.prescriptionList.RowTemplate.Height = 28;
-            this.prescriptionList.Size = new System.Drawing.Size(371, 214);
+            this.prescriptionList.Size = new System.Drawing.Size(249, 214);
             this.prescriptionList.TabIndex = 32;
             // 
             // label1
@@ -303,7 +306,7 @@
             // backIcon
             // 
             this.backIcon.Image = global::Meditechnology_System.Properties.Resources.back_button;
-            this.backIcon.Location = new System.Drawing.Point(256, 603);
+            this.backIcon.Location = new System.Drawing.Point(273, 603);
             this.backIcon.Name = "backIcon";
             this.backIcon.Size = new System.Drawing.Size(27, 23);
             this.backIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -311,11 +314,39 @@
             this.backIcon.TabStop = false;
             this.backIcon.Click += new System.EventHandler(this.backIcon_Click);
             // 
+            // REMARKSDGV
+            // 
+            this.REMARKSDGV.AllowUserToResizeColumns = false;
+            this.REMARKSDGV.AllowUserToResizeRows = false;
+            this.REMARKSDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.REMARKSDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.REMARKSDGV.EnableHeadersVisualStyles = false;
+            this.REMARKSDGV.Location = new System.Drawing.Point(307, 332);
+            this.REMARKSDGV.Margin = new System.Windows.Forms.Padding(2);
+            this.REMARKSDGV.MultiSelect = false;
+            this.REMARKSDGV.Name = "REMARKSDGV";
+            this.REMARKSDGV.RowHeadersWidth = 62;
+            this.REMARKSDGV.RowTemplate.Height = 28;
+            this.REMARKSDGV.Size = new System.Drawing.Size(249, 214);
+            this.REMARKSDGV.TabIndex = 39;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label5.Location = new System.Drawing.Point(304, 314);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 16);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Remarks:";
+            // 
             // ViewPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 645);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.REMARKSDGV);
             this.Controls.Add(this.backIcon);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
@@ -348,6 +379,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.REMARKSDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,5 +411,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox backIcon;
+        private System.Windows.Forms.DataGridView REMARKSDGV;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -56,7 +56,7 @@ namespace Meditechnology_System
             }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void BackBtn_Click(object sender, EventArgs e)
         {
             NurseScreen nurseScreen = new NurseScreen();
             nurseScreen.Show();

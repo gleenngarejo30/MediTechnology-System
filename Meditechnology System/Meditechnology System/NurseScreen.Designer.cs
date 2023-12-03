@@ -31,13 +31,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.addPatientBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.EditPatientBtn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,18 +79,19 @@
             this.addPatientBtn.UseVisualStyleBackColor = false;
             this.addPatientBtn.Click += new System.EventHandler(this.addPatientBtn_Click);
             // 
-            // button2
+            // EditPatientBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(97, 200);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Edit Patient";
-            this.button2.UseVisualStyleBackColor = false;
+            this.EditPatientBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
+            this.EditPatientBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditPatientBtn.ForeColor = System.Drawing.Color.White;
+            this.EditPatientBtn.Location = new System.Drawing.Point(97, 200);
+            this.EditPatientBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.EditPatientBtn.Name = "EditPatientBtn";
+            this.EditPatientBtn.Size = new System.Drawing.Size(81, 23);
+            this.EditPatientBtn.TabIndex = 4;
+            this.EditPatientBtn.Text = "Edit Patient";
+            this.EditPatientBtn.UseVisualStyleBackColor = false;
+            this.EditPatientBtn.Click += new System.EventHandler(this.EditPatientBtn_Click);
             // 
             // button3
             // 
@@ -138,17 +139,6 @@
             this.panel1.Size = new System.Drawing.Size(619, 65);
             this.panel1.TabIndex = 29;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Meditechnology_System.Properties.Resources.MEDITECH__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(82, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -161,6 +151,17 @@
             this.label7.TabIndex = 27;
             this.label7.Text = "MEDITECH";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Meditechnology_System.Properties.Resources.MEDITECH__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(82, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            // 
             // NurseScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,7 +172,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.EditPatientBtn);
             this.Controls.Add(this.addPatientBtn);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
@@ -194,7 +195,7 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.Button addPatientBtn;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button EditPatientBtn;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.DataGridView dataGridView1;

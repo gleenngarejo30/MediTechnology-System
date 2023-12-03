@@ -56,5 +56,12 @@ namespace Meditechnology_System
             dataGridView1.DataSource = SqlQueries.NurseScreenSelectQuery(getfirstname);
 
         }
+
+        private void EditPatientBtn_Click(object sender, EventArgs e)
+        {
+			NurseEditPatient editPatient = new NurseEditPatient();	
+			editPatient.Show();
+			this.Hide();
+        }
     }
 }
