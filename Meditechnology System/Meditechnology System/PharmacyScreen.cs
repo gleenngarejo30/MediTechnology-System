@@ -17,14 +17,11 @@ namespace Meditechnology_System
         public PharmacyScreen()
         {
             InitializeComponent();
-                        remarksTxtBox.KeyDown += remarksTxtBox_KeyDown;
-
-
+                remarksTxtBox.KeyDown += remarksTxtBox_KeyDown;
         }
 
         private void PharmacyScreen_Load(object sender, EventArgs e)
         {
-
             foreach (DataRow dr in SqlQueries.PharmacyScreenLoadQuery().Rows)
             {
                 refNumCB.Items.Add(dr["prescriptionID"].ToString());
@@ -34,9 +31,26 @@ namespace Meditechnology_System
             {
                 medCB.Items.Add(dr["medName"].ToString());
             }
-        }
+			System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
+			timer1.Interval = (10 * 1000); // 10 secs
+			timer1.Tick += new EventHandler(timer1_Tick);
+			timer1.Start();
+		}
+		private void timer1_Tick(object sender, EventArgs e)
+		{
+            refNumCB.Items.Clear();
+			medCB.Items.Clear();
+			foreach (DataRow dr in SqlQueries.PharmacyScreenLoadQuery().Rows)
+			{
+				refNumCB.Items.Add(dr["prescriptionID"].ToString());
+			}
 
-        private void LogoutBtn_Click(object sender, EventArgs e)
+			foreach (DataRow dr in SqlQueries.PrescriptionMedicineLoadQuery().Rows)
+			{
+				medCB.Items.Add(dr["medName"].ToString());
+			}
+		}
+		private void LogoutBtn_Click(object sender, EventArgs e)
 		{
 			showLogin();
 			this.Hide();
@@ -120,5 +134,7 @@ namespace Meditechnology_System
         {
 
         }
-    }
+
+
+	}
 }

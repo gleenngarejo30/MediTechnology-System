@@ -226,7 +226,6 @@ namespace Meditechnology_System
             string DoctorSelect = "SELECT MedicineTBL.medName, MedicineLotTBL.quantity FROM MedicineTBL INNER JOIN MedicineLotTBL ON MedicineLotTBL.medicineID = MedicineTBL.medicineID WHERE MedicineTBL.medName = '" + medname + "'";
             SqlCommand DoctorSelectcmd = new SqlCommand(DoctorSelect, con);
             SqlDataReader DoctorSelectexe = DoctorSelectcmd.ExecuteReader();
-            con.Close();
             return DoctorSelectexe;
 
         }
