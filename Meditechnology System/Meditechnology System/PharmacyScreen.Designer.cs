@@ -44,14 +44,10 @@
             this.AgeLBL = new System.Windows.Forms.Label();
             this.GENDERlbl = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.medCB = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addBtn = new System.Windows.Forms.Button();
             this.remarksTxtBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -60,6 +56,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.patientNameTXT = new System.Windows.Forms.Label();
             this.doctorNameTXT = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.totalLBL = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -122,7 +120,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label5.Location = new System.Drawing.Point(26, 213);
+            this.label5.Location = new System.Drawing.Point(38, 215);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 13);
             this.label5.TabIndex = 9;
@@ -133,12 +131,13 @@
             this.Processbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.Processbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Processbtn.ForeColor = System.Drawing.Color.White;
-            this.Processbtn.Location = new System.Drawing.Point(466, 395);
+            this.Processbtn.Location = new System.Drawing.Point(467, 410);
             this.Processbtn.Name = "Processbtn";
             this.Processbtn.Size = new System.Drawing.Size(211, 29);
             this.Processbtn.TabIndex = 10;
             this.Processbtn.Text = "Process";
             this.Processbtn.UseVisualStyleBackColor = false;
+            this.Processbtn.Click += new System.EventHandler(this.Processbtn_Click);
             // 
             // MedicineListView
             // 
@@ -158,6 +157,7 @@
             this.refNumCB.Name = "refNumCB";
             this.refNumCB.Size = new System.Drawing.Size(187, 21);
             this.refNumCB.TabIndex = 12;
+            this.refNumCB.SelectedIndexChanged += new System.EventHandler(this.refNumCB_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -232,15 +232,15 @@
             this.label7.TabIndex = 41;
             this.label7.Text = "MEDICINE NAME";
             // 
-            // comboBox2
+            // medCB
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(501, 90);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(187, 21);
-            this.comboBox2.TabIndex = 42;
+            this.medCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.medCB.FormattingEnabled = true;
+            this.medCB.Location = new System.Drawing.Point(501, 90);
+            this.medCB.Margin = new System.Windows.Forms.Padding(2);
+            this.medCB.Name = "medCB";
+            this.medCB.Size = new System.Drawing.Size(187, 21);
+            this.medCB.TabIndex = 42;
             // 
             // label8
             // 
@@ -261,37 +261,13 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MedicineName,
-            this.UnitPrice,
-            this.Quantity,
-            this.TotalPrice});
             this.dataGridView1.Location = new System.Drawing.Point(380, 173);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(367, 198);
             this.dataGridView1.TabIndex = 45;
-            // 
-            // MedicineName
-            // 
-            this.MedicineName.HeaderText = "Medicine";
-            this.MedicineName.Name = "MedicineName";
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.HeaderText = "Unit Price";
-            this.UnitPrice.Name = "UnitPrice";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // TotalPrice
-            // 
-            this.TotalPrice.HeaderText = "Total Price";
-            this.TotalPrice.Name = "TotalPrice";
             // 
             // addBtn
             // 
@@ -376,11 +352,31 @@
             this.doctorNameTXT.TabIndex = 53;
             this.doctorNameTXT.Text = "Jose Rizal";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(637, 380);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.TabIndex = 54;
+            this.label11.Text = "Total:";
+            // 
+            // totalLBL
+            // 
+            this.totalLBL.AutoSize = true;
+            this.totalLBL.Location = new System.Drawing.Point(683, 380);
+            this.totalLBL.Name = "totalLBL";
+            this.totalLBL.Size = new System.Drawing.Size(34, 13);
+            this.totalLBL.TabIndex = 55;
+            this.totalLBL.Text = "- - - - -";
+            // 
             // PharmacyScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1048, 492);
+            this.Controls.Add(this.totalLBL);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.doctorNameTXT);
             this.Controls.Add(this.patientNameTXT);
             this.Controls.Add(this.label10);
@@ -392,7 +388,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.medCB);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.GENDERlbl);
             this.Controls.Add(this.AgeLBL);
@@ -438,14 +434,10 @@
         private System.Windows.Forms.Label AgeLBL;
         private System.Windows.Forms.Label GENDERlbl;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox medCB;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MedicineName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.TextBox remarksTxtBox;
         private System.Windows.Forms.Label label9;
@@ -454,5 +446,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label patientNameTXT;
         private System.Windows.Forms.Label doctorNameTXT;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label totalLBL;
     }
 }

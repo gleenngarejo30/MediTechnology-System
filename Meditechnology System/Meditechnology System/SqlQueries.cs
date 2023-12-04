@@ -216,7 +216,6 @@ namespace Meditechnology_System
             var MedicineSearchexe = MedicineSearchcmd.ExecuteReader();
             DataTable table = new DataTable();
             table.Load(MedicineSearchexe);
-            con.Close();
             return table;
         }
 
@@ -227,6 +226,7 @@ namespace Meditechnology_System
             string DoctorSelect = "SELECT MedicineTBL.medName, MedicineLotTBL.quantity FROM MedicineTBL INNER JOIN MedicineLotTBL ON MedicineLotTBL.medicineID = MedicineTBL.medicineID WHERE MedicineTBL.medName = '" + medname + "'";
             SqlCommand DoctorSelectcmd = new SqlCommand(DoctorSelect, con);
             SqlDataReader DoctorSelectexe = DoctorSelectcmd.ExecuteReader();
+            con.Close();
             return DoctorSelectexe;
 
         }
@@ -359,6 +359,39 @@ namespace Meditechnology_System
             table.Load(exe);
             con.Close();
             return table;
+        }
+
+        public static SqlDataReader PharmacyScreenInfoLoadQuery(int refnum)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT CONCAT(PatientTBL.firstName, ' ', PatientTBL.middleName, ' ', PatientTBL.lastName) AS fullname, InformationTBL.age, InformationTBL.sex FROM PatientTBL INNER JOIN InformationTBL ON InformationTBL.infoID = PatientTBL.infoID INNER JOIN PrescriptionTBL ON PrescriptionTBL.patientID = PatientTBL.infoID WHERE PrescriptionTBL.prescriptionID = '" + refnum +"'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            SqlDataReader exe = cmd.ExecuteReader();
+            return exe;
+        }
+
+        public static DataTable PharmacyScreenSelectGridViewQuery(int refnum)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT MedicineTBL.medName AS 'Medicine', MedicineTBL.unitPrice AS 'Unit Price', MedicinePrescribedTBL.quantity AS 'Quantity', (MedicineTBL.unitPrice * MedicinePrescribedTBL.quantity) AS 'Total Price' FROM MedicineTBL INNER JOIN MedicinePrescribedTBL ON MedicinePrescribedTBL.medicineID = MedicineTBL.medicineID WHERE MedicinePrescribedTBL.prescriptionID = '" + refnum + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            var exe = cmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(exe);
+            con.Close();
+            return table;
+        }
+
+        public static SqlDataReader ReadDoctorRemarksQuery(int refnum)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT doctorNotes FROM PrescriptionTBL WHERE prescriptionID = '" + refnum + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            SqlDataReader exe = cmd.ExecuteReader();
+            return exe;
         }
     }
 }

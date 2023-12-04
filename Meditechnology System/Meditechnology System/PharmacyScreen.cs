@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -27,6 +28,11 @@ namespace Meditechnology_System
             foreach (DataRow dr in SqlQueries.PharmacyScreenLoadQuery().Rows)
             {
                 refNumCB.Items.Add(dr["prescriptionID"].ToString());
+            }
+
+            foreach (DataRow dr in SqlQueries.PrescriptionMedicineLoadQuery().Rows)
+            {
+                medCB.Items.Add(dr["medName"].ToString());
             }
         }
 
@@ -70,6 +76,49 @@ namespace Meditechnology_System
             {
                 listBox1.Items.RemoveAt(listBox1.Items.Count - 1);
             }
+        }
+
+        private void refNumCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string remarks;
+            int selectref = Convert.ToInt32(refNumCB.Text);
+            SqlDataReader dr = SqlQueries.PharmacyScreenInfoLoadQuery(selectref);
+
+            if (dr.Read())
+            {
+                patientNameTXT.Text = dr["fullname"].ToString();
+                AgeLBL.Text = dr["age"].ToString();
+                GENDERlbl.Text = dr["sex"].ToString();
+            }
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.DataSource = SqlQueries.PharmacyScreenSelectGridViewQuery(selectref);
+
+            SqlDataReader dr1 = SqlQueries.ReadDoctorRemarksQuery(selectref);
+            if (dr1.Read())
+            {
+                remarks = dr1["doctorNotes"].ToString();
+                string[] rmrk = remarks.Split('\t');
+                MedicineListView.Items.AddRange(rmrk);
+
+            }
+            double total = 0;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[3].Value != null)
+                {
+                    // Parse the cell value to a decimal and add to the total
+                    total += Convert.ToDouble(row.Cells[3].Value);
+                }
+            }
+            totalLBL.Text = total.ToString();
+
+
+        }
+
+        private void Processbtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
