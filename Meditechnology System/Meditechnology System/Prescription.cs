@@ -15,7 +15,8 @@ namespace Meditechnology_System
 {
     public partial class Prescription : Form
     {
-        static Boolean isAvailable = false;
+        //static Boolean isAvailable = false;
+        static string isAvailable;
         static int quan;
 		public static int numMeds;
 		public Prescription()
@@ -27,7 +28,6 @@ namespace Meditechnology_System
         }
 		private void Prescription_Load(object sender, EventArgs e)
 		{
-
 			patientNameLBL.Text = prescriptionDetails.getPatientName();
 
             foreach (DataRow dr in SqlQueries.PrescriptionMedicineLoadQuery().Rows)
@@ -87,16 +87,27 @@ namespace Meditechnology_System
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            quan = Convert.ToInt32(QuantityLBL.Text);
+            String meds = medCB.Text.ToLower();
 
-            if(quan >= Convert.ToInt32(quantityTB.Text))
-                isAvailable = true;
-            else
-				isAvailable = false;
+            foreach (string gamot in medCB.Items) {
+				if (gamot.ToLower().Equals(meds)) {
+					quan = Convert.ToInt32(QuantityLBL.Text);
 
-            prescriptionList.Rows.Add(medCB.Text, quantityTB.Text, isAvailable);
+                    if (!quantityTB.Text.Equals("")) {
+						if (quan >= Convert.ToInt32(quantityTB.Text))
+							isAvailable = "Available";
+						else
+							isAvailable = "Unavailable";
 
-        }
+						prescriptionList.Rows.Add(gamot, quantityTB.Text, isAvailable);
+					}
+				}
+            }
+		}
+		private void medCB_Leave(object sender, EventArgs e)
+		{
+            medCB_SelectedIndexChanged(sender, e);
+		}
 		private void removeBTN_Click(object sender, EventArgs e){
 			foreach (DataGridViewRow item in this.prescriptionList.SelectedRows)
 			{
@@ -140,7 +151,6 @@ namespace Meditechnology_System
 				QuantityLBL.Text = dr["quantity"].ToString();
             }
         }
-
         private void remarksTxtBox_KeyDown(object sender, KeyEventArgs e)
         {
 			string remarks;
@@ -148,12 +158,12 @@ namespace Meditechnology_System
 			{
                 remarks = remarksTxtBox.Text.ToString();
                 remarksLB.Items.Add(remarks);
+                remarksTxtBox.Text = null;
             }
         }
 		private void removeRemarkBTN_Click(object sender, EventArgs e)
 		{
 			remarksLB.Items.Remove(remarksLB.SelectedItem);
-			//listBox1.Items.Clear();
 		}
 
 		private static DataTable datagridExport(DataGridView dgv)
@@ -174,5 +184,7 @@ namespace Meditechnology_System
 			}
 			return dt;
 		}
+
+
 	}
 }

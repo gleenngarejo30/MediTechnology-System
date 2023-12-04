@@ -80,6 +80,9 @@ namespace Meditechnology_System
 
                 // Prevent the "ding" sound when Enter is pressed
                 e.SuppressKeyPress = true;
+
+                //clears the textbox
+                remarksTxtBox.Text = null;
             }
         }
 
@@ -134,7 +137,5 @@ namespace Meditechnology_System
         {
 
         }
-
-
 	}
 }
