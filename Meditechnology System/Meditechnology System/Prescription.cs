@@ -148,7 +148,7 @@ namespace Meditechnology_System
 
             if (dr.Read())
 			{
-				QuantityLBL.Text = dr["quantity"].ToString();
+				QuantityLBL.Text = dr["Available"].ToString();
             }
         }
         private void remarksTxtBox_KeyDown(object sender, KeyEventArgs e)

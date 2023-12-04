@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,24 +21,21 @@ namespace Meditechnology_System
 
 		private void RegisterBtn_Click(object sender, EventArgs e)
 		{
-            string medId, issuedate, expirationdate;
-            int quantity, price;
-            double unitprice;
-            if (string.IsNullOrEmpty(NameMedTxtBox.Text) || string.IsNullOrEmpty(QuantityTxtBox.Text) ||
-                string.IsNullOrEmpty(lotNumberTxtBox.Text) || string.IsNullOrEmpty(unitPriceTxtBox.Text))
+            string medName, issuedate, expirationdate;
+            int quantity, lotnumber;
+            if (string.IsNullOrEmpty(QuantityTxtBox.Text) || string.IsNullOrEmpty(lotNumberTxtBox.Text) || string.IsNullOrEmpty(medCB.Text))
             {
                 MessageBox.Show("Incomplete Details!");
             }
             else
             {
-                medId = NameMedTxtBox.Text.ToString();
+                medName = medCB.Text.ToString();
+                lotnumber = Convert.ToInt32(lotNumberTxtBox.Text);
                 quantity = Convert.ToInt32(QuantityTxtBox.Text);
-                price = Convert.ToInt32(lotNumberTxtBox.Text);
-                unitprice = Convert.ToDouble(unitPriceTxtBox.Text);
                 issuedate = DateIssueDatePicker.Text.ToString();
                 expirationdate = DateExpiredDatePicker.Text.ToString();
 
-                SqlQueries.InventoryAddItemQuery(medId, quantity, price, unitprice, issuedate, expirationdate);
+                SqlQueries.InventoryAddItemQuery(medName, lotnumber, quantity, issuedate, expirationdate);
                 MessageBox.Show("Medicine Registered!");
                 showInventory();
                 this.Hide();
@@ -56,6 +55,14 @@ namespace Meditechnology_System
         {
             showInventory();
             this.Hide();
+        }
+
+        private void InventoryAddItem_Load(object sender, EventArgs e)
+        {
+            foreach (DataRow dr in SqlQueries.PrescriptionMedicineLoadQuery().Rows)
+            {
+                medCB.Items.Add(dr["medName"].ToString());
+            }
         }
     }
 }

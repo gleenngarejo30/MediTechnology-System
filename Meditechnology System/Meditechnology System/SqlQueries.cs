@@ -45,7 +45,7 @@ namespace Meditechnology_System
 
             con.Open();
             //infoID increment
-            string infoIDadd = "SELECT MAX(patientID) AS max_patientID FROM PatientTBL";
+            string infoIDadd = "SELECT MAX(infoID) AS max_infoID FROM InformationTBL";
             SqlCommand infoIDaddcmd = new SqlCommand(infoIDadd, con);
             SqlDataReader infoIDaddexe = infoIDaddcmd.ExecuteReader();
             if (infoIDaddexe.HasRows)
@@ -77,9 +77,11 @@ namespace Meditechnology_System
             con.Close();
         }
 
-        public static void AdminAddEmployeeQuery(string firstname, string lastname, string middlename, int age, string sex, string email, string contactnum, string occupation, string username, string password)
+        public static void AdminAddEmployeeQuery(string firstname, string lastname, string middlename, int age, string sex, string email, string contactnum, string occupation, string username, string password, string status)
         {
             int employeeIDnew = 0;
+            int infoIDnew = 0;
+            int employeeAcountIDnew = 0;
 
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
@@ -102,18 +104,69 @@ namespace Meditechnology_System
             con.Close();
 
             con.Open();
-            string EmployeeTBLadd = "INSERT INTO EmployeeTBL (employeeID, firstName, lastName, middleName, age, sex, email, contactNum, occupation, username, password) " +
-                "VALUES ('" + employeeIDnew + "','" + firstname + "','" + lastname + "','" + middlename + "','" + age + "','" + sex + "','" + email + "','" + contactnum + "','" + occupation + "','" + username + "','" + password + "')";
+            //infoID increment
+            string infoIDadd = "SELECT MAX(infoID) AS max_infoID FROM InformationTBL";
+            SqlCommand infoIDaddcmd = new SqlCommand(infoIDadd, con);
+            SqlDataReader infoIDaddexe = infoIDaddcmd.ExecuteReader();
+            if (infoIDaddexe.HasRows)
+            {
+                infoIDaddexe.Read();
+                try
+                {
+                    infoIDnew = (infoIDaddexe.GetInt32(0) + 1);
+                }
+                catch (SqlNullValueException)
+                {
+                    infoIDnew = 10000001;
+                }
+            }
+            con.Close();
+            con.Open();
+            //employeeAccountID increment
+            string employeeAccountIDadd = "SELECT MAX(employeeAccountID) AS max_employeeAccountID FROM EmployeeAccountTBL";
+            SqlCommand employeeAccountIDaddcmd = new SqlCommand(employeeAccountIDadd, con);
+            SqlDataReader employeeAccountIDaddexe = employeeAccountIDaddcmd.ExecuteReader();
+            if (employeeAccountIDaddexe.HasRows)
+            {
+                employeeAccountIDaddexe.Read();
+                try
+                {
+                    employeeAcountIDnew = (employeeAccountIDaddexe.GetInt32(0) + 1);
+                }
+                catch (SqlNullValueException)
+                {
+                    employeeAcountIDnew = 10000001;
+                }
+            }
+
+            con.Close();
+
+            con.Open();
+            string InformationTBLadd = "INSERT INTO InformationTBL ([infoID],[age],[sex],[email],[contactNum]) " +
+                "VALUES ('" + infoIDnew + "','" + age + "','" + sex + "','" + email + "','" + contactnum + "')";
+            SqlCommand InformationTBLaddcmd = new SqlCommand(InformationTBLadd, con);
+            InformationTBLaddcmd.ExecuteNonQuery();
+            con.Close();
+
+
+            con.Open();
+            string EmployeeTBLadd = "INSERT INTO EmployeeTBL (employeeID, firstName, lastName, middleName, occupation, infoID) " +
+                "VALUES ('" + employeeIDnew + "','" + firstname + "','" + lastname + "','" + middlename + "','" + occupation + "','" + infoIDnew + "')";
             SqlCommand EmployeeTBLaddcmd = new SqlCommand(EmployeeTBLadd, con);
             EmployeeTBLaddcmd.ExecuteNonQuery();
             con.Close();
 
-        }
+            con.Open();
+            string EmployeeAccountTBLadd = "INSERT INTO EmployeeAccountTBL ([employeeAccountID],[employeeID],[username],[password],[status]) " +
+                "VALUES ('" + employeeAcountIDnew + "','" + employeeIDnew + "','" + username + "','" + password + "','" + status + "')";
+            SqlCommand EmployeeAccountTBLaddcmd = new SqlCommand(EmployeeAccountTBLadd, con);
+            EmployeeAccountTBLaddcmd.ExecuteNonQuery();
+            con.Close();
 
-        public static void InventoryAddItemQuery(string medname, int quantity, int lotnum, double price, string issuedate, string expiredate)
+        }
+        public static void InventoryAddMedicineQuery(string medname, double price)
         {
             int medicineIDnew = 0;
-
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
             //medicineID increment
@@ -135,8 +188,29 @@ namespace Meditechnology_System
             con.Close();
 
             con.Open();
-            string PatientTBLadd = "INSERT INTO MedicineTBL (medicineID, medName, quantity, lotNumber, unitPrice, issueDate, expirationDate) " +
-                "VALUES ('" + medicineIDnew + "','" + medname + "','" + quantity + "','" + lotnum + "','" + price + "','" + issuedate + "','" + expiredate + "')";
+            string add = "INSERT INTO MedicineTBL (medicineID, medName, unitPrice) " +
+                "VALUES ('" + medicineIDnew + "','" + medname + "','" + price + "')";
+            SqlCommand cmd = new SqlCommand(add, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public static void InventoryAddItemQuery(string medname, int lotnum, int quantity, string issuedate, string expiredate)
+        {
+            int nameIDnew = 0;
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            //medicineID increment
+            string add = "SELECT medicineID FROM MedicineTBL WHERE medName = '" + medname + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            SqlDataReader exe = cmd.ExecuteReader();
+            exe.Read();
+            nameIDnew = exe.GetInt32(0);
+            con.Close();
+
+
+            con.Open();
+            string PatientTBLadd = "INSERT INTO MedicineLotTBL (lotNumber, quantity, medicineID, issueDate, expirationDate) " +
+                "VALUES ('" + lotnum + "','" + quantity + "','" + nameIDnew + "','" + issuedate + "','" + expiredate + "')";
             SqlCommand PatientTBLaddcmd = new SqlCommand(PatientTBLadd, con);
             PatientTBLaddcmd.ExecuteNonQuery();
             con.Close();
@@ -222,45 +296,12 @@ namespace Meditechnology_System
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
-            string DoctorSelect = "SELECT MedicineTBL.medName, MedicineLotTBL.quantity FROM MedicineTBL INNER JOIN MedicineLotTBL ON MedicineLotTBL.medicineID = MedicineTBL.medicineID WHERE MedicineTBL.medName = '" + medname + "'";
+            string DoctorSelect = "SELECT SUM(quantity) AS 'Available' FROM MedicineLotTBL WHERE expirationDate > GETDATE() AND medicineID = (SELECT medicineID FROM MedicineTBL WHERE medName = '" + medname + "')";
             SqlCommand DoctorSelectcmd = new SqlCommand(DoctorSelect, con);
             SqlDataReader DoctorSelectexe = DoctorSelectcmd.ExecuteReader();
             return DoctorSelectexe;
 
         }
-
-        /*public static DataTable PrescriptionMedicineSelectQuery1(string getname)
-        {
-            int prescriptionIDnew = 0;
-
-            SqlConnection con = new SqlConnection(ConnectionString);
-            con.Open();
-            //prescriptionID increment
-            string prescriptionIDadd = "SELECT MAX(prescriptionID) AS max_prescriptionID FROM TransactInfoTBL";
-            SqlCommand prescriptionIDaddcmd = new SqlCommand(prescriptionIDadd, con);
-            SqlDataReader prescriptionIDaddexe = prescriptionIDaddcmd.ExecuteReader();
-            if (prescriptionIDaddexe.HasRows)
-            {
-                prescriptionIDaddexe.Read();
-                try
-                {
-                    prescriptionIDnew = (prescriptionIDaddexe.GetInt32(0) + 1);
-                }
-                catch (SqlNullValueException)
-                {
-                    prescriptionIDnew = 8000001;
-                }
-            }
-
-            con.Open();
-            string select = "";
-            SqlCommand selectcmd = new SqlCommand(select, con);
-            var selectexe = selectcmd.ExecuteReader();
-            DataTable table = new DataTable();
-            table.Load(selectexe);
-            con.Close();
-            return table;
-        }*/
 
         public static int ViewPrescriptionID()
         {

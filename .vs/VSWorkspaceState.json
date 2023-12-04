@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Meditechnology System",
+    "\\Meditechnology System\\Meditechnology System"
   ],
-  "SelectedNode": "\\Meditechnology System.sln",
+  "SelectedNode": "\\Meditechnology System\\Meditechnology System\\obj",
   "PreviewInSolutionExplorer": false
 }

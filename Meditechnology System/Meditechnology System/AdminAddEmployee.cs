@@ -22,6 +22,7 @@ namespace Meditechnology_System
             string fName, lName, mName, email, contactnum, occupation, username, password;
             int age;
             string sex = "";
+            string status = "Current";
 
             if (MaleRB.Checked)
             {
@@ -48,13 +49,13 @@ namespace Meditechnology_System
                 fName = FNameTxtBox.Text.ToString();
                 mName = MNameTxtBox.Text.ToString();
                 age = Convert.ToInt32(AgeTxtBox.Text);
-                contactnum = ContactNumTxtBox.ToString();
+                contactnum = ContactNumTxtBox.Text.ToString();
                 email = textBox1.Text.ToString();
 
-                SqlQueries.AdminAddEmployeeQuery(fName, lName, mName, age, sex, email, contactnum, occupation, username, password);
+                SqlQueries.AdminAddEmployeeQuery(fName, lName, mName, age, sex, email, contactnum, occupation, username, password, status);
                 MessageBox.Show("Patient Register, Proceed to Doctor!");
-                NurseScreen nurseScreen = new NurseScreen();
-                nurseScreen.Show();
+                Adminstrator adminstrator = new Adminstrator();
+                adminstrator.Show();
                 this.Hide();
             }
         }

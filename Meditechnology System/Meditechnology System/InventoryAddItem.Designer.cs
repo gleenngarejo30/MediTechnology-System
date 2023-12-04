@@ -32,7 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.NameMedTxtBox = new System.Windows.Forms.TextBox();
             this.QuantityTxtBox = new System.Windows.Forms.TextBox();
             this.DateIssueDatePicker = new System.Windows.Forms.DateTimePicker();
             this.DateExpiredDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -40,11 +39,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.backIcon = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lotNumberTxtBox = new System.Windows.Forms.TextBox();
-            this.unitPriceTxtBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.backIcon = new System.Windows.Forms.PictureBox();
+            this.medCB = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backIcon)).BeginInit();
@@ -65,7 +63,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label2.Location = new System.Drawing.Point(57, 121);
+            this.label2.Location = new System.Drawing.Point(57, 160);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
@@ -76,7 +74,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label3.Location = new System.Drawing.Point(57, 210);
+            this.label3.Location = new System.Drawing.Point(57, 194);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 13);
@@ -87,26 +85,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label4.Location = new System.Drawing.Point(57, 234);
+            this.label4.Location = new System.Drawing.Point(57, 218);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Date Expired:";
             // 
-            // NameMedTxtBox
-            // 
-            this.NameMedTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.NameMedTxtBox.Location = new System.Drawing.Point(220, 89);
-            this.NameMedTxtBox.Margin = new System.Windows.Forms.Padding(2);
-            this.NameMedTxtBox.Name = "NameMedTxtBox";
-            this.NameMedTxtBox.Size = new System.Drawing.Size(233, 20);
-            this.NameMedTxtBox.TabIndex = 4;
-            // 
             // QuantityTxtBox
             // 
             this.QuantityTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.QuantityTxtBox.Location = new System.Drawing.Point(220, 119);
+            this.QuantityTxtBox.Location = new System.Drawing.Point(220, 158);
             this.QuantityTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.QuantityTxtBox.Name = "QuantityTxtBox";
             this.QuantityTxtBox.Size = new System.Drawing.Size(49, 20);
@@ -117,7 +106,7 @@
             this.DateIssueDatePicker.CustomFormat = "yyyy-MM-dd";
             this.DateIssueDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.DateIssueDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateIssueDatePicker.Location = new System.Drawing.Point(220, 207);
+            this.DateIssueDatePicker.Location = new System.Drawing.Point(220, 191);
             this.DateIssueDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.DateIssueDatePicker.Name = "DateIssueDatePicker";
             this.DateIssueDatePicker.Size = new System.Drawing.Size(233, 20);
@@ -128,7 +117,7 @@
             this.DateExpiredDatePicker.CustomFormat = "yyyy-MM-dd";
             this.DateExpiredDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.DateExpiredDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateExpiredDatePicker.Location = new System.Drawing.Point(220, 231);
+            this.DateExpiredDatePicker.Location = new System.Drawing.Point(220, 215);
             this.DateExpiredDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.DateExpiredDatePicker.Name = "DateExpiredDatePicker";
             this.DateExpiredDatePicker.Size = new System.Drawing.Size(233, 20);
@@ -139,7 +128,7 @@
             this.RegisterBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.RegisterBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.RegisterBtn.ForeColor = System.Drawing.Color.White;
-            this.RegisterBtn.Location = new System.Drawing.Point(261, 267);
+            this.RegisterBtn.Location = new System.Drawing.Point(185, 252);
             this.RegisterBtn.Margin = new System.Windows.Forms.Padding(2);
             this.RegisterBtn.Name = "RegisterBtn";
             this.RegisterBtn.Size = new System.Drawing.Size(142, 27);
@@ -181,22 +170,11 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "MEDITECH";
             // 
-            // backIcon
-            // 
-            this.backIcon.Image = global::Meditechnology_System.Properties.Resources.back_button;
-            this.backIcon.Location = new System.Drawing.Point(323, 299);
-            this.backIcon.Name = "backIcon";
-            this.backIcon.Size = new System.Drawing.Size(27, 23);
-            this.backIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.backIcon.TabIndex = 37;
-            this.backIcon.TabStop = false;
-            this.backIcon.Click += new System.EventHandler(this.backIcon_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label6.Location = new System.Drawing.Point(57, 148);
+            this.label6.Location = new System.Drawing.Point(57, 133);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 13);
@@ -206,39 +184,38 @@
             // lotNumberTxtBox
             // 
             this.lotNumberTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lotNumberTxtBox.Location = new System.Drawing.Point(220, 145);
+            this.lotNumberTxtBox.Location = new System.Drawing.Point(220, 130);
             this.lotNumberTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.lotNumberTxtBox.Name = "lotNumberTxtBox";
             this.lotNumberTxtBox.Size = new System.Drawing.Size(130, 20);
             this.lotNumberTxtBox.TabIndex = 39;
             // 
-            // unitPriceTxtBox
+            // backIcon
             // 
-            this.unitPriceTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.unitPriceTxtBox.Location = new System.Drawing.Point(220, 171);
-            this.unitPriceTxtBox.Margin = new System.Windows.Forms.Padding(2);
-            this.unitPriceTxtBox.Name = "unitPriceTxtBox";
-            this.unitPriceTxtBox.Size = new System.Drawing.Size(130, 20);
-            this.unitPriceTxtBox.TabIndex = 41;
+            this.backIcon.Image = global::Meditechnology_System.Properties.Resources.back_button;
+            this.backIcon.Location = new System.Drawing.Point(247, 284);
+            this.backIcon.Name = "backIcon";
+            this.backIcon.Size = new System.Drawing.Size(27, 23);
+            this.backIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backIcon.TabIndex = 37;
+            this.backIcon.TabStop = false;
+            this.backIcon.Click += new System.EventHandler(this.backIcon_Click);
             // 
-            // label7
+            // medCB
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label7.Location = new System.Drawing.Point(57, 174);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 13);
-            this.label7.TabIndex = 40;
-            this.label7.Text = "UNIT PRICE";
+            this.medCB.FormattingEnabled = true;
+            this.medCB.Location = new System.Drawing.Point(220, 91);
+            this.medCB.Margin = new System.Windows.Forms.Padding(2);
+            this.medCB.Name = "medCB";
+            this.medCB.Size = new System.Drawing.Size(154, 21);
+            this.medCB.TabIndex = 42;
             // 
             // InventoryAddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 394);
-            this.Controls.Add(this.unitPriceTxtBox);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.medCB);
             this.Controls.Add(this.lotNumberTxtBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.backIcon);
@@ -247,7 +224,6 @@
             this.Controls.Add(this.DateExpiredDatePicker);
             this.Controls.Add(this.DateIssueDatePicker);
             this.Controls.Add(this.QuantityTxtBox);
-            this.Controls.Add(this.NameMedTxtBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -257,6 +233,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InventoryAddItem";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InventoryAddItem_FormClosed);
+            this.Load += new System.EventHandler(this.InventoryAddItem_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -272,7 +249,6 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox NameMedTxtBox;
 		private System.Windows.Forms.TextBox QuantityTxtBox;
 		private System.Windows.Forms.DateTimePicker DateIssueDatePicker;
 		private System.Windows.Forms.DateTimePicker DateExpiredDatePicker;
@@ -283,7 +259,6 @@
         private System.Windows.Forms.PictureBox backIcon;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox lotNumberTxtBox;
-        private System.Windows.Forms.TextBox unitPriceTxtBox;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox medCB;
     }
 }

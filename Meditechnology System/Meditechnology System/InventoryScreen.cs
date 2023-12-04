@@ -17,6 +17,7 @@ namespace Meditechnology_System
             InitializeComponent();
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.ReadOnly = true;
+            btnclick();
         }
 
         private void Addbtn_Click(object sender, EventArgs e)
@@ -72,6 +73,13 @@ namespace Meditechnology_System
             dataGridView1.Columns.Clear();
             dataGridView1.Refresh();
             dataGridView1.DataSource = SqlQueries.InventoryScreenSearchQuery(search);
+        }
+
+        private void AddStockbtn_Click(object sender, EventArgs e)
+        {
+            InventoryAddMedicine inventoryAddMedicine = new InventoryAddMedicine();
+            inventoryAddMedicine.Show();
+            this.Hide();
         }
     }
 }

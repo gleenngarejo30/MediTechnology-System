@@ -94,6 +94,12 @@
     <Compile Include="InventoryAddItem.Designer.cs">
       <DependentUpon>InventoryAddItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="InventoryAddMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryAddMedicine.Designer.cs">
+      <DependentUpon>InventoryAddMedicine.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventoryEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryAddItem.resx">
       <DependentUpon>InventoryAddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryAddMedicine.resx">
+      <DependentUpon>InventoryAddMedicine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryEdit.resx">
       <DependentUpon>InventoryEdit.cs</DependentUpon>
