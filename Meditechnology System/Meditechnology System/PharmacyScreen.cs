@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -73,7 +74,7 @@ namespace Meditechnology_System
                 string text = remarksTxtBox.Text;
 
                 // Add the text to the ListBox
-                listBox1.Items.Add(text);
+                remarksLB.Items.Add(text);
 
                 // Clear the remarksTxtBox for the next input
                 remarksTxtBox.Clear();
@@ -89,9 +90,9 @@ namespace Meditechnology_System
         private void button1_Click(object sender, EventArgs e)
         {
             // Remove the last entered item in the ListBox
-            if (listBox1.Items.Count > 0)
+            if (remarksLB.Items.Count > 0)
             {
-                listBox1.Items.RemoveAt(listBox1.Items.Count - 1);
+                remarksLB.Items.RemoveAt(remarksLB.Items.Count - 1);
             }
         }
 
@@ -107,8 +108,8 @@ namespace Meditechnology_System
                 AgeLBL.Text = dr["age"].ToString();
                 GENDERlbl.Text = dr["sex"].ToString();
             }
-            dataGridView1.AutoGenerateColumns = true;
-            dataGridView1.DataSource = SqlQueries.PharmacyScreenSelectGridViewQuery(selectref);
+            medicinelist.AutoGenerateColumns = true;
+            medicinelist.DataSource = SqlQueries.PharmacyScreenSelectGridViewQuery(selectref);
 
             SqlDataReader dr1 = SqlQueries.ReadDoctorRemarksQuery(selectref);
             if (dr1.Read())
@@ -118,24 +119,145 @@ namespace Meditechnology_System
                 MedicineListView.Items.AddRange(rmrk);
 
             }
-            double total = 0;
+            double totalsum = 0;
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in medicinelist.Rows)
             {
-                if (row.Cells[3].Value != null)
+                if (row.Cells[2].Value != null)
                 {
                     // Parse the cell value to a decimal and add to the total
-                    total += Convert.ToDouble(row.Cells[3].Value);
+                    totalsum += Convert.ToDouble(row.Cells[3].Value);
                 }
             }
-            totalLBL.Text = total.ToString();
-
+            totalLBL.Text = totalsum.ToString();
 
         }
 
         private void Processbtn_Click(object sender, EventArgs e)
         {
 
+            if (string.IsNullOrEmpty(medCB.Text))//ito problema kaya wala maclick
+            {
+                string prescriptionID = refNumCB.Text.ToString();
+                int employeeID = prescriptionDetails.getemployeeID();
+
+                StringBuilder remarks = new StringBuilder();
+
+                foreach (var item in remarksLB.Items)
+                {
+                    remarks.Append(item.ToString());
+                    remarks.Append('\t');
+                }
+                if (remarksLB.Items.Count > 0)
+                {
+                    remarks.Length--;
+                }
+
+                string allItems = remarks.ToString();
+
+                double total = Convert.ToInt32(totalLBL.Text);
+
+                int columnIndex = 0; // Index of the column you want to extract (zero-based index)
+                int rowCount = medicinelist.Rows.Count;
+
+                object[] medicineValues = new object[rowCount];
+
+                for (int i = 0; i < rowCount; i++)
+                {
+                    medicineValues[i] = medicinelist.Rows[i].Cells[columnIndex].Value;
+                }
+
+                columnIndex = 2;
+                rowCount = medicinelist.Rows.Count;
+
+                object[] quantityValues = new object[rowCount];
+
+                for (int i = 0; i < rowCount; i++)
+                {
+                    quantityValues[i] = medicinelist.Rows[i].Cells[columnIndex].Value;
+                }
+
+                SqlQueries.PharmacyTransactionTBLQuery(prescriptionID, employeeID, allItems, total, medicineValues, quantityValues);
+                SqlQueries.SubtractInventoryQuery(quantityValues, medicineValues);
+
+                MessageBox.Show("Transaction Complete.");
+            }
+
+            else if (string.IsNullOrEmpty(medCB.Text))//ito problema kaya wala maclick, dito rin
+            {
+                int employeeID = prescriptionDetails.getemployeeID();
+
+                StringBuilder remarks = new StringBuilder();
+
+                foreach (var item in remarksLB.Items)
+                {
+                    remarks.Append(item.ToString());
+                    remarks.Append('\t');
+                }
+                if (remarksLB.Items.Count > 0)
+                {
+                    remarks.Length--;
+                }
+
+                string allItems = remarks.ToString();
+
+                double total = Convert.ToInt32(totalLBL.Text);
+
+                int columnIndex = 0; // Index of the column you want to extract (zero-based index)
+                int rowCount = medicinelist.Rows.Count;
+
+                object[] medicineValues = new object[rowCount];
+
+                for (int i = 0; i < rowCount; i++)
+                {
+                    medicineValues[i] = medicinelist.Rows[i].Cells[columnIndex].Value;
+                }
+
+                columnIndex = 2;
+                rowCount = medicinelist.Rows.Count;
+
+                object[] quantityValues = new object[rowCount];
+
+                for (int i = 0; i < rowCount; i++)
+                {
+                    quantityValues[i] = medicinelist.Rows[i].Cells[columnIndex].Value;
+                }
+                SqlQueries.PharmacyQuery(employeeID, allItems, total, medicineValues, quantityValues);
+                SqlQueries.SubtractInventoryQuery(quantityValues, medicineValues);
+
+                MessageBox.Show("Transaction Complete.");
+            }
+            double gettotal = 0;
+
+            foreach (DataGridViewRow row in medicinelist.Rows)
+            {
+                if (row.Cells[3].Value != null)
+                {
+                    // Parse the cell value to a decimal and add to the total
+                    gettotal += Convert.ToDouble(row.Cells[3].Value);
+                }
+            }
+            totalLBL.Text = gettotal.ToString();
         }
-	}
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            string medname = medCB.Text.ToString();
+            int quantity = Convert.ToInt32(textBox1.Text);
+            double totalsum = 0;
+
+            //REPLACE INSTEAD OF ADD, WHEN CLICKED TWICE DFFDLKGJFDKLMCV
+            medicinelist.DataSource =  SqlQueries.ManualTransactionQuery(medname, quantity);
+
+            foreach (DataGridViewRow row in medicinelist.Rows)
+            {
+                if (row.Cells[2].Value != null)
+                {
+                    // Parse the cell value to a decimal and add to the total
+                    totalsum += Convert.ToDouble(row.Cells[3].Value);
+                }
+            }
+            totalLBL.Text = totalsum.ToString();
+        }
+    }
 }

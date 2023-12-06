@@ -37,8 +37,13 @@ namespace Meditechnology_System
             PatientNameLBL.Text = prescriptionDetails.getPatientName();
 			PatientIDLBL.Text = prescriptionDetails.getPatientID();
 
-			//Age and Sex
-			SqlDataReader sr = SqlQueries.ViewPrescriptionPatientInfo(prescriptionDetails.getPatientID());
+            //Doctor Name and PhoneNum
+            DoctorNameLBL.Text = prescriptionDetails.getemployeeName();
+            int employeeID = prescriptionDetails.getemployeeID();
+            DoctorContactNumberLBL.Text = SqlQueries.ViewPrescriptionContactNum(employeeID);
+
+            //Age and Sex
+            SqlDataReader sr = SqlQueries.ViewPrescriptionPatientInfo(prescriptionDetails.getPatientID());
             if (sr.Read())
             {
                 AgeLBL.Text = sr["age"].ToString();

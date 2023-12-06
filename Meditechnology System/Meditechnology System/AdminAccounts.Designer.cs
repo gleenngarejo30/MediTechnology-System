@@ -61,37 +61,37 @@
             // Account
             // 
             this.Account.AutoSize = true;
-            this.Account.Font = new System.Drawing.Font("LEMON MILK", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Account.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Account.Location = new System.Drawing.Point(76, 80);
             this.Account.Name = "Account";
-            this.Account.Size = new System.Drawing.Size(93, 23);
+            this.Account.Size = new System.Drawing.Size(75, 20);
             this.Account.TabIndex = 2;
             this.Account.Text = "Account";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label1.Location = new System.Drawing.Point(86, 121);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 16);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label2.Location = new System.Drawing.Point(86, 153);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 16);
+            this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Type of Employee";
             // 
             // Searchbtn
             // 
             this.Searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.Searchbtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.Searchbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Searchbtn.ForeColor = System.Drawing.Color.White;
             this.Searchbtn.Location = new System.Drawing.Point(558, 150);
             this.Searchbtn.Name = "Searchbtn";
@@ -102,25 +102,25 @@
             // 
             // NameTxtBox
             // 
-            this.NameTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.NameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.NameTxtBox.Location = new System.Drawing.Point(127, 118);
             this.NameTxtBox.Name = "NameTxtBox";
-            this.NameTxtBox.Size = new System.Drawing.Size(258, 22);
+            this.NameTxtBox.Size = new System.Drawing.Size(258, 20);
             this.NameTxtBox.TabIndex = 7;
             // 
             // TypeEmployeeCB
             // 
-            this.TypeEmployeeCB.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.TypeEmployeeCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TypeEmployeeCB.FormattingEnabled = true;
             this.TypeEmployeeCB.Location = new System.Drawing.Point(209, 150);
             this.TypeEmployeeCB.Name = "TypeEmployeeCB";
-            this.TypeEmployeeCB.Size = new System.Drawing.Size(121, 24);
+            this.TypeEmployeeCB.Size = new System.Drawing.Size(121, 21);
             this.TypeEmployeeCB.TabIndex = 8;
             // 
             // AddBtn
             // 
             this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.AddBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.AddBtn.ForeColor = System.Drawing.Color.White;
             this.AddBtn.Location = new System.Drawing.Point(640, 194);
             this.AddBtn.Name = "AddBtn";
@@ -133,7 +133,7 @@
             // Remove
             // 
             this.Remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.Remove.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.Remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Remove.ForeColor = System.Drawing.Color.White;
             this.Remove.Location = new System.Drawing.Point(639, 223);
             this.Remove.Name = "Remove";
@@ -146,10 +146,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label3.Location = new System.Drawing.Point(391, 121);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 16);
+            this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "Account Number";
             // 
@@ -185,11 +185,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Akira Expanded", 15F, System.Drawing.FontStyle.Bold);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(78, 27);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(153, 21);
+            this.label7.Size = new System.Drawing.Size(124, 25);
             this.label7.TabIndex = 27;
             this.label7.Text = "MEDITECH";
             // 
@@ -226,6 +226,7 @@
             this.Name = "AdminAccounts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAccounts";
+            this.Load += new System.EventHandler(this.AdminAccounts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVEmployee)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

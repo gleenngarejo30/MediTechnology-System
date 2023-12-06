@@ -89,7 +89,7 @@
             this.showPassBTN.BackgroundImage = global::Meditechnology_System.Properties.Resources.cross_eye_icon;
             this.showPassBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.showPassBTN.Location = new System.Drawing.Point(520, 203);
-            this.showPassBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.showPassBTN.Margin = new System.Windows.Forms.Padding(2);
             this.showPassBTN.Name = "showPassBTN";
             this.showPassBTN.Size = new System.Drawing.Size(27, 27);
             this.showPassBTN.TabIndex = 10;
@@ -146,6 +146,6 @@
 		private System.Windows.Forms.TextBox UsernameTxtBox;
 		private System.Windows.Forms.TextBox PasswordTxtBox;
 		private System.Windows.Forms.Button showPassBTN;
-	}
+    }
 }
 

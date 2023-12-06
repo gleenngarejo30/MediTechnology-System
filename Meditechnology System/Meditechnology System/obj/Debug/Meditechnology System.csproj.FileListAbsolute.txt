@@ -422,3 +422,5 @@ C:\Users\admin\Source\Repos\MediTechnology-System\Meditechnology System\Meditech
 C:\Users\admin\Source\Repos\MediTechnology-System\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.exe
 C:\Users\admin\Source\Repos\MediTechnology-System\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.pdb
 C:\Users\admin\Source\Repos\MediTechnology-System\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryAddMedicine.resources
+C:\Users\admin\Source\Repos\MediTechnology-System2\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryAddMedicine.resources
+C:\Users\admin\Source\Repos\MediTechnology-System2\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.NurseEditPatient.resources

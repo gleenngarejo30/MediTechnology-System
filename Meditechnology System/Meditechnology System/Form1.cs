@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -88,45 +89,70 @@ namespace Meditechnology_System
 		}
 		private void LoginBtn_Click(object sender, EventArgs e)
 		{
-			//if Admin
-			if (UsernameTxtBox.Text.Equals("admin"))
+            string username = UsernameTxtBox.Text.ToString();
+			string password = PasswordTxtBox.Text.ToString();
+
+            SqlDataReader exe = SqlQueries.LoginQuery(username, password);
+
+            if (exe.Read())
 			{
-				var admin = new Adminstrator();
-				this.Hide();
-				admin.Show();
+				//setID
+				int employeeID = exe.GetInt32(0);
+				prescriptionDetails.setemployeeID(employeeID);
+
+				//setName
+				string employeeName = SqlQueries.LoginUserNameQuery(employeeID);
+				prescriptionDetails.setemployeeName(employeeName);
+
+
+				//setOccupation
+				string occupation = SqlQueries.LoginOccupationQuery(employeeID);
+
+                //if Admin
+                if (occupation.Equals("Admin"))
+				{
+					var admin = new Adminstrator();
+					this.Hide();
+					admin.Show();
+				}
+				//if Doctor
+				else if (occupation.Equals("Doctor"))
+				{
+					var doctor = new DoctorScreen();
+					this.Hide();
+					doctor.Show();
+				}
+				//if Inventory Manager
+				else if (occupation.Equals("Inventory"))
+				{
+					var inventory = new InventoryScreen();
+					this.Hide();
+					inventory.Show();
+				}
+				//if Pharmacy
+				else if (occupation.Equals("Pharmacy"))
+				{
+					var pharmacy = new PharmacyScreen();
+					this.Hide();
+					pharmacy.Show();
+				}
+				//if nurse
+				else if (occupation.Equals("Nurse"))
+				{
+					var nurse = new NurseScreen();
+					this.Hide();
+					nurse.Show();
+				}
+				//if wala
+				else
+				{
+					MessageBox.Show("Employee not Register");
+				}
 			}
-			//if Doctor
-			else if (UsernameTxtBox.Text.Equals("doctor"))
+			else
 			{
-				var doctor = new DoctorScreen();
-				this.Hide();
-				doctor.Show();
-			}
-			//if Inventory Manager
-			else if (UsernameTxtBox.Text.Equals("inventory"))
-			{
-				var inventory = new InventoryScreen();
-				this.Hide();
-				inventory.Show();
-			}
-			//if Pharmacy
-			else if (UsernameTxtBox.Text.Equals("pharmacy"))
-			{
-				var pharmacy = new PharmacyScreen();
-				this.Hide();
-				pharmacy.Show();
-			}
-			//if nurse
-			else if (UsernameTxtBox.Text.Equals("nurse"))
-			{
-				var nurse = new NurseScreen();
-				this.Hide();
-				nurse.Show();
-			}
-			//if wala
-			else {
-				MessageBox.Show("Employee not Register");
-			}
+                MessageBox.Show("Wrong username or password");
+            }
 		}
 		private void UsernameTxtBox_KeyDown(object sender, KeyEventArgs e)
 		{
@@ -146,5 +172,5 @@ namespace Meditechnology_System
 		{
             Environment.Exit(0);
 		}
-	}
+    }
 }

@@ -18,7 +18,9 @@ namespace Meditechnology_System
 		public static String reserved = "PRESCRIPTION";
 		public static string patientID;
         public static string patientName;
-		public static DataTable datatable;
+        public static int employeeID;
+        public static string employeeName;
+        public static DataTable datatable;
 
         public static void setMedName(string meds) {
 			medName.Add(meds);
@@ -66,6 +68,25 @@ namespace Meditechnology_System
 		{
 			return medRemarks;
 		}
+
+		//getEmployeeID
+		public static void setemployeeID(int ID)
+		{
+			employeeID = ID;
+		}
+		public static int getemployeeID()
+		{
+			return employeeID;
+		}
+        //getEmployeeName
+        public static void setemployeeName(string name)
+        {
+            employeeName = name;
+        }
+        public static string getemployeeName()
+        {
+            return employeeName;
+        }
 
         public static void setReserved(Boolean isReserved) {
 			if (isReserved)

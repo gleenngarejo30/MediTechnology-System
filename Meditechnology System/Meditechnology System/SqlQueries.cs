@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Meditechnology_System
@@ -431,6 +432,292 @@ namespace Meditechnology_System
             SqlCommand cmd = new SqlCommand(add, con);
             SqlDataReader exe = cmd.ExecuteReader();
             return exe;
+        }
+
+        public static SqlDataReader LoginQuery(string username, string password)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT employeeID FROM EmployeeAccountTBL WHERE username = '" + username + "' AND password = '" + password + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            SqlDataReader exe = cmd.ExecuteReader();
+            return exe;
+        }
+
+        public static string LoginUserNameQuery(int id)
+        {
+            string name;
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT CONCAT(firstName, ' ', middleName, ' ', lastName) FROM EmployeeTBL WHERE employeeID = '" + id + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            SqlDataReader exe = cmd.ExecuteReader();
+            exe.Read();
+            name = (exe.GetString(0));
+            con.Close();
+
+            return name;
+        }
+
+        public static string LoginOccupationQuery(int id)
+        {
+            string occupation;
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT occupation FROM EmployeeTBL WHERE employeeID = '" + id + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            SqlDataReader exe = cmd.ExecuteReader();
+            exe.Read();
+            occupation = (exe.GetString(0));
+            con.Close();
+
+            return occupation;
+        }
+
+        public static string ViewPrescriptionContactNum(int id)
+        {
+            string contactnum;
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT contactNum FROM InformationTBL WHERE infoID =(SELECT infoID FROM EmployeeTBL WHERE employeeID = '" + id + "')";
+            SqlCommand cmd = new SqlCommand(add, con);
+            SqlDataReader exe = cmd.ExecuteReader();
+            exe.Read();
+            contactnum = (exe.GetString(0));
+            con.Close();
+
+            return contactnum;
+        }
+
+        public static void PharmacyTransactionTBLQuery(string prescriptionID, int employeeID, string remarks, double total, object[] transactionMeds, object[] transactionQuantity)
+        {
+            int transactionIDnew = 0;
+            SqlConnection con = new SqlConnection(ConnectionString);
+
+            con.Open();
+            //transactionID increment
+            string transactionIDadd = "SELECT MAX(transactionID) AS max_transactionID FROM PharmacyTransactionTBL";
+            SqlCommand transactionIDcmd = new SqlCommand(transactionIDadd, con);
+            SqlDataReader transactionIDaddexe = transactionIDcmd.ExecuteReader();
+            if (transactionIDaddexe.HasRows)
+            {
+                transactionIDaddexe.Read();
+                try
+                {
+                    transactionIDnew = (transactionIDaddexe.GetInt32(0) + 1);
+                }
+                catch (SqlNullValueException)
+                {
+                    transactionIDnew = 90000001;
+                }
+            }
+            con.Close();
+
+            con.Open();
+            string add = "INSERT INTO PharmacyTransactionTBL ([transactionID],[prescriptionID],[employeeID],[finalRemarks],[totalAmmount]) " +
+                "VALUES ('" + transactionIDnew + "','" + prescriptionID + "','" + employeeID + "','" + remarks + "','" + total + "')";
+            SqlCommand cmd = new SqlCommand(add, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            int i = 0;
+            int medID = 0;
+
+            foreach (var currentItem in transactionMeds.ToArray())
+            {
+
+                string meds = transactionMeds[i].ToString();
+                int quantity = Convert.ToInt32(transactionQuantity[i].ToString());
+                i++;
+
+                con.Open();
+                string add3 = "SELECT medicineID FROM MedicineTBL WHERE medName = '" + meds + "'";
+                SqlCommand cmd3 = new SqlCommand(add3, con);
+                SqlDataReader exe3 = cmd3.ExecuteReader();
+                exe3.Read();
+                medID = (exe3.GetInt32(0));
+                con.Close();
+
+                con.Open();
+                string add1 = "INSERT INTO MedicineOrderTBL ([transactionID],[medicineID],[quantity]) " +
+                "VALUES ('" + transactionIDnew + "','" + medID + "','" + quantity + "')";
+                SqlCommand cmd1 = new SqlCommand(add1, con);
+                cmd1.ExecuteNonQuery();
+                con.Close();
+
+            }
+
+        }
+        public static void SubtractInventoryQuery(object[] transactQuantity, object[] transactMeds)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            int i = 0;
+            int medID;
+
+            foreach (var currentItem in transactQuantity.ToArray())
+            {
+                string meds = transactMeds[i].ToString();
+                int quantity = Convert.ToInt32(transactQuantity[i].ToString());
+                i++;
+
+                con.Open();
+                string add3 = "SELECT medicineID FROM MedicineTBL WHERE medName = '" + meds + "'";
+                SqlCommand cmd3 = new SqlCommand(add3, con);
+                SqlDataReader exe3 = cmd3.ExecuteReader();
+                exe3.Read();
+                medID = (exe3.GetInt32(0));
+                con.Close();
+
+                int firstrow = 0;
+                int incrementrow = 0;
+
+                con.Open();
+                string add = "SELECT TOP 1 quantity FROM MedicineLotTBL WHERE medicineID = " + medID + " AND expirationDate > GETDATE() ORDER BY lotNumber";
+                SqlCommand cmd = new SqlCommand(add, con);
+                SqlDataReader exe = cmd.ExecuteReader();
+                exe.Read();
+                firstrow = (exe.GetInt32(0));
+                con.Close();
+
+                if (firstrow >= quantity)
+                {
+                    con.Open();
+                    string add1 = "UPDATE TOP (1) MedicineLotTBL SET quantity = quantity - '" + quantity + "' WHERE medicineID = '" + medID + "' AND expirationDate > GETDATE()";
+                    SqlCommand cmd1 = new SqlCommand(add1, con);
+                    cmd1.ExecuteNonQuery();
+                    con.Close();
+                }
+                else
+                {
+                    con.Open();
+                    string add1 = "UPDATE TOP (1) MedicineLotTBL SET quantity = quantity - '" + firstrow + "' WHERE medicineID = '" + medID + "' AND expirationDate > GETDATE()";
+                    SqlCommand cmd1 = new SqlCommand(add1, con);
+                    cmd1.ExecuteNonQuery();
+                    con.Close();
+
+                    quantity = Math.Abs(firstrow - quantity);
+
+                    int n = 1;
+                    while (true)
+                    {
+
+                        con.Open();
+                        string add2 = "SELECT quantity FROM MedicineLotTBL WHERE medicineID = '" + medID + "' AND expirationDate > GETDATE() ORDER BY lotNumber OFFSET " + n + " ROWS FETCH NEXT 1 ROWS ONLY";
+                        SqlCommand cmd2 = new SqlCommand(add2, con);
+                        SqlDataReader exe2 = cmd2.ExecuteReader();
+                        exe2.Read();
+                        incrementrow = (exe2.GetInt32(0));
+                        con.Close();
+
+                        if (incrementrow < quantity)
+                        {
+                            con.Open();
+                            string add4 = "UPDATE MedicineLotTBL SET quantity = quantity - '" + incrementrow + "'  WHERE lotNumber = (SELECT lotNumber FROM MedicineLotTBL WHERE MedicineID = '" + medID + "' AND expirationDate > GETDATE() ORDER BY lotNumber OFFSET " + n + " ROWS FETCH NEXT 1 ROWS ONLY)";
+                            SqlCommand cmd4 = new SqlCommand(add4, con);
+                            cmd4.ExecuteNonQuery();
+                            con.Close();
+
+                            quantity = Math.Abs(incrementrow - quantity);
+                        }
+                        else
+                        {
+                            con.Open();
+                            string add5 = "UPDATE MedicineLotTBL SET quantity = quantity - '" + quantity + "' WHERE lotNumber = (SELECT lotNumber FROM MedicineLotTBL WHERE MedicineID = '" + medID + "' AND expirationDate > GETDATE() ORDER BY lotNumber OFFSET " + n + " ROWS FETCH NEXT 1 ROWS ONLY)";
+                            SqlCommand cmd5 = new SqlCommand(add5, con);
+                            cmd5.ExecuteNonQuery();
+                            con.Close();
+                            break;
+                        }
+                        n++;
+                    }
+
+                }
+            }
+        }
+        public static DataTable EmployeeLoadQuery()
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT EmployeeTBL.employeeID, CONCAT(EmployeeTBL.firstName, ' ', EmployeeTBL.middleName, ' ', EmployeeTBL.lastName) AS FullName, EmployeeTBL.occupation, InformationTBL.contactNum FROM EmployeeTBL INNER JOIN InformationTBL ON InformationTBL.infoID = EmployeeTBL.infoID";
+            SqlCommand cmd = new SqlCommand(add, con);
+            var exe = cmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(exe);
+            con.Close();
+            return table;
+        }
+        public static DataTable ManualTransactionQuery(string medname, int quantity)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT MedicineTBL.medName AS 'Medicine', MedicineTBL.unitPrice AS 'Unit Price', '" + quantity + "' AS 'Quantity', (" + quantity + " * MedicineTBL.unitPrice) AS 'Total Price' FROM MedicineTBL WHERE MedicineTBL.medName = '" + medname + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            var exe = cmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(exe);
+            con.Close();
+            return table;
+        }
+        public static void PharmacyQuery(int employeeID, string remarks, double total, object[] transactionMeds, object[] transactionQuantity)
+        {
+            int transactionIDnew = 0;
+            SqlConnection con = new SqlConnection(ConnectionString);
+
+            con.Open();
+            //transactionID increment
+            string transactionIDadd = "SELECT MAX(transactionID) AS max_transactionID FROM PharmacyTransactionTBL";
+            SqlCommand transactionIDcmd = new SqlCommand(transactionIDadd, con);
+            SqlDataReader transactionIDaddexe = transactionIDcmd.ExecuteReader();
+            if (transactionIDaddexe.HasRows)
+            {
+                transactionIDaddexe.Read();
+                try
+                {
+                    transactionIDnew = (transactionIDaddexe.GetInt32(0) + 1);
+                }
+                catch (SqlNullValueException)
+                {
+                    transactionIDnew = 90000001;
+                }
+            }
+            con.Close();
+
+            con.Open();
+            string add = "INSERT INTO PharmacyTransactionTBL ([transactionID],[employeeID],[finalRemarks],[totalAmmount]) " +
+                "VALUES ('" + transactionIDnew + "','" + "','" + employeeID + "','" + remarks + "','" + total + "')";
+            SqlCommand cmd = new SqlCommand(add, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            int i = 0;
+            int medID = 0;
+
+            foreach (var currentItem in transactionMeds.ToArray())
+            {
+
+                string meds = transactionMeds[i].ToString();
+                int quantity = Convert.ToInt32(transactionQuantity[i].ToString());
+                i++;
+
+                con.Open();
+                string add3 = "SELECT medicineID FROM MedicineTBL WHERE medName = '" + meds + "'";
+                SqlCommand cmd3 = new SqlCommand(add3, con);
+                SqlDataReader exe3 = cmd3.ExecuteReader();
+                exe3.Read();
+                medID = (exe3.GetInt32(0));
+                con.Close();
+
+                con.Open();
+                string add1 = "INSERT INTO MedicineOrderTBL ([transactionID],[medicineID],[quantity]) " +
+                "VALUES ('" + transactionIDnew + "','" + medID + "','" + quantity + "')";
+                SqlCommand cmd1 = new SqlCommand(add1, con);
+                cmd1.ExecuteNonQuery();
+                con.Close();
+
+            }
         }
     }
 }
