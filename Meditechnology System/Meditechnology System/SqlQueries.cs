@@ -423,8 +423,24 @@ namespace Meditechnology_System
             con.Close();
             return table;
         }
+        public static SqlDataReader PharmacyScreenPrecriptionListViewQuery(int refnum) {
+			SqlConnection con = new SqlConnection(ConnectionString);
+			con.Open();
+            string add = "SELECT prescriptionID, medName, quantity FROM MedicineTBL INNER JOIN MedicinePrescribedTBL ON MedicineTBL.medicineID = MedicinePrescribedTBL.medicineID WHERE MedicinePrescribedTBL.prescriptionID = '" + refnum + "'";
+			SqlCommand cmd = new SqlCommand(add, con);
+			SqlDataReader exe = cmd.ExecuteReader();
+			return exe;
+		}
+		public static void PharmacyScreenPrescriptionProcess(int refnum)
+		{
+			SqlConnection con = new SqlConnection(ConnectionString);
+			con.Open();
+			string add = "UPDATE PrescriptionTBL set isActive = 'FALSE' WHERE prescriptionID = '" + refnum + "'";
+			SqlCommand cmd = new SqlCommand(add, con);
+			cmd.ExecuteNonQuery();
+		}
 
-        public static SqlDataReader ReadDoctorRemarksQuery(int refnum)
+		public static SqlDataReader ReadDoctorRemarksQuery(int refnum)
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();

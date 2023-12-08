@@ -90,17 +90,17 @@ namespace Meditechnology_System
             String meds = medCB.Text.ToLower();
 
             foreach (string gamot in medCB.Items) {
-				if (gamot.ToLower().Equals(meds)) {
+                if (!(quantityNUD.Text.Equals("")) && gamot.ToLower().Equals(meds) && Convert.ToInt32(quantityNUD.Text) != 0) {
 					quan = Convert.ToInt32(QuantityLBL.Text);
+					if (quan >= Convert.ToInt32(quantityNUD.Text))
+						isAvailable = "Available";
+					else
+						isAvailable = "Unavailable";
 
-                    if (!quantityTB.Text.Equals("")) {
-						if (quan >= Convert.ToInt32(quantityTB.Text))
-							isAvailable = "Available";
-						else
-							isAvailable = "Unavailable";
+					prescriptionList.Rows.Add(gamot, quantityNUD.Text, isAvailable);
 
-						prescriptionList.Rows.Add(gamot, quantityTB.Text, isAvailable);
-					}
+					medCB.Text = null;
+					quantityNUD.Text = "0";
 				}
             }
 		}
@@ -111,10 +111,7 @@ namespace Meditechnology_System
 		private void removeBTN_Click(object sender, EventArgs e){
 			foreach (DataGridViewRow item in this.prescriptionList.SelectedRows)
 			{
-                if (!(prescriptionList.RowCount == 1))
-                {
-                    prescriptionList.Rows.RemoveAt(item.Index);
-                }
+                prescriptionList.Rows.RemoveAt(item.Index);
 			}
 		}
 		private void BackBtn_Click(object sender, EventArgs e)
@@ -154,9 +151,9 @@ namespace Meditechnology_System
         private void remarksTxtBox_KeyDown(object sender, KeyEventArgs e)
         {
 			string remarks;
-			if (e.KeyCode == Keys.Enter)
+			if (e.KeyCode == Keys.Enter && !(string.IsNullOrWhiteSpace(remarksTxtBox.Text)))
 			{
-                remarks = remarksTxtBox.Text.ToString();
+                remarks = remarksTxtBox.Text.Trim();
                 remarksLB.Items.Add(remarks);
                 remarksTxtBox.Text = null;
             }
@@ -184,7 +181,5 @@ namespace Meditechnology_System
 			}
 			return dt;
 		}
-
-
 	}
 }

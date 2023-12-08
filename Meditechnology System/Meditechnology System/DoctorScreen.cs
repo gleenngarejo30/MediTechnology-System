@@ -84,7 +84,5 @@ namespace Meditechnology_System
                 refNumTXT.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             }
         }
-
-
 	}
 }
