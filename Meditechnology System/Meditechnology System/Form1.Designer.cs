@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.LoginBtn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.UsernameTxtBox = new System.Windows.Forms.TextBox();
             this.PasswordTxtBox = new System.Windows.Forms.TextBox();
             this.showPassBTN = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // LoginBtn
@@ -50,17 +51,6 @@
             this.LoginBtn.Text = "Login";
             this.LoginBtn.UseVisualStyleBackColor = false;
             this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label3.Location = new System.Drawing.Point(305, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(205, 39);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "MEDITECH";
             // 
             // UsernameTxtBox
             // 
@@ -114,17 +104,27 @@
             this.panel1.Size = new System.Drawing.Size(246, 371);
             this.panel1.TabIndex = 5;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Meditechnology_System.Properties.Resources.image_removebg_preview__4_;
+            this.pictureBox2.Location = new System.Drawing.Point(346, 51);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(194, 44);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(638, 364);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.showPassBTN);
             this.Controls.Add(this.PasswordTxtBox);
             this.Controls.Add(this.UsernameTxtBox);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LoginBtn);
             this.Name = "Form1";
@@ -133,6 +133,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,11 +142,11 @@
         #endregion
         private System.Windows.Forms.Button LoginBtn;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.TextBox UsernameTxtBox;
 		private System.Windows.Forms.TextBox PasswordTxtBox;
 		private System.Windows.Forms.Button showPassBTN;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

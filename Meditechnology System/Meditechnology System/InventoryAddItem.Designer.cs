@@ -37,15 +37,16 @@
             this.DateExpiredDatePicker = new System.Windows.Forms.DateTimePicker();
             this.RegisterBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lotNumberTxtBox = new System.Windows.Forms.TextBox();
-            this.backIcon = new System.Windows.Forms.PictureBox();
             this.medCB = new System.Windows.Forms.ComboBox();
+            this.backIcon = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -128,7 +129,7 @@
             this.RegisterBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.RegisterBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.RegisterBtn.ForeColor = System.Drawing.Color.White;
-            this.RegisterBtn.Location = new System.Drawing.Point(185, 252);
+            this.RegisterBtn.Location = new System.Drawing.Point(181, 252);
             this.RegisterBtn.Margin = new System.Windows.Forms.Padding(2);
             this.RegisterBtn.Name = "RegisterBtn";
             this.RegisterBtn.Size = new System.Drawing.Size(142, 27);
@@ -140,35 +141,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(-43, -3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(893, 65);
             this.panel2.TabIndex = 36;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Meditechnology_System.Properties.Resources.MEDITECH__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(275, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(219, 35);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 25);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "MEDITECH";
             // 
             // label6
             // 
@@ -190,6 +168,15 @@
             this.lotNumberTxtBox.Size = new System.Drawing.Size(130, 20);
             this.lotNumberTxtBox.TabIndex = 39;
             // 
+            // medCB
+            // 
+            this.medCB.FormattingEnabled = true;
+            this.medCB.Location = new System.Drawing.Point(220, 91);
+            this.medCB.Margin = new System.Windows.Forms.Padding(2);
+            this.medCB.Name = "medCB";
+            this.medCB.Size = new System.Drawing.Size(154, 21);
+            this.medCB.TabIndex = 42;
+            // 
             // backIcon
             // 
             this.backIcon.Image = global::Meditechnology_System.Properties.Resources.back_button;
@@ -201,14 +188,26 @@
             this.backIcon.TabStop = false;
             this.backIcon.Click += new System.EventHandler(this.backIcon_Click);
             // 
-            // medCB
+            // pictureBox1
             // 
-            this.medCB.FormattingEnabled = true;
-            this.medCB.Location = new System.Drawing.Point(220, 91);
-            this.medCB.Margin = new System.Windows.Forms.Padding(2);
-            this.medCB.Name = "medCB";
-            this.medCB.Size = new System.Drawing.Size(154, 21);
-            this.medCB.TabIndex = 42;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Meditechnology_System.Properties.Resources.MEDITECH__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(275, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Meditechnology_System.Properties.Resources.image_removebg_preview__5_;
+            this.pictureBox3.Location = new System.Drawing.Point(228, 35);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(139, 30);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 32;
+            this.pictureBox3.TabStop = false;
             // 
             // InventoryAddItem
             // 
@@ -235,9 +234,9 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InventoryAddItem_FormClosed);
             this.Load += new System.EventHandler(this.InventoryAddItem_Load);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,10 +254,10 @@
 		private System.Windows.Forms.Button RegisterBtn;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox backIcon;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox lotNumberTxtBox;
         private System.Windows.Forms.ComboBox medCB;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
