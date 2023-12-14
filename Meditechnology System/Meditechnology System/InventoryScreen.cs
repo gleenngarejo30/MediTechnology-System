@@ -26,10 +26,6 @@ namespace Meditechnology_System
 			inventoryAddItem.Show();
 			this.Hide();
 		}
-		private void InventoryScreen_FormClosed(object sender, FormClosedEventArgs e)
-		{
-			showLogin();
-		}
 		private void logoutBTN_Click(object sender, EventArgs e)
 		{
             EmployeeDetails.toOffline();
@@ -50,9 +46,10 @@ namespace Meditechnology_System
             try
             {
                 string medID = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                var confirmResult = MessageBox.Show("Are you sure to delete this item ?? Medicine ID: " + medID,
-                                         "Confirm Delete!!",
-                                         MessageBoxButtons.YesNo);
+                var confirmResult = MessageBox.Show("Are you sure you want to delete this item?" +
+                                                    "\nMedicine ID: " + medID,
+                                                    "Confirm Delete!!",
+                    MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
                     SqlQueries.InventoryDeleteSearchQuery(medID);
@@ -78,7 +75,6 @@ namespace Meditechnology_System
 
         private void AddStockbtn_Click(object sender, EventArgs e)
         {
-            
             InventoryAddMedicine inventoryAddMedicine = new InventoryAddMedicine();
             inventoryAddMedicine.Show();
             this.Hide();

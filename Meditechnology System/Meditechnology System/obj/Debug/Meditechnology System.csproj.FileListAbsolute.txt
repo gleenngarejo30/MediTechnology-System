@@ -480,3 +480,4 @@ C:\Users\gilbert garejo\Source\Repos\MediTechnology-System9\Meditechnology Syste
 C:\Users\gilbert garejo\Source\Repos\MediTechnology-System9\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.csproj.CoreCompileInputs.cache
 C:\Users\gilbert garejo\Source\Repos\MediTechnology-System9\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.exe
 C:\Users\gilbert garejo\Source\Repos\MediTechnology-System9\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology System.pdb
+C:\Users\justi\Source\Repos\MediTechnology-Systemsssss\Meditechnology System\Meditechnology System\obj\Debug\Meditechnology_System.InventoryAddMedicine.resources

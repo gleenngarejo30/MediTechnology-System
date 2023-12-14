@@ -87,7 +87,6 @@ namespace Meditechnology_System
                 remarksTxtBox.Text = null;
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             // Remove the last entered item in the ListBox
@@ -102,7 +101,7 @@ namespace Meditechnology_System
                 refNumLBL.Text = refNumLB.SelectedItem.ToString();
 				MedicineListView.Items.Clear();
 				remarksLB.Items.Clear();
-				string remarks, medsAndQuan;
+                string remarks;
 				int selectref = Convert.ToInt32(refNumLB.Text);
 				SqlDataReader dr = SqlQueries.PharmacyScreenInfoLoadQuery(selectref);
 
@@ -122,17 +121,22 @@ namespace Meditechnology_System
 					string[] rmrk = remarks.Split('\t');
 					remarksLB.Items.AddRange(rmrk);
 				}
-				SqlDataReader dr2 = SqlQueries.PharmacyScreenPrecriptionListViewQuery(selectref);
-				if (dr2.Read())
+
+				foreach (DataRow dr2 in SqlQueries.PharmacyScreenPrecriptionListViewQuery(selectref).Rows)
 				{
-					medsAndQuan = dr2["medName"].ToString() + ": " + dr2["quantity"].ToString();
-					string[] rmrk = medsAndQuan.Split('\t');
-					MedicineListView.Items.AddRange(rmrk);
+					MedicineListView.Items.Add(dr2["medName"].ToString() + ": " + dr2["quantity"].ToString());
 				}
 				double totalsum = 0;
 
+                SqlDataReader dr3 = SqlQueries.getDoctorName(selectref);
+                if (dr3.Read()) {
+					doctorNameTXT.Text = dr3["lastName"].ToString() + ", " + dr3["firstName"].ToString() + " " + dr3["middleName"].ToString() + ".";
+				}
+				
+
 				foreach (DataGridViewRow row in medicinelist.Rows)
 				{
+                    
 					if (row.Cells[2].Value != null)
 					{
 						// Parse the cell value to a decimal and add to the total
@@ -146,20 +150,21 @@ namespace Meditechnology_System
         {
             int selectref;
             if (refNumLBL.Text.Equals("- - - - - - -")) {
-                prescriptionPro();
                 MessageBox.Show("Transaction Complete.");
             }
 			else{
                 selectref = Convert.ToInt32(refNumLBL.Text);
-                //SqlQueries.SubtractInventoryQuery(quantityValues, medicineValues);
-                SqlQueries.PharmacyScreenPrescriptionProcess(selectref);
-                MessageBox.Show("Transaction Complete.");
+				prescriptioned(selectref);
             }
             double gettotal = 0;
 
             timer1_Tick(sender, e);
             refNumLBL.Text = "- - - - - - -";
-            MedicineListView.Items.Clear();
+			doctorNameTXT.Text = "- - - - - - -";
+			patientNameTXT.Text = "- - - - - - - - - - - - - - - ";
+			AgeLBL.Text = "- - - - - - -";
+			GENDERlbl.Text = "- - - - - - -";
+			MedicineListView.Items.Clear();
             medicinelist.DataSource = null;
             remarksLB.Items.Clear();
 
@@ -193,7 +198,7 @@ namespace Meditechnology_System
             }
             totalLBL.Text = totalsum.ToString();
         }
-        public void prescriptionPro() {
+        public void prescriptioned(int selectref) {
             string prescriptionID = refNumLB.Text.ToString();
             int employeeID = prescriptionDetails.getemployeeID();
 
@@ -235,7 +240,8 @@ namespace Meditechnology_System
 
             SqlQueries.PharmacyTransactionTBLQuery(prescriptionID, employeeID, allItems, total, medicineValues, quantityValues);
             SqlQueries.SubtractInventoryQuery(quantityValues, medicineValues);
-        }
-
+			SqlQueries.PharmacyScreenPrescriptionProcess(selectref);
+			MessageBox.Show("Transaction Complete.");
+		}
     }
 }

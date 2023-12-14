@@ -7,8 +7,11 @@ using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -220,20 +223,17 @@ namespace Meditechnology_System
 
         public static DataTable InventoryScreenSearchQuery(string search)
         {
-            SqlConnection con = new SqlConnection(ConnectionString);
-            con.Open();
-            string InventorySearch = "SELECT * FROM MedicineTBL WHERE medName LIKE '" + search + "%'";
-            SqlCommand InventorySearchcmd = new SqlCommand(InventorySearch, con);
-            var InventorySearchexe = InventorySearchcmd.ExecuteReader();
-            DataTable table = new DataTable();
-            table.Load(InventorySearchexe);
-            con.Close();
-            return table;
-
-
-        }
-
-        public static void InventoryDeleteSearchQuery(string medID)
+			SqlConnection con = new SqlConnection(ConnectionString);
+			con.Open();
+			string InventorySearch = "SELECT MedicineTBL.medicineID, medName, unitPrice, SUM(quantity) AS 'Total Quantity' FROM MedicineTBL INNER JOIN  MedicineLotTBL ON MedicineTBL.medicineID = MedicineLotTBL.medicineID WHERE medName LIKE '" + search + "%' GROUP BY MedicineTBL.medicineID, MedicineTBL.medName, unitPrice";
+			SqlCommand InventorySearchcmd = new SqlCommand(InventorySearch, con);
+			var InventorySearchexe = InventorySearchcmd.ExecuteReader();
+			DataTable table = new DataTable();
+			table.Load(InventorySearchexe);
+			con.Close();
+			return table;
+		}
+		public static void InventoryDeleteSearchQuery(string medID)
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
@@ -424,13 +424,16 @@ namespace Meditechnology_System
             con.Close();
             return table;
         }
-        public static SqlDataReader PharmacyScreenPrecriptionListViewQuery(int refnum) {
+        public static DataTable PharmacyScreenPrecriptionListViewQuery(int refnum) {
 			SqlConnection con = new SqlConnection(ConnectionString);
 			con.Open();
-            string add = "SELECT prescriptionID, medName, quantity FROM MedicineTBL INNER JOIN MedicinePrescribedTBL ON MedicineTBL.medicineID = MedicinePrescribedTBL.medicineID WHERE MedicinePrescribedTBL.prescriptionID = '" + refnum + "'";
+			string add = "SELECT prescriptionID, medName, quantity FROM MedicineTBL INNER JOIN MedicinePrescribedTBL ON MedicineTBL.medicineID = MedicinePrescribedTBL.medicineID WHERE MedicinePrescribedTBL.prescriptionID = '" + refnum + "'";
 			SqlCommand cmd = new SqlCommand(add, con);
-			SqlDataReader exe = cmd.ExecuteReader();
-			return exe;
+			var exe = cmd.ExecuteReader();
+			DataTable table = new DataTable();
+			table.Load(exe);
+			con.Close();
+			return table;
 		}
 		public static void PharmacyScreenPrescriptionProcess(int refnum)
 		{
@@ -752,5 +755,13 @@ namespace Meditechnology_System
 
             }
         }
+        public static SqlDataReader getDoctorName(int refNum) {
+			SqlConnection con = new SqlConnection(ConnectionString);
+			con.Open();
+			string add = "SELECT prescriptionID, prescriptionTBL.employeeID, firstName, middleName, lastName FROM PrescriptionTBL INNER JOIN EmployeeTBL ON prescriptionTBL.employeeID = employeeTBL.employeeID WHERE prescriptionID = + '" + refNum + "'";
+			SqlCommand cmd = new SqlCommand(add, con);
+			SqlDataReader exe = cmd.ExecuteReader();
+			return exe;
+		}
     }
 }
