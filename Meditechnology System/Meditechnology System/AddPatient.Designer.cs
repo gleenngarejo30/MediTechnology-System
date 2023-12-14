@@ -47,11 +47,12 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BackBtn = new System.Windows.Forms.PictureBox();
-            this.AgeTxtBox = new System.Windows.Forms.TextBox();
+            this.AgeNumeric = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BackBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AgeNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -243,12 +244,12 @@
             this.BackBtn.TabStop = false;
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
-            // AgeTxtBox
+            // AgeNumeric
             // 
-            this.AgeTxtBox.Location = new System.Drawing.Point(395, 104);
-            this.AgeTxtBox.Name = "AgeTxtBox";
-            this.AgeTxtBox.Size = new System.Drawing.Size(59, 20);
-            this.AgeTxtBox.TabIndex = 31;
+            this.AgeNumeric.Location = new System.Drawing.Point(395, 104);
+            this.AgeNumeric.Name = "AgeNumeric";
+            this.AgeNumeric.Size = new System.Drawing.Size(74, 20);
+            this.AgeNumeric.TabIndex = 32;
             // 
             // AddPatient
             // 
@@ -256,7 +257,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(571, 418);
-            this.Controls.Add(this.AgeTxtBox);
+            this.Controls.Add(this.AgeNumeric);
             this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.ContinueBtn);
             this.Controls.Add(this.FemaleRB);
@@ -281,6 +282,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BackBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AgeNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,7 +308,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox BackBtn;
-        private System.Windows.Forms.TextBox AgeTxtBox;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.NumericUpDown AgeNumeric;
     }
 }

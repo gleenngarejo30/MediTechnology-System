@@ -53,6 +53,7 @@ namespace Meditechnology_System
 		}
 		private void LogoutBtn_Click(object sender, EventArgs e)
 		{
+            EmployeeDetails.toOffline();
 			showLogin();
 			this.Hide();
 		}
@@ -143,98 +144,15 @@ namespace Meditechnology_System
 		}
         private void Processbtn_Click(object sender, EventArgs e)
         {
-			int selectref = Convert.ToInt32(refNumLBL.Text);
-			if (string.IsNullOrEmpty(medCB.Text))//ito problema kaya wala maclick
-            {
-                string prescriptionID = refNumLB.Text.ToString();
-                int employeeID = prescriptionDetails.getemployeeID();
-
-                StringBuilder remarks = new StringBuilder();
-
-                foreach (var item in remarksLB.Items)
-                {
-                    remarks.Append(item.ToString());
-                    remarks.Append('\t');
-                }
-                if (remarksLB.Items.Count > 0)
-                {
-                    remarks.Length--;
-                }
-
-                string allItems = remarks.ToString();
-
-                double total = Convert.ToInt32(totalLBL.Text);
-
-                int columnIndex = 0; // Index of the column you want to extract (zero-based index)
-                int rowCount = medicinelist.Rows.Count;
-
-                object[] medicineValues = new object[rowCount];
-
-                for (int i = 0; i < rowCount; i++)
-                {
-                    medicineValues[i] = medicinelist.Rows[i].Cells[columnIndex].Value;
-                }
-
-                columnIndex = 2;
-                rowCount = medicinelist.Rows.Count;
-
-                object[] quantityValues = new object[rowCount];
-
-                for (int i = 0; i < rowCount; i++)
-                {
-                    quantityValues[i] = medicinelist.Rows[i].Cells[columnIndex].Value;
-                }
-
-                SqlQueries.PharmacyTransactionTBLQuery(prescriptionID, employeeID, allItems, total, medicineValues, quantityValues);
-                SqlQueries.SubtractInventoryQuery(quantityValues, medicineValues);
-				SqlQueries.PharmacyScreenPrescriptionProcess(selectref);
-
-				MessageBox.Show("Transaction Complete.");
+            int selectref;
+            if (refNumLBL.Text.Equals("- - - - - - -")) {
+                prescriptionPro();
+                MessageBox.Show("Transaction Complete.");
             }
-
-            else if (string.IsNullOrEmpty(medCB.Text))//ito problema kaya wala maclick, dito rin
-            {
-                int employeeID = prescriptionDetails.getemployeeID();
-
-                StringBuilder remarks = new StringBuilder();
-
-                foreach (var item in remarksLB.Items)
-                {
-                    remarks.Append(item.ToString());
-                    remarks.Append('\t');
-                }
-                if (remarksLB.Items.Count > 0)
-                {
-                    remarks.Length--;
-                }
-
-                string allItems = remarks.ToString();
-
-                double total = Convert.ToInt32(totalLBL.Text);
-
-                int columnIndex = 0; // Index of the column you want to extract (zero-based index)
-                int rowCount = medicinelist.Rows.Count;
-
-                object[] medicineValues = new object[rowCount];
-
-                for (int i = 0; i < rowCount; i++)
-                {
-                    medicineValues[i] = medicinelist.Rows[i].Cells[columnIndex].Value;
-                }
-
-                columnIndex = 2;
-                rowCount = medicinelist.Rows.Count;
-
-                object[] quantityValues = new object[rowCount];
-
-                for (int i = 0; i < rowCount; i++)
-                {
-                    quantityValues[i] = medicinelist.Rows[i].Cells[columnIndex].Value;
-                }
-                SqlQueries.PharmacyQuery(employeeID, allItems, total, medicineValues, quantityValues);
-                SqlQueries.SubtractInventoryQuery(quantityValues, medicineValues);
+			else{
+                selectref = Convert.ToInt32(refNumLBL.Text);
+                //SqlQueries.SubtractInventoryQuery(quantityValues, medicineValues);
                 SqlQueries.PharmacyScreenPrescriptionProcess(selectref);
-
                 MessageBox.Show("Transaction Complete.");
             }
             double gettotal = 0;
@@ -275,7 +193,49 @@ namespace Meditechnology_System
             }
             totalLBL.Text = totalsum.ToString();
         }
+        public void prescriptionPro() {
+            string prescriptionID = refNumLB.Text.ToString();
+            int employeeID = prescriptionDetails.getemployeeID();
 
+            StringBuilder remarks = new StringBuilder();
 
-	}
+            foreach (var item in remarksLB.Items)
+            {
+                remarks.Append(item.ToString());
+                remarks.Append('\t');
+            }
+            if (remarksLB.Items.Count > 0)
+            {
+                remarks.Length--;
+            }
+
+            string allItems = remarks.ToString();
+
+            double total = Convert.ToInt32(totalLBL.Text);
+
+            int columnIndex = 0; // Index of the column you want to extract (zero-based index)
+            int rowCount = medicinelist.Rows.Count;
+
+            object[] medicineValues = new object[rowCount];
+
+            for (int i = 0; i < rowCount; i++)
+            {
+                medicineValues[i] = medicinelist.Rows[i].Cells[columnIndex].Value;
+            }
+
+            columnIndex = 2;
+            rowCount = medicinelist.Rows.Count;
+
+            object[] quantityValues = new object[rowCount];
+
+            for (int i = 0; i < rowCount; i++)
+            {
+                quantityValues[i] = medicinelist.Rows[i].Cells[columnIndex].Value;
+            }
+
+            SqlQueries.PharmacyTransactionTBLQuery(prescriptionID, employeeID, allItems, total, medicineValues, quantityValues);
+            SqlQueries.SubtractInventoryQuery(quantityValues, medicineValues);
+        }
+
+    }
 }

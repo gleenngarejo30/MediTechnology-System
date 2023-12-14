@@ -49,6 +49,7 @@ namespace Meditechnology_System
 		}
 		private void LogoutBtn_Click(object sender, EventArgs e)
 		{
+            EmployeeDetails.toOffline();
 			showLogin();
 			this.Hide();
 		}

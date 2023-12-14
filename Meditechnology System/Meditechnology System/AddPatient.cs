@@ -35,8 +35,8 @@ namespace Meditechnology_System
                 sex = "Female";
             }
             if (string.IsNullOrEmpty(FirstNameTxtBox.Text) || string.IsNullOrEmpty(LastNameTxtBox.Text) ||
-                string.IsNullOrEmpty(MiddleNameTxtName.Text) || string.IsNullOrEmpty(AgeTxtBox.Text) || 
-                string.IsNullOrEmpty(EmailTxtBox.Text) || string.IsNullOrEmpty(AgeTxtBox.Text) || sex == "")
+                string.IsNullOrEmpty(MiddleNameTxtName.Text) || string.IsNullOrEmpty(AgeNumeric.Text) || 
+                string.IsNullOrEmpty(EmailTxtBox.Text) || string.IsNullOrEmpty(AgeNumeric.Text) || sex == "")
             {
                 MessageBox.Show("Incomplete Details!");
             }
@@ -45,7 +45,7 @@ namespace Meditechnology_System
                 fName = FirstNameTxtBox.Text.ToString();
                 lName = LastNameTxtBox.Text.ToString();
                 mName = MiddleNameTxtName.Text.ToString();
-                age = Convert.ToInt32(AgeTxtBox.Text);
+                age = Convert.ToInt32(AgeNumeric.Text);
                 email = EmailTxtBox.Text.ToString();
                 contactnum = ContactTxtBox.Text.ToString();
                 SqlQueries.AddPatientQuery(fName, lName, mName, age, sex, email, contactnum);

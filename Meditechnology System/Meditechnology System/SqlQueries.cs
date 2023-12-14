@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Meditechnology_System
 {
@@ -459,7 +460,23 @@ namespace Meditechnology_System
             SqlDataReader exe = cmd.ExecuteReader();
             return exe;
         }
-
+        public static void changeEmployeeToOnline(string username, string password) {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add1 = "UPDATE EmployeeAccountTBL set status = 'ONLINE' where username = '" + username + "' AND password = '" + password + "'";
+            SqlCommand cmd = new SqlCommand(add1, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public static void changeEmployeeToOffline(string refNum)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add1 = "UPDATE EmployeeAccountTBL set status = 'OFFLINE' where employeeID = '" + refNum + "'";
+            SqlCommand cmd = new SqlCommand(add1, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
         public static string LoginUserNameQuery(int id)
         {
             string name;

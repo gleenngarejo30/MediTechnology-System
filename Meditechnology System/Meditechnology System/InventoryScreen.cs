@@ -32,6 +32,7 @@ namespace Meditechnology_System
 		}
 		private void logoutBTN_Click(object sender, EventArgs e)
 		{
+            EmployeeDetails.toOffline();
 			showLogin();
 			this.Hide();
 		}
@@ -77,6 +78,7 @@ namespace Meditechnology_System
 
         private void AddStockbtn_Click(object sender, EventArgs e)
         {
+            
             InventoryAddMedicine inventoryAddMedicine = new InventoryAddMedicine();
             inventoryAddMedicine.Show();
             this.Hide();

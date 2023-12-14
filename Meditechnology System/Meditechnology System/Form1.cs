@@ -89,70 +89,78 @@ namespace Meditechnology_System
 		}
 		private void LoginBtn_Click(object sender, EventArgs e)
 		{
-            string username = UsernameTxtBox.Text.ToString();
-			string password = PasswordTxtBox.Text.ToString();
+			//try
+			//{
+				string username = UsernameTxtBox.Text.ToString();
+				string password = PasswordTxtBox.Text.ToString();
 
-            SqlDataReader exe = SqlQueries.LoginQuery(username, password);
+				SqlDataReader exe = SqlQueries.LoginQuery(username, password);
+				SqlQueries.changeEmployeeToOnline(username, password);
 
-            if (exe.Read())
-			{
-				//setID
-				int employeeID = exe.GetInt32(0);
-				prescriptionDetails.setemployeeID(employeeID);
-
-				//setName
-				string employeeName = SqlQueries.LoginUserNameQuery(employeeID);
-				prescriptionDetails.setemployeeName(employeeName);
-
-
-				//setOccupation
-				string occupation = SqlQueries.LoginOccupationQuery(employeeID);
-
-                //if Admin
-                if (occupation.Equals("Admin"))
+				if (exe.Read())
 				{
-					var admin = new Adminstrator();
-					this.Hide();
-					admin.Show();
+					//setID
+					int employeeID = exe.GetInt32(0);
+					prescriptionDetails.setemployeeID(employeeID);
+
+					//setName
+					string employeeName = SqlQueries.LoginUserNameQuery(employeeID);
+					prescriptionDetails.setemployeeName(employeeName);
+
+
+					//setOccupation
+					string occupation = SqlQueries.LoginOccupationQuery(employeeID);
+
+					//if Admin
+					if (occupation.Equals("Admin"))
+					{
+						var admin = new Adminstrator();
+						this.Hide();
+						admin.Show();
+					}
+					//if Doctor
+					else if (occupation.Equals("Doctor"))
+					{
+						var doctor = new DoctorScreen();
+						this.Hide();
+						doctor.Show();
+					}
+					//if Inventory Manager
+					else if (occupation.Equals("Inventory"))
+					{
+						var inventory = new InventoryScreen();
+						this.Hide();
+						inventory.Show();
+					}
+					//if Pharmacy
+					else if (occupation.Equals("Pharmacy"))
+					{
+						var pharmacy = new PharmacyScreen();
+						this.Hide();
+						pharmacy.Show();
+					}
+					//if nurse
+					else if (occupation.Equals("Nurse"))
+					{
+						var nurse = new NurseScreen();
+						this.Hide();
+						nurse.Show();
+					}
+					//if wala
+					else
+					{
+						MessageBox.Show("Employee not Register");
+					}
 				}
-				//if Doctor
-				else if (occupation.Equals("Doctor"))
-				{
-					var doctor = new DoctorScreen();
-					this.Hide();
-					doctor.Show();
-				}
-				//if Inventory Manager
-				else if (occupation.Equals("Inventory"))
-				{
-					var inventory = new InventoryScreen();
-					this.Hide();
-					inventory.Show();
-				}
-				//if Pharmacy
-				else if (occupation.Equals("Pharmacy"))
-				{
-					var pharmacy = new PharmacyScreen();
-					this.Hide();
-					pharmacy.Show();
-				}
-				//if nurse
-				else if (occupation.Equals("Nurse"))
-				{
-					var nurse = new NurseScreen();
-					this.Hide();
-					nurse.Show();
-				}
-				//if wala
 				else
 				{
-					MessageBox.Show("Employee not Register");
+					MessageBox.Show("Wrong username or password");
 				}
-			}
-			else
-			{
-                MessageBox.Show("Wrong username or password");
-            }
+			//}
+			//catch (Exception) {
+				//MessageBox.Show("Internet Connection Failed");
+			//}
+            
 		}
 		private void UsernameTxtBox_KeyDown(object sender, KeyEventArgs e)
 		{

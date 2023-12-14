@@ -48,17 +48,17 @@
             this.PatientIDLBL = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.backIcon = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.prescriptionList = new System.Windows.Forms.DataGridView();
             this.remarksLB = new System.Windows.Forms.ListBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1N
@@ -226,11 +226,11 @@
             this.SendSaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.SendSaveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.SendSaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SendSaveBtn.Location = new System.Drawing.Point(216, 574);
+            this.SendSaveBtn.Location = new System.Drawing.Point(263, 570);
             this.SendSaveBtn.Name = "SendSaveBtn";
-            this.SendSaveBtn.Size = new System.Drawing.Size(174, 23);
+            this.SendSaveBtn.Size = new System.Drawing.Size(87, 27);
             this.SendSaveBtn.TabIndex = 30;
-            this.SendSaveBtn.Text = "Send and Save as PDF";
+            this.SendSaveBtn.Text = "Send ";
             this.SendSaveBtn.UseVisualStyleBackColor = false;
             this.SendSaveBtn.Click += new System.EventHandler(this.SendSaveBtn_Click);
             // 
@@ -263,6 +263,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(893, 65);
             this.panel2.TabIndex = 35;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Meditechnology_System.Properties.Resources.image_removebg_preview__5_;
+            this.pictureBox3.Location = new System.Drawing.Point(245, 35);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(139, 30);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 32;
+            this.pictureBox3.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -322,16 +332,6 @@
             this.remarksLB.Size = new System.Drawing.Size(248, 212);
             this.remarksLB.TabIndex = 55;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Meditechnology_System.Properties.Resources.image_removebg_preview__5_;
-            this.pictureBox3.Location = new System.Drawing.Point(245, 35);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(139, 30);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 32;
-            this.pictureBox3.TabStop = false;
-            // 
             // ViewPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,16 +361,17 @@
             this.Controls.Add(this.Reference);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1N);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewPrescription";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MEDITECH";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ViewPrescription_FormClosed);
             this.Load += new System.EventHandler(this.ViewPrescription_Load);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
