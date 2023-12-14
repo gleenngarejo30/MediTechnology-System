@@ -153,6 +153,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InventoryAddMedicine";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InventoryAddMedicine";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InventoryAddMedicine_FormClosed);
             this.panel2.ResumeLayout(false);
