@@ -844,14 +844,22 @@ namespace Meditechnology_System
             return exe;
         }
 
-        public static void PatientUpdate()
+        public static void PatientUpdate(int refnum, string fName, string lName, string mName, int age, string sex, string email, string contactnum)
         {
             SqlConnection con = new SqlConnection(ConnectionString);
+
+            string subquery = "SELECT infoID FROM PatientTBL WHERE patientID = '" + refnum + "'";
+
             con.Open();
-            string InformationTBLadd = "INSERT INTO InformationTBL ([infoID],[age],[sex],[email],[contactNum]) " +
-                "VALUES ('" + infoIDnew + "','" + age + "','" + sex + "','" + email + "','" + contactnum + "')";
-            SqlCommand InformationTBLaddcmd = new SqlCommand(InformationTBLadd, con);
-            InformationTBLaddcmd.ExecuteNonQuery();
+            string updateinfo = "UPDATE PatientTBL SET [firstName] = '"+ fName + "', [lastName] = '" + lName + "',[middleName] = '" + mName + "' WHERE infoID = ("+ refnum +")";
+            SqlCommand cmd1 = new SqlCommand(updateinfo, con);
+            cmd1.ExecuteNonQuery();
+            con.Close();
+
+            con.Open();
+            string updateinfo1 = "UPDATE InformationTBL SET [age] = '" + age + "', [sex] = '" + sex + "',[email] = '" + email + "', [contactNum] = '" + contactnum + "' WHERE infoID = (" + refnum + ")";
+            SqlCommand cmd2 = new SqlCommand(updateinfo1, con);
+            cmd2.ExecuteNonQuery();
             con.Close();
         }
     }

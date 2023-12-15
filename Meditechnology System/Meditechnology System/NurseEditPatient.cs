@@ -75,14 +75,15 @@ namespace Meditechnology_System
             }
             else
             {
+                int refnum = Convert.ToInt32(refNumTXT.Text);
                 fName = FirstNameTxtBox.Text.ToString();
                 lName = LastNameTxtBox.Text.ToString();
                 mName = MiddleNameTxtName.Text.ToString();
                 age = Convert.ToInt32(AgeTxtBox.Text);
                 email = EmailTxtBox.Text.ToString();
                 contactnum = ContactTxtBox.Text.ToString();
-                SqlQueries.AddPatientQuery(fName, lName, mName, age, sex, email, contactnum);
-                MessageBox.Show("Patient Register, Proceed to Doctor!");
+                SqlQueries.PatientUpdate(refnum, fName, lName, mName, age, sex, email, contactnum);
+                MessageBox.Show("Patient Updated!");
                 NurseScreen nurseScreen = new NurseScreen();
                 nurseScreen.Show();
                 this.Hide();
