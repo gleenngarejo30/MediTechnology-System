@@ -155,8 +155,8 @@ namespace Meditechnology_System
 
 
             con.Open();
-            string EmployeeTBLadd = "INSERT INTO EmployeeTBL (employeeID, firstName, lastName, middleName, occupation, infoID) " +
-                "VALUES ('" + employeeIDnew + "','" + firstname + "','" + lastname + "','" + middlename + "','" + occupation + "','" + infoIDnew + "')";
+            string EmployeeTBLadd = "INSERT INTO EmployeeTBL (employeeID, firstName, lastName, middleName, occupation, infoID, isEmployed) " +
+                "VALUES ('" + employeeIDnew + "','" + firstname + "','" + lastname + "','" + middlename + "','" + occupation + "','" + infoIDnew + "', 'TRUE')";
             SqlCommand EmployeeTBLaddcmd = new SqlCommand(EmployeeTBLadd, con);
             EmployeeTBLaddcmd.ExecuteNonQuery();
             con.Close();

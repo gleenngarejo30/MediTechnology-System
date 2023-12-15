@@ -22,7 +22,7 @@ namespace Meditechnology_System
             string fName, lName, mName, email, contactnum, occupation, username, password;
             int age;
             string sex = "";
-            string status = "Current";
+            string status = "OFFLINE";
 
             if (MaleRB.Checked)
             {
