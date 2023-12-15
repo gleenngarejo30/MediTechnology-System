@@ -41,30 +41,6 @@ namespace Meditechnology_System
         {
             btnclick();
         }
-        private void Removebtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string medID = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                var confirmResult = MessageBox.Show("Are you sure you want to delete this item?" +
-                                                    "\nMedicine ID: " + medID,
-                                                    "Confirm Delete!!",
-                    MessageBoxButtons.YesNo);
-                if (confirmResult == DialogResult.Yes)
-                {
-                    SqlQueries.InventoryDeleteSearchQuery(medID);
-                    btnclick();
-                }
-                else
-                {
-                    // If 'No', do something here.
-                }
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-
-            }
-        }
         public void btnclick()
         {
             string search = SearchTxtBox.Text.ToString();

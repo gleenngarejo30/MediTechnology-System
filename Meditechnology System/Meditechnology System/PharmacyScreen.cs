@@ -308,7 +308,10 @@ namespace Meditechnology_System
             if (dr.Read())
             {
                 stocksLBL.Text = dr["Available"].ToString();
+                if (stocksLBL.Text.Equals("")) {
+                    stocksLBL.Text = "0";
+                }
             }
         }
-    }
+	}
 }
