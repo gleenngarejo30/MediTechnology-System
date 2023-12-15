@@ -24,7 +24,7 @@ namespace Meditechnology_System
 
 		private void ViewPrescription_Load(object sender, EventArgs e)
 		{
-			presLBL.Text = prescriptionDetails.getReserved();
+			
 			prescriptionList.Refresh();
 
 			//DataGridView
@@ -68,12 +68,22 @@ namespace Meditechnology_System
 		private void SendSaveBtn_Click(object sender, EventArgs e)
 		{
 			int referencenum = SqlQueries.ViewPrescriptionID();
-			int patientnum = Convert.ToInt32(prescriptionDetails.getPatientID());
+			int patientnum = Convert.ToInt32(PatientIDLBL.Text);
 			string doctorContactnum = DoctorContactNumberLBL.Text.ToString();
             string date = DateLBL.Text.ToString();
 			string age = AgeLBL.Text.ToString();
-            string isReserved = "TRUE";
-            string isActive = "TRUE";
+            string isReserved, isActive;
+
+            if (prescriptionDetails.getReserved())
+            {
+                isReserved = "TRUE";
+                isActive = "TRUE";
+            }
+            else
+            {
+                isReserved = "FALSE";
+                isActive = "FALSE";
+            }
 
             //remarks
             StringBuilder remarks = new StringBuilder();

@@ -32,7 +32,6 @@
             this.Account = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Searchbtn = new System.Windows.Forms.Button();
             this.NameTxtBox = new System.Windows.Forms.TextBox();
             this.TypeEmployeeCB = new System.Windows.Forms.ComboBox();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -90,18 +89,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Type of Employee";
             // 
-            // Searchbtn
-            // 
-            this.Searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.Searchbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.Searchbtn.ForeColor = System.Drawing.Color.White;
-            this.Searchbtn.Location = new System.Drawing.Point(558, 150);
-            this.Searchbtn.Name = "Searchbtn";
-            this.Searchbtn.Size = new System.Drawing.Size(75, 23);
-            this.Searchbtn.TabIndex = 6;
-            this.Searchbtn.Text = "Search";
-            this.Searchbtn.UseVisualStyleBackColor = false;
-            // 
             // NameTxtBox
             // 
             this.NameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -109,15 +96,24 @@
             this.NameTxtBox.Name = "NameTxtBox";
             this.NameTxtBox.Size = new System.Drawing.Size(258, 20);
             this.NameTxtBox.TabIndex = 7;
+            this.NameTxtBox.TextChanged += new System.EventHandler(this.NameTxtBox_TextChanged);
             // 
             // TypeEmployeeCB
             // 
             this.TypeEmployeeCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TypeEmployeeCB.FormattingEnabled = true;
+            this.TypeEmployeeCB.Items.AddRange(new object[] {
+            "",
+            "Admin",
+            "Doctor",
+            "Inventory",
+            "Nurse",
+            "Pharmacy"});
             this.TypeEmployeeCB.Location = new System.Drawing.Point(209, 150);
             this.TypeEmployeeCB.Name = "TypeEmployeeCB";
             this.TypeEmployeeCB.Size = new System.Drawing.Size(121, 21);
             this.TypeEmployeeCB.TabIndex = 8;
+            this.TypeEmployeeCB.SelectedIndexChanged += new System.EventHandler(this.TypeEmployeeCB_SelectedIndexChanged);
             // 
             // AddBtn
             // 
@@ -161,6 +157,7 @@
             this.AccountNumberTxtBox.Name = "AccountNumberTxtBox";
             this.AccountNumberTxtBox.Size = new System.Drawing.Size(123, 20);
             this.AccountNumberTxtBox.TabIndex = 12;
+            this.AccountNumberTxtBox.TextChanged += new System.EventHandler(this.AccountNumberTxtBox_TextChanged);
             // 
             // panel1
             // 
@@ -218,7 +215,6 @@
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.TypeEmployeeCB);
             this.Controls.Add(this.NameTxtBox);
-            this.Controls.Add(this.Searchbtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Account);
@@ -243,7 +239,6 @@
         private System.Windows.Forms.Label Account;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Searchbtn;
         private System.Windows.Forms.TextBox NameTxtBox;
         private System.Windows.Forms.ComboBox TypeEmployeeCB;
         private System.Windows.Forms.Button AddBtn;

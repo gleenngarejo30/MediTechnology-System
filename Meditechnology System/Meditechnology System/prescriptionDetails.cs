@@ -15,7 +15,7 @@ namespace Meditechnology_System
 		public static ArrayList medAvailability = new ArrayList();
 		public static ArrayList medRemarks;
 
-		public static String reserved = "PRESCRIPTION";
+		public static bool reserved;
 		public static string patientID;
         public static string patientName;
         public static int employeeID;
@@ -88,13 +88,10 @@ namespace Meditechnology_System
             return employeeName;
         }
 
-        public static void setReserved(Boolean isReserved) {
-			if (isReserved)
-				reserved = "RESERVED PRESCRIPTION";
-			else
-				reserved = "PRESCRIPTION";
+        public static void setReserved(bool isReserved) {
+			reserved = isReserved;
 		}
-		public static string getReserved()
+		public static bool getReserved()
 		{
 			return reserved;
 		}

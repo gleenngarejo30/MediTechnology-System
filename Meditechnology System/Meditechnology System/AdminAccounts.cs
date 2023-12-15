@@ -16,7 +16,9 @@ namespace Meditechnology_System
 		public AdminAccounts()
 		{
 			InitializeComponent();
-		}
+            DGVEmployee.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DGVEmployee.ReadOnly = true;
+        }
 		private void Remove_Click(object sender, EventArgs e)
 		{
 			var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
@@ -48,8 +50,30 @@ namespace Meditechnology_System
 
         private void AdminAccounts_Load(object sender, EventArgs e)
         {
+            filter();
+        }
 
-            DGVEmployee.DataSource = SqlQueries.EmployeeLoadQuery();
+        private void NameTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            filter();
+        }
+
+        private void AccountNumberTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            filter();
+        }
+
+        private void TypeEmployeeCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+			filter();
+        }
+
+		public void filter()
+		{
+			string name = NameTxtBox.Text;
+			string id = AccountNumberTxtBox.Text;
+			string occupation = TypeEmployeeCB.Text;
+            DGVEmployee.DataSource = SqlQueries.EmployeeLoadQuery(name, id, occupation);
         }
     }
 }

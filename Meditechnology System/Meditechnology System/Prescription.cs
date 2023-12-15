@@ -58,6 +58,8 @@ namespace Meditechnology_System
                 this.Hide();
             }
 
+
+
         }
 		private void prescribeBtn_Click(object sender, EventArgs e)
 		{

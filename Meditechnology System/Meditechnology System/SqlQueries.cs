@@ -225,7 +225,7 @@ namespace Meditechnology_System
         {
 			SqlConnection con = new SqlConnection(ConnectionString);
 			con.Open();
-			string InventorySearch = "SELECT MedicineTBL.medicineID, medName, unitPrice, SUM(quantity) AS 'Total Quantity' FROM MedicineTBL INNER JOIN  MedicineLotTBL ON MedicineTBL.medicineID = MedicineLotTBL.medicineID WHERE medName LIKE '" + search + "%' GROUP BY MedicineTBL.medicineID, MedicineTBL.medName, unitPrice";
+			string InventorySearch = "SELECT MedicineTBL.medicineID, medName, unitPrice, SUM(quantity) AS 'Total Quantity' FROM MedicineTBL INNER JOIN  MedicineLotTBL ON MedicineTBL.medicineID = MedicineLotTBL.medicineID WHERE medName LIKE '" + search + "%' AND expirationDate > GETDATE() GROUP BY MedicineTBL.medicineID, MedicineTBL.medName, unitPrice";
 			SqlCommand InventorySearchcmd = new SqlCommand(InventorySearch, con);
 			var InventorySearchexe = InventorySearchcmd.ExecuteReader();
 			DataTable table = new DataTable();
@@ -260,7 +260,7 @@ namespace Meditechnology_System
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
-            string NurseSelect = "SELECT patientID, CONCAT(firstName, ' ', middleName, ' ', lastName) AS FullName, age, sex, email, contactNum FROM PatientTBL WHERE firstName LIKE '" + getname + "%'";
+            string NurseSelect = "SELECT PatientTBL.patientID, CONCAT(PatientTBL.firstName, ' ', PatientTBL.middleName, ' ', PatientTBL.lastName) AS FullName, InformationTBL.age, InformationTBL.sex, InformationTBL.email, InformationTBL.contactNum  FROM PatientTBL INNER JOIN InformationTBL ON InformationTBL.infoID = PatientTBL.infoID WHERE CONCAT(PatientTBL.firstName, ' ', PatientTBL.middleName, ' ', PatientTBL.lastName) LIKE '" + getname + "%'";
             SqlCommand NurseSelectcmd = new SqlCommand(NurseSelect, con);
             var NurseSelectexe = NurseSelectcmd.ExecuteReader();
             DataTable table = new DataTable();
@@ -406,7 +406,7 @@ namespace Meditechnology_System
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
-            string add = "SELECT CONCAT(PatientTBL.firstName, ' ', PatientTBL.middleName, ' ', PatientTBL.lastName) AS fullname, InformationTBL.age, InformationTBL.sex FROM PatientTBL INNER JOIN InformationTBL ON InformationTBL.infoID = PatientTBL.infoID INNER JOIN PrescriptionTBL ON PrescriptionTBL.patientID = PatientTBL.infoID WHERE PrescriptionTBL.prescriptionID = '" + refnum +"'";
+            string add = "SELECT CONCAT(PatientTBL.firstName, ' ', PatientTBL.middleName, ' ', PatientTBL.lastName) AS fullname, InformationTBL.age, InformationTBL.sex FROM PatientTBL INNER JOIN InformationTBL ON InformationTBL.infoID = PatientTBL.infoID INNER JOIN PrescriptionTBL ON PrescriptionTBL.patientID = PatientTBL.patientID WHERE PrescriptionTBL.prescriptionID = '" + refnum +"'";
             SqlCommand cmd = new SqlCommand(add, con);
             SqlDataReader exe = cmd.ExecuteReader();
             return exe;
@@ -587,6 +587,66 @@ namespace Meditechnology_System
             }
 
         }
+
+        public static void PharmacyTransactionTBLQuery(int employeeID, string remarks, double total, object[] transactionMeds, object[] transactionQuantity)
+        {
+            int transactionIDnew = 0;
+            SqlConnection con = new SqlConnection(ConnectionString);
+
+            con.Open();
+            //transactionID increment
+            string transactionIDadd = "SELECT MAX(transactionID) AS max_transactionID FROM PharmacyTransactionTBL";
+            SqlCommand transactionIDcmd = new SqlCommand(transactionIDadd, con);
+            SqlDataReader transactionIDaddexe = transactionIDcmd.ExecuteReader();
+            if (transactionIDaddexe.HasRows)
+            {
+                transactionIDaddexe.Read();
+                try
+                {
+                    transactionIDnew = (transactionIDaddexe.GetInt32(0) + 1);
+                }
+                catch (SqlNullValueException)
+                {
+                    transactionIDnew = 90000001;
+                }
+            }
+            con.Close();
+
+            con.Open();
+            string add = "INSERT INTO PharmacyTransactionTBL ([transactionID],[employeeID],[finalRemarks],[totalAmmount]) " +
+                "VALUES ('" + transactionIDnew + "','" + employeeID + "','" + remarks + "','" + total + "')";
+            SqlCommand cmd = new SqlCommand(add, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            int i = 0;
+            int medID = 0;
+
+            foreach (var currentItem in transactionMeds.ToArray())
+            {
+
+                string meds = transactionMeds[i].ToString();
+                int quantity = Convert.ToInt32(transactionQuantity[i].ToString());
+                i++;
+
+                con.Open();
+                string add3 = "SELECT medicineID FROM MedicineTBL WHERE medName = '" + meds + "'";
+                SqlCommand cmd3 = new SqlCommand(add3, con);
+                SqlDataReader exe3 = cmd3.ExecuteReader();
+                exe3.Read();
+                medID = (exe3.GetInt32(0));
+                con.Close();
+
+                con.Open();
+                string add1 = "INSERT INTO MedicineOrderTBL ([transactionID],[medicineID],[quantity]) " +
+                "VALUES ('" + transactionIDnew + "','" + medID + "','" + quantity + "')";
+                SqlCommand cmd1 = new SqlCommand(add1, con);
+                cmd1.ExecuteNonQuery();
+                con.Close();
+
+            }
+
+        }
         public static void SubtractInventoryQuery(object[] transactQuantity, object[] transactMeds)
         {
             SqlConnection con = new SqlConnection(ConnectionString);
@@ -673,11 +733,11 @@ namespace Meditechnology_System
                 }
             }
         }
-        public static DataTable EmployeeLoadQuery()
+        public static DataTable EmployeeLoadQuery(string name, string id, string occupation)
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
-            string add = "SELECT EmployeeTBL.employeeID, CONCAT(EmployeeTBL.firstName, ' ', EmployeeTBL.middleName, ' ', EmployeeTBL.lastName) AS FullName, EmployeeTBL.occupation, InformationTBL.contactNum FROM EmployeeTBL INNER JOIN InformationTBL ON InformationTBL.infoID = EmployeeTBL.infoID";
+            string add = "SELECT EmployeeTBL.employeeID, CONCAT(EmployeeTBL.firstName, ' ', EmployeeTBL.middleName, ' ', EmployeeTBL.lastName) AS FullName, EmployeeTBL.occupation, InformationTBL.contactNum FROM EmployeeTBL INNER JOIN InformationTBL ON InformationTBL.infoID = EmployeeTBL.infoID WHERE CONCAT(EmployeeTBL.firstName, ' ', EmployeeTBL.middleName, ' ', EmployeeTBL.lastName) LIKE '" + name + "%' AND employeeID LIKE '" + id + "%' AND occupation LIKE '" + occupation + "%'";
             SqlCommand cmd = new SqlCommand(add, con);
             var exe = cmd.ExecuteReader();
             DataTable table = new DataTable();
@@ -697,6 +757,16 @@ namespace Meditechnology_System
             con.Close();
             return table;
         }
+        public static SqlDataReader ManualTransactionQueryAdd(string medname, int quantity)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT MedicineTBL.medName AS 'Medicine', MedicineTBL.unitPrice AS 'Unit Price', '" + quantity + "' AS 'Quantity', (" + quantity + " * MedicineTBL.unitPrice) AS 'Total Price' FROM MedicineTBL WHERE MedicineTBL.medName = '" + medname + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            var exe = cmd.ExecuteReader();
+            return exe;
+        }
+
         public static void PharmacyQuery(int employeeID, string remarks, double total, object[] transactionMeds, object[] transactionQuantity)
         {
             int transactionIDnew = 0;
@@ -763,5 +833,26 @@ namespace Meditechnology_System
 			SqlDataReader exe = cmd.ExecuteReader();
 			return exe;
 		}
+
+        public static SqlDataReader PatientEditRead(int refNum)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT PatientTBL.patientID, PatientTBL.firstName, PatientTBL.middleName, PatientTBL.lastName, InformationTBL.age, InformationTBL.sex, InformationTBL.email, InformationTBL.contactNum  FROM PatientTBL INNER JOIN InformationTBL ON InformationTBL.infoID = PatientTBL.infoID WHERE patientID = + '" + refNum + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            SqlDataReader exe = cmd.ExecuteReader();
+            return exe;
+        }
+
+        public static void PatientUpdate()
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string InformationTBLadd = "INSERT INTO InformationTBL ([infoID],[age],[sex],[email],[contactNum]) " +
+                "VALUES ('" + infoIDnew + "','" + age + "','" + sex + "','" + email + "','" + contactnum + "')";
+            SqlCommand InformationTBLaddcmd = new SqlCommand(InformationTBLadd, con);
+            InformationTBLaddcmd.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }
