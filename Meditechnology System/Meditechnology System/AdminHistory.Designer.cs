@@ -62,17 +62,17 @@
             // Date
             // 
             this.Date.AutoSize = true;
-            this.Date.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Date.Location = new System.Drawing.Point(134, 199);
             this.Date.Name = "Date";
-            this.Date.Size = new System.Drawing.Size(35, 16);
+            this.Date.Size = new System.Drawing.Size(30, 13);
             this.Date.TabIndex = 15;
             this.Date.Text = "Date";
             // 
             // ViewBtn
             // 
             this.ViewBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.ViewBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.ViewBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.ViewBtn.ForeColor = System.Drawing.Color.White;
             this.ViewBtn.Location = new System.Drawing.Point(104, 297);
             this.ViewBtn.Name = "ViewBtn";
@@ -83,34 +83,34 @@
             // 
             // NameTxtBox
             // 
-            this.NameTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.NameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.NameTxtBox.Location = new System.Drawing.Point(82, 165);
             this.NameTxtBox.Name = "NameTxtBox";
-            this.NameTxtBox.Size = new System.Drawing.Size(186, 22);
+            this.NameTxtBox.Size = new System.Drawing.Size(186, 20);
             this.NameTxtBox.TabIndex = 24;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label1.Location = new System.Drawing.Point(52, 261);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 16);
+            this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 25;
             this.label1.Text = "Time:";
             // 
             // TimeTxtBox
             // 
-            this.TimeTxtBox.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.TimeTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TimeTxtBox.Location = new System.Drawing.Point(88, 257);
             this.TimeTxtBox.Name = "TimeTxtBox";
-            this.TimeTxtBox.Size = new System.Drawing.Size(72, 22);
+            this.TimeTxtBox.Size = new System.Drawing.Size(72, 20);
             this.TimeTxtBox.TabIndex = 26;
             // 
             // SaveBtn
             // 
             this.SaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.SaveBtn.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.SaveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.SaveBtn.ForeColor = System.Drawing.Color.White;
             this.SaveBtn.Location = new System.Drawing.Point(548, 429);
             this.SaveBtn.Name = "SaveBtn";
@@ -121,39 +121,39 @@
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.textBox1.Location = new System.Drawing.Point(189, 257);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(72, 22);
+            this.textBox1.Size = new System.Drawing.Size(72, 20);
             this.textBox1.TabIndex = 28;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label3.Location = new System.Drawing.Point(163, 261);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 16);
+            this.label3.Size = new System.Drawing.Size(20, 13);
             this.label3.TabIndex = 29;
             this.label3.Text = "To";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.dateTimePicker1.Location = new System.Drawing.Point(41, 217);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(227, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(227, 20);
             this.dateTimePicker1.TabIndex = 30;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("LEMON MILK", 8.25F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label2.Location = new System.Drawing.Point(41, 168);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 31;
             this.label2.Text = "Name:";
             // 
@@ -222,6 +222,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrator";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorHistory_FormClosed);
+            this.Load += new System.EventHandler(this.AdministratorHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

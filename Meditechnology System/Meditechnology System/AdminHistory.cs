@@ -31,5 +31,10 @@ namespace Meditechnology_System
             showAdmin();
             this.Hide();
         }
+
+        private void AdministratorHistory_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = SqlQueries.ShowHistoryQuery();
+        }
     }
 }

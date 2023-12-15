@@ -111,6 +111,9 @@ namespace Meditechnology_System
 					//setOccupation
 					string occupation = SqlQueries.LoginOccupationQuery(employeeID);
 
+					int id = prescriptionDetails.getemployeeID();
+					SqlQueries.EmployeeHistoryQuery(id);
+
 					//if Admin
 					if (occupation.Equals("Admin"))
 					{

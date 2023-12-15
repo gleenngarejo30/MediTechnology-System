@@ -44,5 +44,10 @@ namespace Meditechnology_System
             var login = new Form1();
             login.Show();
 		}
-	}
+
+        private void Adminstrator_Load(object sender, EventArgs e)
+        {
+            dataGridView4.DataSource = SqlQueries.EmployeeOnlineQuery();
+        }
+    }
 }

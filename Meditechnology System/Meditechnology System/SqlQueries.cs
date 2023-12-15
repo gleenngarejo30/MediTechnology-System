@@ -223,17 +223,17 @@ namespace Meditechnology_System
 
         public static DataTable InventoryScreenSearchQuery(string search)
         {
-			SqlConnection con = new SqlConnection(ConnectionString);
-			con.Open();
-			string InventorySearch = "SELECT MedicineTBL.medicineID, medName, unitPrice, SUM(quantity) AS 'Total Quantity' FROM MedicineTBL INNER JOIN  MedicineLotTBL ON MedicineTBL.medicineID = MedicineLotTBL.medicineID WHERE medName LIKE '" + search + "%' AND expirationDate > GETDATE() GROUP BY MedicineTBL.medicineID, MedicineTBL.medName, unitPrice";
-			SqlCommand InventorySearchcmd = new SqlCommand(InventorySearch, con);
-			var InventorySearchexe = InventorySearchcmd.ExecuteReader();
-			DataTable table = new DataTable();
-			table.Load(InventorySearchexe);
-			con.Close();
-			return table;
-		}
-		public static void InventoryDeleteSearchQuery(string medID)
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string InventorySearch = "SELECT MedicineTBL.medicineID, medName, unitPrice, SUM(quantity) AS 'Total Quantity' FROM MedicineTBL INNER JOIN  MedicineLotTBL ON MedicineTBL.medicineID = MedicineLotTBL.medicineID WHERE medName LIKE '" + search + "%' AND expirationDate > GETDATE() GROUP BY MedicineTBL.medicineID, MedicineTBL.medName, unitPrice";
+            SqlCommand InventorySearchcmd = new SqlCommand(InventorySearch, con);
+            var InventorySearchexe = InventorySearchcmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(InventorySearchexe);
+            con.Close();
+            return table;
+        }
+        public static void InventoryDeleteSearchQuery(string medID)
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
@@ -352,7 +352,7 @@ namespace Meditechnology_System
             SqlCommand cmd = new SqlCommand(add, con);
             SqlDataReader exe = cmd.ExecuteReader();
             exe.Read();
-            doctorID  = (exe.GetInt32(0));
+            doctorID = (exe.GetInt32(0));
             con.Close();
 
 
@@ -406,7 +406,7 @@ namespace Meditechnology_System
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
-            string add = "SELECT CONCAT(PatientTBL.firstName, ' ', PatientTBL.middleName, ' ', PatientTBL.lastName) AS fullname, InformationTBL.age, InformationTBL.sex FROM PatientTBL INNER JOIN InformationTBL ON InformationTBL.infoID = PatientTBL.infoID INNER JOIN PrescriptionTBL ON PrescriptionTBL.patientID = PatientTBL.patientID WHERE PrescriptionTBL.prescriptionID = '" + refnum +"'";
+            string add = "SELECT CONCAT(PatientTBL.firstName, ' ', PatientTBL.middleName, ' ', PatientTBL.lastName) AS fullname, InformationTBL.age, InformationTBL.sex FROM PatientTBL INNER JOIN InformationTBL ON InformationTBL.infoID = PatientTBL.infoID INNER JOIN PrescriptionTBL ON PrescriptionTBL.patientID = PatientTBL.patientID WHERE PrescriptionTBL.prescriptionID = '" + refnum + "'";
             SqlCommand cmd = new SqlCommand(add, con);
             SqlDataReader exe = cmd.ExecuteReader();
             return exe;
@@ -424,27 +424,28 @@ namespace Meditechnology_System
             con.Close();
             return table;
         }
-        public static DataTable PharmacyScreenPrecriptionListViewQuery(int refnum) {
-			SqlConnection con = new SqlConnection(ConnectionString);
-			con.Open();
-			string add = "SELECT prescriptionID, medName, quantity FROM MedicineTBL INNER JOIN MedicinePrescribedTBL ON MedicineTBL.medicineID = MedicinePrescribedTBL.medicineID WHERE MedicinePrescribedTBL.prescriptionID = '" + refnum + "'";
-			SqlCommand cmd = new SqlCommand(add, con);
-			var exe = cmd.ExecuteReader();
-			DataTable table = new DataTable();
-			table.Load(exe);
-			con.Close();
-			return table;
-		}
-		public static void PharmacyScreenPrescriptionProcess(int refnum)
-		{
-			SqlConnection con = new SqlConnection(ConnectionString);
-			con.Open();
-			string add = "UPDATE PrescriptionTBL set isActive = 'FALSE' WHERE prescriptionID = '" + refnum + "'";
-			SqlCommand cmd = new SqlCommand(add, con);
-			cmd.ExecuteNonQuery();
-		}
+        public static DataTable PharmacyScreenPrecriptionListViewQuery(int refnum)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT prescriptionID, medName, quantity FROM MedicineTBL INNER JOIN MedicinePrescribedTBL ON MedicineTBL.medicineID = MedicinePrescribedTBL.medicineID WHERE MedicinePrescribedTBL.prescriptionID = '" + refnum + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            var exe = cmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(exe);
+            con.Close();
+            return table;
+        }
+        public static void PharmacyScreenPrescriptionProcess(int refnum)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "UPDATE PrescriptionTBL set isActive = 'FALSE' WHERE prescriptionID = '" + refnum + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            cmd.ExecuteNonQuery();
+        }
 
-		public static SqlDataReader ReadDoctorRemarksQuery(int refnum)
+        public static SqlDataReader ReadDoctorRemarksQuery(int refnum)
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
@@ -458,12 +459,13 @@ namespace Meditechnology_System
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
-            string add = "SELECT employeeID FROM EmployeeAccountTBL WHERE username = '" + username + "' AND password = '" + password + "'";
+            string add = "SELECT EmployeeAccountTBL.employeeID FROM EmployeeAccountTBL INNER JOIN EmployeeTBL ON EmployeeTBL.employeeID = EmployeeAccountTBL.employeeID WHERE EmployeeAccountTBL.username = '" + username + "' AND EmployeeAccountTBL.password = '" + password + "' AND EmployeeTBL.isEmployed =  'TRUE' ";
             SqlCommand cmd = new SqlCommand(add, con);
             SqlDataReader exe = cmd.ExecuteReader();
             return exe;
         }
-        public static void changeEmployeeToOnline(string username, string password) {
+        public static void changeEmployeeToOnline(string username, string password)
+        {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
             string add1 = "UPDATE EmployeeAccountTBL set status = 'ONLINE' where username = '" + username + "' AND password = '" + password + "'";
@@ -737,7 +739,7 @@ namespace Meditechnology_System
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
-            string add = "SELECT EmployeeTBL.employeeID, CONCAT(EmployeeTBL.firstName, ' ', EmployeeTBL.middleName, ' ', EmployeeTBL.lastName) AS FullName, EmployeeTBL.occupation, InformationTBL.contactNum FROM EmployeeTBL INNER JOIN InformationTBL ON InformationTBL.infoID = EmployeeTBL.infoID WHERE CONCAT(EmployeeTBL.firstName, ' ', EmployeeTBL.middleName, ' ', EmployeeTBL.lastName) LIKE '" + name + "%' AND employeeID LIKE '" + id + "%' AND occupation LIKE '" + occupation + "%'";
+            string add = "SELECT EmployeeTBL.employeeID, CONCAT(EmployeeTBL.firstName, ' ', EmployeeTBL.middleName, ' ', EmployeeTBL.lastName) AS FullName, EmployeeTBL.occupation, InformationTBL.contactNum FROM EmployeeTBL INNER JOIN InformationTBL ON InformationTBL.infoID = EmployeeTBL.infoID WHERE CONCAT(EmployeeTBL.firstName, ' ', EmployeeTBL.middleName, ' ', EmployeeTBL.lastName) LIKE '" + name + "%' AND employeeID LIKE '" + id + "%' AND occupation LIKE '" + occupation + "%' AND EmployeeTBL.IsEmployed = 'TRUE'";
             SqlCommand cmd = new SqlCommand(add, con);
             var exe = cmd.ExecuteReader();
             DataTable table = new DataTable();
@@ -825,14 +827,15 @@ namespace Meditechnology_System
 
             }
         }
-        public static SqlDataReader getDoctorName(int refNum) {
-			SqlConnection con = new SqlConnection(ConnectionString);
-			con.Open();
-			string add = "SELECT prescriptionID, prescriptionTBL.employeeID, firstName, middleName, lastName FROM PrescriptionTBL INNER JOIN EmployeeTBL ON prescriptionTBL.employeeID = employeeTBL.employeeID WHERE prescriptionID = + '" + refNum + "'";
-			SqlCommand cmd = new SqlCommand(add, con);
-			SqlDataReader exe = cmd.ExecuteReader();
-			return exe;
-		}
+        public static SqlDataReader getDoctorName(int refNum)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT prescriptionID, prescriptionTBL.employeeID, firstName, middleName, lastName FROM PrescriptionTBL INNER JOIN EmployeeTBL ON prescriptionTBL.employeeID = employeeTBL.employeeID WHERE prescriptionID = + '" + refNum + "'";
+            SqlCommand cmd = new SqlCommand(add, con);
+            SqlDataReader exe = cmd.ExecuteReader();
+            return exe;
+        }
 
         public static SqlDataReader PatientEditRead(int refNum)
         {
@@ -851,7 +854,7 @@ namespace Meditechnology_System
             string subquery = "SELECT infoID FROM PatientTBL WHERE patientID = '" + refnum + "'";
 
             con.Open();
-            string updateinfo = "UPDATE PatientTBL SET [firstName] = '"+ fName + "', [lastName] = '" + lName + "',[middleName] = '" + mName + "' WHERE infoID = ("+ refnum +")";
+            string updateinfo = "UPDATE PatientTBL SET [firstName] = '" + fName + "', [lastName] = '" + lName + "',[middleName] = '" + mName + "' WHERE infoID = (" + refnum + ")";
             SqlCommand cmd1 = new SqlCommand(updateinfo, con);
             cmd1.ExecuteNonQuery();
             con.Close();
@@ -861,6 +864,77 @@ namespace Meditechnology_System
             SqlCommand cmd2 = new SqlCommand(updateinfo1, con);
             cmd2.ExecuteNonQuery();
             con.Close();
+        }
+
+        public static void UnemploymentQuery(int id)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string updateinfo1 = "UPDATE EmployeeTBL SET isEmployed = 'FALSE' WHERE employeeID = '" + id + "'";
+            SqlCommand cmd2 = new SqlCommand(updateinfo1, con);
+            cmd2.ExecuteNonQuery();
+            con.Close();
+
+        }
+
+        public static DataTable EmployeeOnlineQuery()
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT employeeID, username, status FROM EmployeeAccountTBL ORDER BY status DESC";
+            SqlCommand cmd = new SqlCommand(add, con);
+            var exe = cmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(exe);
+            con.Close();
+            return table;
+        }
+
+        public static void EmployeeHistoryQuery(int id)
+        {
+            int historyIDnew = 0;
+
+            string date = DateTime.Now.ToString("yyyy-MM-dd");
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            //medicineID increment
+            string add = "SELECT MAX(historyID) AS historyID FROM historyTBL";
+            SqlCommand cmd = new SqlCommand(add, con);
+            SqlDataReader exe = cmd.ExecuteReader();
+            if (exe.HasRows)
+            {
+                exe.Read();
+                try
+                {
+                    historyIDnew = (exe.GetInt32(0) + 1);
+                }
+                catch (SqlNullValueException)
+                {
+                    historyIDnew = 1000001;
+                }
+            }
+            con.Close();
+
+            con.Open();
+            string add1 = "INSERT INTO HistoryTBL (historyID, employeeID, date) " +
+                "VALUES ('" + historyIDnew + "','" + id + "','" + date + "')";
+            SqlCommand cmd1 = new SqlCommand(add1, con);
+            cmd1.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public static DataTable ShowHistoryQuery()
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string add = "SELECT historyTBL.historyID, EmployeeTBL.employeeID,  CONCAT(EmployeeTBL.firstName, ' ', EmployeeTBL.middleName, ' ', EmployeeTBL.lastName)  AS FullName, date FROM historyTBL INNER JOIN EmployeeTBL ON EmployeeTBL.employeeID = historyTBL.employeeID";
+            SqlCommand cmd = new SqlCommand(add, con);
+            var exe = cmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(exe);
+            con.Close();
+            return table;
         }
     }
 }
